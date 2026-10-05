@@ -1,0 +1,21 @@
+I’ll inspect the supplied contract and tests, implement `TTLCache` in `cache.py`, then run the full unittest suite and check edge cases such as inclusive expiry and non-LRU expired entries.
+
+The default shell executable is blocked in this workspace, so I’m switching to the available Windows PowerShell host and continuing the same read-only inspection.
+
+The implementation will use an instance-local `OrderedDict`: recency updates stay O(1), while `put` and `len` perform the allowed expiry scan. Validation will explicitly reject booleans, nonpositive values, and non-finite floating TTLs.
+
+The public tests pass. I’m tightening one mutation detail in `delete` (sample time before removing the entry) and adding focused regression coverage for validation, TTL reset/no-extension, expired-MRU purging, `None` values, deletion, and instance isolation.
+
+All 11 tests now pass, including the supplied suite. I’m doing a final diff and syntax check to ensure only the intended implementation and added tests changed.
+
+Implemented [`TTLCache`](<benchmark>/Sol-Max-Ultra-20261001/workspaces/02-medium-5.6-sol-ultra-r1/cache.py) with:
+
+- Strict constructor validation
+- Inclusive TTL expiration
+- O(1) LRU recency via `OrderedDict`
+- Full expiry purge before eviction
+- Correct replacement, deletion, `None` values, and instance isolation
+
+Added focused regression tests in [`test_cache_additional.py`](<benchmark>/Sol-Max-Ultra-20261001/workspaces/02-medium-5.6-sol-ultra-r1/tests/test_cache_additional.py).
+
+Verification: `python -m unittest discover -s tests -v` — all 11 tests passed.

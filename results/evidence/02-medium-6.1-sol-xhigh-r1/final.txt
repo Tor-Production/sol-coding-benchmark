@@ -1,0 +1,11 @@
+I’ll inspect the files, implement the cache, and run the requested tests.
+
+
+I’ll use an ordered dictionary for constant-time recency updates and scan for expired entries before eviction. I’ll also add tests for expiration boundaries, TTL resets, `None` values, validation, and expired entries that are most recently used.
+
+
+Implemented `TTLCache` in `cache.py` with validation, inclusive expiration, TTL resets, and O(1) LRU updates. Expired entries are purged before capacity eviction.
+
+Added 10 tests and preserved supplied tests and instructions.
+
+`python -m unittest discover -s tests -v`: **all 12 tests passed**.

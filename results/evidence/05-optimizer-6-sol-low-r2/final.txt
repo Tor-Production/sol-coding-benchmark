@@ -1,0 +1,9 @@
+I’ll inspect the workspace and supplied tests, then implement the exact solver and run the requested test command.
+
+The supplied tests cover the example, one tie, and basic validation. I’m adding full input validation and an exact search that propagates dependencies and exclusions, with bounds to cut branches that cannot improve the result.
+
+The public tests pass. I found a tie case that can waste time searching portfolios with the same value, so I’m tightening pruning while keeping the value, cost, and ID ordering exact.
+
+Implemented `solve` in [optimizer.py](/abs/path/optimizer.py) with full input validation, dependency and exclusion propagation, and an exact branch-and-bound search. It evaluates feasible subsets using the specified value, cost, and sorted-ID tie order. Its bounds only discard branches that cannot improve the result, so the answer is globally optimal; worst-case time remains exponential.
+
+`python -m unittest discover -s tests -v` passes all 3 supplied tests.

@@ -1,0 +1,21 @@
+I’ll inspect the task specification and existing tests, then implement the executor in `dag.py` and run the full unittest suite. I’ll keep validation iterative so deep graphs are safe and preserve the input structures.
+
+The default PowerShell launcher is unavailable in this sandbox, so I’m switching to the built-in Windows PowerShell executable and continuing with the same read-only inspection.
+
+The supplied tests only cover a simple chain and cycle. I’m implementing stricter full-input validation plus an iterative Kahn cycle check, then a capacity-aware `FIRST_COMPLETED` scheduler so a freed worker can immediately pick up newly unblocked work while other tasks continue.
+
+The core implementation passes the supplied suite. I’m adding focused regression coverage for failure propagation, dynamic worker reuse, whole-graph validation, sorted output, input preservation, and a 1,500-node chain before the final run.
+
+One scheduling edge case remains: a newly unblocked dependent could sit behind an older ready root when capacity is saturated. I’m tightening the ready queue so newly unblocked work gets the freed slot first, directly matching the “newly ready dependent” requirement even when additional roots are queued.
+
+Implemented [`run_graph`](<benchmark>/Sol-Max-Ultra-20261001/workspaces/03-hard-5.6-sol-ultra-r2/dag.py) with:
+
+- Complete pre-execution validation and iterative cycle detection.
+- Bounded concurrent thread execution with prompt dependent scheduling.
+- Failure isolation and transitive descendant skipping.
+- Sorted, contract-compliant results without input mutation.
+- Support for dependency chains beyond recursion limits.
+
+Added focused regression tests in [`test_dag_additional.py`](<benchmark>/Sol-Max-Ultra-20261001/workspaces/03-hard-5.6-sol-ultra-r2/tests/test_dag_additional.py).
+
+Verification: `python -m unittest discover -s tests -v` — all 7 tests passed.

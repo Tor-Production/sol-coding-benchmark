@@ -1,0 +1,11 @@
+I’ll inspect the implementation and tests, add input validation and interval merging, then run the requested test suite.
+
+
+The shell is failing to start with “Access is denied.” I’ll try another invocation to access the files and run the tests.
+
+
+Implemented `merge_intervals` with strict validation, sorting, and merging of overlapping and adjacent intervals without mutating input. Uses O(n log n) time and O(n) space.
+
+Added edge-case and 30,000-interval tests. Supplied tests and contract remain unchanged.
+
+Ran `python -m unittest discover -s tests -v`: all 11 tests passed.

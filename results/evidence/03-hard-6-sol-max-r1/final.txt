@@ -1,0 +1,9 @@
+I’ll inspect the existing module and tests, implement graph validation and scheduling, then run the requested unittest command.
+
+The module is a stub, and the supplied tests cover a chain and a cycle. I’ll use iterative cycle detection, then schedule completed tasks through a bounded thread pool.
+
+The supplied tests pass. I’ll add focused checks for validation before execution, failure propagation, concurrent scheduling, and a 1,500-task chain.
+
+Implemented `run_graph` in [dag.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/03-hard-6-sol-max-r1/dag.py). It validates the full graph before execution, runs ready tasks with bounded threads, propagates failures to descendants, and returns results in sorted task-ID order.
+
+Added contract tests in [test_dag_contract.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/03-hard-6-sol-max-r1/tests/test_dag_contract.py). The requested unittest command passed: 6 tests.

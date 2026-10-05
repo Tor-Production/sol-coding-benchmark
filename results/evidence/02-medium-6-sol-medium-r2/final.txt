@@ -1,0 +1,9 @@
+I’ll inspect the workspace and supplied tests, implement the cache, then run the requested unittest command.
+
+The supplied tests cover basic expiry and LRU order. I’ll use `OrderedDict` for constant-time recency updates and scan for expired entries before evicting at capacity.
+
+The supplied tests pass. I’ll add targeted checks for an expired MRU entry during eviction, replacement TTL, `None` values, and invalid constructor arguments.
+
+Implemented `TTLCache` in [cache.py](<benchmark>/Sol-Effort-Comparison-20261001/workspaces/02-medium-6-sol-medium-r2/cache.py) with inclusive TTL expiry, LRU eviction, constructor validation, and support for `None` values. Added edge-case tests in [test_cache_edges.py](<benchmark>/Sol-Effort-Comparison-20261001/workspaces/02-medium-6-sol-medium-r2/tests/test_cache_edges.py).
+
+`python -m unittest discover -s tests -v` passed: 6 tests.

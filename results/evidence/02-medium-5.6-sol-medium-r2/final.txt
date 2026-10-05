@@ -1,0 +1,24 @@
+I’ll inspect the workspace contract and supplied tests first, then implement `cache.py` and run the requested unittest suite.
+
+The default PowerShell launcher is unavailable in this sandbox, so I’m switching to the built-in Windows PowerShell executable and continuing the same read-only inspection.
+
+The supplied tests cover inclusive expiry and basic recency. I’m implementing with a per-instance `OrderedDict`: constant-time LRU updates, one clock reading per time-sensitive operation, and a full expired-entry sweep before any capacity eviction.
+
+The public suite passes. I also tightened numeric validation so arbitrarily large positive Python integers are accepted as finite TTLs, then I’m exercising replacement, `None` values, non-LRU expiry purging, delete semantics, and invalid constructor inputs.
+
+All seven tests now pass, including the added edge cases. I’m doing a final diff/whitespace check to ensure only the implementation and additional tests changed, with the supplied contract and tests untouched.
+
+Implemented `TTLCache` in [cache.py](<benchmark>/Sol-Effort-Comparison-20261001/workspaces/02-medium-5.6-sol-medium-r2/cache.py).
+
+Key features:
+
+- Strict constructor validation
+- Inclusive TTL expiration using only the supplied clock
+- O(1) LRU recency updates via `OrderedDict`
+- Full expiry purge before capacity eviction
+- Correct replacement, deletion, `None` value, and live-length semantics
+- Independent state per instance
+
+Added edge-case coverage in [test_additional.py](<benchmark>/Sol-Effort-Comparison-20261001/workspaces/02-medium-5.6-sol-medium-r2/tests/test_additional.py).
+
+Test result: **7 tests passed** with `python -m unittest discover -s tests -v`.

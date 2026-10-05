@@ -1,0 +1,9 @@
+I’ll inspect the repository and supplied tests, implement the executor, then run the requested unittest command.
+
+`dag.py` is a stub. I’ll validate the full graph with an iterative topological check, then use a bounded thread pool and schedule tasks as their dependencies finish.
+
+The supplied tests pass. I’m adding checks for validation before execution, failure propagation, worker scheduling, and a 1,500-task chain.
+
+Implemented `run_graph` in [dag.py](<benchmark>/Sol-Comparison-20260930/workspaces/03-hard-6-sol-r1/dag.py). It validates the entire graph before execution, runs ready tasks in a bounded thread pool, propagates failures to descendants, and returns results in sorted task-ID order. Added coverage in [test_graph.py](<benchmark>/Sol-Comparison-20260930/workspaces/03-hard-6-sol-r1/tests/test_graph.py).
+
+`python -m unittest discover -s tests -v` passed: 7 tests.

@@ -1,0 +1,22 @@
+I’ll inspect the task, existing implementation, and supplied tests first, then implement the cache and run the full unittest suite.
+
+The default shell could not start in this environment, so I’m retrying the same read-only inspection with the system PowerShell executable.
+
+The supplied tests cover basic expiry and recency. I’ll use an instance-local `OrderedDict`: live accesses move entries in O(1), while insertion and `len()` scan for expired entries so stale non-LRU entries cannot force eviction of live data.
+
+The public suite passes. I’m adding focused regression coverage for constructor validation, inclusive/non-refreshing expiry, expired-MRU purging before eviction, replacement behavior, `None` values, deletion, and instance isolation, then I’ll rerun discovery.
+
+All seven tests pass, including the new edge cases. I’m doing a final diff and whitespace check to ensure only the intended implementation and added tests changed.
+
+Implemented `TTLCache` in [cache.py](<benchmark>/Sol-Effort-Comparison-20261001/workspaces/02-medium-5.6-sol-xhigh-r1/cache.py).
+
+Key points:
+
+- Validates capacity, TTL, and clock.
+- Uses `OrderedDict` for O(1) LRU updates.
+- Supports inclusive expiration without extending TTL on reads.
+- Purges all expired entries before capacity eviction.
+- Correctly handles replacement, deletion, `None` values, and isolated instances.
+- Added edge-case tests in [test_ttl_cache_additional.py](<benchmark>/Sol-Effort-Comparison-20261001/workspaces/02-medium-5.6-sol-xhigh-r1/tests/test_ttl_cache_additional.py).
+
+Test result: **7 tests passed** with `python -m unittest discover -s tests -v`.

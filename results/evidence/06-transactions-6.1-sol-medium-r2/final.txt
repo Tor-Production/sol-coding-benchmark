@@ -1,0 +1,19 @@
+I’ll inspect the workspace, implement the store, then run the tests and check the validation, conflict, and recovery edge cases.
+
+
+The command runner is failing to start PowerShell with an “Access is denied” error. I’ll try another shell to see whether I can access the workspace and run the tests.
+
+
+I’ll use snapshot copies for transaction reads and retained commit records for conflict checks. Savepoints will restore pending writes while preserving all key and range reads, so rollback cannot erase a dependency.
+
+
+All 13 tests pass, including the added checks for ABA conflicts, empty scans, savepoint read retention, defensive copies, and malformed recovery input. Recovery validates the full log before replay and retains its checkpoint version as the lower bound for log exports.
+
+
+Implemented `Engine` and `Conflict` in `mvcc.py`, with 10 additional contract tests. Supplied tests and instructions are unchanged.
+
+Transactions read snapshots plus pending writes. Commit validation checks every later committed write, catching ABA changes and range phantoms. Savepoint rollback preserves reads.
+
+Recovery validates the entire checkpoint and log before replay, retains the base version, and uses defensive copies.
+
+`python -m unittest discover -s tests -v`: **13 tests passed**.

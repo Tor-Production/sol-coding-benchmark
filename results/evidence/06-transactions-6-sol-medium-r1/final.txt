@@ -1,0 +1,13 @@
+I’ll inspect the workspace and supplied tests, implement the engine, then run the requested unittest suite.
+
+The workspace contains a stub and three public tests. I’ll use a snapshot per transaction and retain committed write records so validation catches changes even when a key returns to its original value.
+
+The supplied tests pass. I’ll add focused tests for empty scans, savepoint read tracking, defensive copies, and recovery validation, then rerun discovery.
+
+Implemented `Engine` and `Conflict` in [mvcc.py](<benchmark>/Sol-Complex-Tasks-20261002/workspaces/06-transactions-6-sol-medium-r1/mvcc.py), with savepoints, validation, and checkpoint/log recovery. Added contract tests in [test_contract.py](<benchmark>/Sol-Complex-Tasks-20261002/workspaces/06-transactions-6-sol-medium-r1/tests/test_contract.py).
+
+**Isolation:** Each transaction reads a committed snapshot plus its own writes. Commit checks every intervening committed write against tracked keys and scanned prefixes, including writes later reversed or rolled back locally.
+
+**Recovery:** Restore validates the full checkpoint and log, replays records in version order, and retains them from the checkpoint version.
+
+`python -m unittest discover -s tests -v` passed: 8 tests.

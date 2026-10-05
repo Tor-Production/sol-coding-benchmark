@@ -1,0 +1,25 @@
+I’ll inspect the task files and supplied tests, then implement an exact solver with validation and pruning suitable for the 32-project structured cases.
+
+The core design is set: dependency closures are precomputed, then an exact include/exclude search propagates closures and symmetric conflicts. I’m adding safe value/capacity bounds and tie-aware pruning; these only discard branches that cannot beat the incumbent.
+
+Public tests pass. I’m now cross-checking the pruning logic against brute-force enumeration on many small randomized instances, including dependencies, one-sided exclusions, negative values, and tie cases.
+
+Implemented `solve()` in [optimizer.py](<benchmark>/Sol-Complex-Tasks-20261002/workspaces/05-optimizer-5.6-sol-low-r1/optimizer.py).
+
+Algorithm:
+
+- Fully validates all inputs and detects dependency cycles.
+- Precomputes transitive dependency closures and symmetric exclusions.
+- Uses exact branch-and-bound over include/exclude decisions.
+- Applies dependency/conflict propagation, memoization, fractional-knapsack value bounds, and tie-aware cost/ID pruning.
+- Preserves inputs and returns the specified deterministic result.
+
+Optimality follows because every feasible subset is represented by a search branch, while pruning uses admissible relaxations that cannot underestimate a branch’s best possible result.
+
+Worst-case complexity remains exponential, as required for this NP-hard problem, with `O(2^n)` states and `O(n²)`-scale processing per state.
+
+Verification:
+
+- Supplied unit tests: all passed.
+- Python compilation: passed.
+- 3,000 randomized small instances were cross-checked against exhaustive enumeration.

@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "evaluation_id": "sol-quality-v2.1-posthoc-20261001",
+  "design": "Post-hoc evaluation of all 96 immutable snapshots; no new model calls. Exploratory, not a preregistered model ranking.",
+  "random_seeds": [
+    20261001,
+    17171,
+    90210,
+    44123,
+    66331
+  ],
+  "expanded_category_weights": {
+    "properties": 40,
+    "boundaries": 30,
+    "concurrency": 30
+  },
+  "category_na_policy": "A category absent by task design is omitted and weights are renormalized. A failed or timed-out applicable evaluation is not N/A and blocks a complete composite.",
+  "overall_weights": {
+    "original_functional": 30,
+    "expanded_behavior": 35,
+    "added_test_effectiveness": 20,
+    "manual_review": 15
+  },
+  "overall_policy": "No overall score until every component is present and valid. Automated evidence score uses 30:35:20 normalized to 100, only with all three components present; it is not an overall code-quality grade.",
+  "own_test_policy": "Only candidate-added tests, not supplied public tests. Same 4/5/5/6 seeded reference defects per task. A kill requires a test passing on the positive reference to fail on that mutant. Skips/import errors/timeouts are disclosed. Reference portability failures make the mutation score unavailable. No added tests gives 0, without changing original correctness.",
+  "performance": {
+    "warmups": 1,
+    "measured_repetitions": 3,
+    "statistic": "median",
+    "memory": "separate tracemalloc run; Python allocations only",
+    "scored": false,
+    "note": "Execution performance, not model time. Sequential, same pinned Python and machine; per-task values only, with no fixed speed bonus."
+  },
+  "manual_review": {
+    "scale": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "required_evidence": "Reviewer, source path and line, explanation; blinded model labels where possible.",
+    "criteria": {
+      "clarity": {
+        "weight": 5,
+        "anchors": {
+          "0": "Cannot follow core logic; misleading names obscure behavior.",
+          "1": "Core behavior requires substantial reconstruction; several confusing constructs.",
+          "2": "Logic is understandable, but naming or control flow repeatedly slows review.",
+          "3": "Clear names and flow; non-obvious invariants explained; minor friction.",
+          "4": "Core invariants, state transitions and edge cases are easy to trace without redundant explanation."
+        }
+      },
+      "design": {
+        "weight": 5,
+        "anchors": {
+          "0": "Core responsibilities are inseparable or global shared state breaks isolation.",
+          "1": "Repeated business logic or strong coupling makes a simple change risky.",
+          "2": "Reasonable boundaries with notable duplication/coupling or needless abstractions.",
+          "3": "Responsibilities and state ownership are clear; limited avoidable duplication.",
+          "4": "Small cohesive components and explicit interfaces support a concrete likely change; no needless machinery."
+        }
+      },
+      "failure_maintenance": {
+        "weight": 5,
+        "anchors": {
+          "0": "Errors/data integrity cannot be reasoned about; resources leak on common paths.",
+          "1": "Failures and cleanup are implicit; operational messages or instructions are misleading.",
+          "2": "Expected failures/cleanup mostly clear, but important paths need investigation.",
+          "3": "Validation, exceptions, cleanup and recovery are explicit; usage is reproducible.",
+          "4": "Failure boundaries and recovery are easy to verify; documented commands and test evidence support maintenance."
+        }
+      }
+    },
+    "note": "A concise easy solution may deserve 4; line count, type hints, docstring count or abstraction count do not mechanically determine quality. Existing scaffold documentation is not credited as new work."
+  },
+  "ambiguity_policy": "Post-release retry response may be active or released; reservation identity and stock must remain unchanged. Cache thread safety, clock rollback and DAG cancellation/BaseException remain out of scope.",
+  "future_protocol": "Freeze these files before future inference, use new clean sessions; do not claim historical candidates saw the added rubric or feedback.",
+  "reference_correction": "Cache reference accepts arbitrary positive integer TTL without float conversion; temporary copy only. Added check uses integer injected clock and TTL=10**400. DAG positive reference accepts a readonly Mapping for added-test portability; no new required Mapping score imposed on candidates."
+}

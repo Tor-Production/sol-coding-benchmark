@@ -1,0 +1,3 @@
+# Optional PNG previews for scripts/analyze_results.py --png.
+# SVG charts and docs/results.md require only Python's standard library.
+Pillow==12.3.0

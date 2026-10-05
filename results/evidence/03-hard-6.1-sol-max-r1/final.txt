@@ -1,0 +1,9 @@
+I’ll inspect the implementation and tests, then build an iterative scheduler and run the requested test suite.
+
+
+The supplied tests cover a chain and cycle rejection. I’ll validate the whole graph before creating workers, then process task completions as they arrive. I’ll also add tests for concurrency, failure propagation, malformed inputs, and a 1,500-task chain.
+
+
+Implemented [dag.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/03-hard-6.1-sol-max-r1/dag.py) with full validation, bounded concurrent scheduling, transitive failure skipping, sorted results, and iterative handling of deep graphs.
+
+Added 10 tests and preserved supplied files. `python -m unittest discover -s tests -v` passes all 12 tests.

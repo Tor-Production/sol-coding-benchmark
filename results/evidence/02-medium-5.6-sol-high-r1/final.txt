@@ -1,0 +1,18 @@
+I’ll inspect the task and supplied tests, then implement the cache and run the full unittest suite.
+
+The default PowerShell executable is blocked in this environment, so I’m switching to the available Windows shell and continuing the same read-only inspection.
+
+The implementation can use `OrderedDict`: it gives O(1) LRU updates, while a targeted expiry purge before each insertion ensures stale entries anywhere in the order cannot force out a live key. I’ll also handle very large integer TTLs without converting them to float during validation.
+
+The supplied tests pass. I’m doing a focused edge-case check now for inclusive expiry, `None` values, TTL not extending on reads, expired non-LRU purging, replacement recency, deletion, and constructor validation.
+
+Implemented `TTLCache` in [cache.py](<benchmark>/Sol-Comparison-20260930/workspaces/02-medium-5.6-sol-r1/cache.py).
+
+- O(1) LRU updates using `OrderedDict`
+- Inclusive TTL expiration using the supplied clock
+- Expired-entry purging before eviction
+- Full constructor validation
+- Correct handling of `None`, replacements, deletion, and independent instances
+- Added focused edge-case tests in [test_additional.py](<benchmark>/Sol-Comparison-20260930/workspaces/02-medium-5.6-sol-r1/tests/test_additional.py)
+
+Validation: all 8 tests pass with `python -m unittest discover -s tests -v`.

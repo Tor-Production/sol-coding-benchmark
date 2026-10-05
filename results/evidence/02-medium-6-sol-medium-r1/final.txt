@@ -1,0 +1,9 @@
+I’ll inspect the workspace files, implement the cache, then run the supplied unittest command.
+
+The cache is a stub. I’ll use `OrderedDict` for recency and scan for expired entries before capacity eviction.
+
+I added tests for inclusive expiry, a recently used expired entry, `None` values, deletion, instance isolation, and invalid arguments. I’ll run the full suite now.
+
+Implemented `TTLCache` in [cache.py](<benchmark>/Sol-Effort-Comparison-20261001/workspaces/02-medium-6-sol-medium-r1/cache.py) with constructor validation, inclusive TTL expiry, and LRU eviction that purges expired entries first. Added contract tests in [test_cache_contract.py](<benchmark>/Sol-Effort-Comparison-20261001/workspaces/02-medium-6-sol-medium-r1/tests/test_cache_contract.py).
+
+`python -m unittest discover -s tests -v` passes: 6 tests.

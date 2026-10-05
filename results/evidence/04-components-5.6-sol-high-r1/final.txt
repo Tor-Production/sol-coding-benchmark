@@ -1,0 +1,28 @@
+I’ll inspect the supplied package, task notes, and tests first, then implement the store, HTTP layer, CLI, and README and run the full unittest suite.
+
+The default shell could not start under the workspace sandbox, so I’m switching to the built-in Windows PowerShell executable and continuing with read-only inspection.
+
+The supplied tests cover the basic reserve/release path only. I’ve mapped the broader edge cases from the contract—canonicalized identifiers, idempotent retries after release, rollback behavior, SQLite writer serialization, bounded HTTP bodies, JSON-only errors, and argparse failures—and I’m implementing those explicitly.
+
+The main implementation is now in place: every store operation owns and closes its connection, writes use immediate transactions, HTTP requests run on a threaded server with a 64 KiB limit, and CLI parse errors are emitted as JSON. I’m running the supplied suite, then I’ll probe persistence, concurrency, idempotency, HTTP error handling, and CLI state sharing.
+
+The first test run was blocked by the sandbox: Python’s default temp directory is outside the writable workspace, so SQLite could not create the test databases. This is environmental rather than an implementation failure. I’m rerunning the unchanged tests with `TEMP`/`TMP` pointed to a workspace-local directory.
+
+Syntax compilation and a CLI add/reserve/report persistence check pass. Because the sandbox makes Python-created temporary directories unreadable, I can’t obtain a clean result from the supplied `TemporaryDirectory`-based tests here; I’m compensating with fixed workspace-local database probes that exercise the same behavior plus concurrent stores and live loopback HTTP.
+
+The extended verification passed, including 20 concurrent reservation attempts against five units (exactly five succeeded), concurrent identical idempotency retries (one record and one decrement), release-once behavior, persistence across Store instances, UTF-8/encoded SKUs over HTTP, malformed bodies, 413 handling, and server recovery afterward. I’m removing the temporary probe artifacts and doing a final diff/style audit.
+
+With a one-off compatibility wrapper that forces temporary directories to inherit the workspace ACL, the unchanged supplied suite passes both tests. The wrapper is only compensating for this Windows sandbox’s Python 3.14 `0o700` temp-directory ACL behavior and will not remain in the project.
+
+Implemented the inventory reservation service:
+
+- Transactional SQLite store with persistence, validation, concurrency safety, idempotency, release, and reports.
+- Threaded JSON HTTP API with correct status codes and 64 KiB request limits.
+- Complete CLI with JSON output/errors and exit codes.
+- Package exports and expanded README usage documentation.
+
+Verification:
+
+- Supplied tests: 2/2 passed using a temporary ACL workaround required by the Windows sandbox.
+- Extended persistence, concurrency, idempotency, HTTP, and CLI checks passed.
+- Python compilation checks passed.

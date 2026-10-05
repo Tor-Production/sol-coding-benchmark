@@ -1,0 +1,14 @@
+I’ll inspect the implementation and tests, add validation and concurrent scheduling, then run the full unittest suite.
+
+
+The implementation is a stub, and the supplied tests cover a chain and cycle rejection. I’ll use iterative graph validation and a thread pool that schedules dependents as soon as their prerequisites finish, and add tests for failure propagation, concurrency, and deep chains.
+
+
+The implementation is in place. Both validation and failure propagation are iterative, and added tests cover concurrent execution, prompt scheduling of newly ready tasks, and 1,500-task success and failure chains. I’ll run the full suite now.
+
+
+Implemented `run_graph` with full validation, bounded thread concurrency, prompt dependent scheduling, transitive failure skipping, sorted results, and iterative handling of deep chains.
+
+Added contract and concurrency tests; preserved supplied tests and task instructions.
+
+`python -m unittest discover -s tests -v`: all 11 tests passed.

@@ -1,0 +1,14 @@
+I’ll inspect the workspace, implement an exact optimizer, and run the supplied tests plus targeted validation and tie-breaking checks.
+
+
+The workspace has a stub and three public tests. I’m implementing branch-and-bound with dependency and exclusion propagation, conservative value bounds, and cost/ID bounds for ties. The tie bounds will help avoid exploring every equivalent subset in structured cases.
+
+
+All eight tests pass, including 400 randomized comparisons against exhaustive search. I’m now checking larger 32-project instances to assess the search bounds’ performance.
+
+
+Implemented [optimizer.py](optimizer.py) with full validation, dependency/exclusion propagation, and exact branch-and-bound search. Integer-based knapsack and conflict bounds prune branches; cost and ID bounds handle ties. Every feasible choice is covered unless a bound proves it cannot improve the result, ensuring global optimality.
+
+Worst-case time remains exponential, \(O(2^n \operatorname{poly}(n))\). Tested 32-project fixtures completed in under 2.4 seconds locally.
+
+All 9 tests pass with `python -m unittest discover -s tests -v`, including 400 randomized comparisons against exhaustive search. Supplied tests and instructions were preserved.

@@ -1,0 +1,23 @@
+I’ll inspect the workspace, implement the exact solver, and run the supplied tests plus targeted correctness checks.
+
+
+The command runner failed to launch PowerShell with an access-denied error. I’ll try another local shell to access the files and run tests.
+
+
+I’ll use meet-in-the-middle search: enumerate subsets in each half, then match them through a search tree that prunes by budget, dependencies, exclusions, and objective bounds. This keeps the solver exact while avoiding a full scan of all `2**32` subsets on structured cases.
+
+
+The supplied tests and 250 small randomized comparisons against exhaustive search pass. Validation and tie-breaking checks also pass. I’ll now check larger instances against the 8-second fixture limit.
+
+
+A 32-project case with paired exclusions exceeded 8 seconds in the timing check. I’m adding an exact bound for equal-value, equal-cost projects so the search can prune those branches earlier.
+
+
+The paired-exclusion case now runs in about 2.1 seconds. The sampled 32-project cases with one to three budget dimensions also finish within 2.4 seconds. The solver remains exact: it prunes only infeasible branches or branches whose optimistic objective bound cannot improve the incumbent.
+
+
+Implemented `optimizer.py` with full validation, dependency handling, symmetric exclusions, and exact tie-breaking.
+
+The solver enumerates subsets of two halves, then uses a bounded search tree to match them. Every feasible solution remains represented; pruning removes only infeasible or provably non-improving branches, ensuring global optimality. Worst-case time remains exponential, with roughly `O(2^(n/2))` storage.
+
+All 10 tests pass, including 350 exhaustive-oracle comparisons. Sampled 32-project fixtures completed within 2.4 seconds. Supplied tests and instructions were preserved.

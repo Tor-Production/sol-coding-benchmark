@@ -1,0 +1,18 @@
+I’ll inspect the package and supplied tests, implement the store, HTTP API, and CLI, then run the test suite.
+
+
+The package contains stubs and two supplied tests. I’ll use a connection per store call and SQLite write transactions to serialize stock changes, then add coverage for retries, persistence, concurrency, HTTP validation, and the CLI.
+
+
+The implementation and added tests are ready. The first test run failed because Windows’ default temp directory is inaccessible in this sandbox. I’ll rerun with temporary files directed into the workspace; the supplied tests remain unchanged.
+
+
+All 10 tests passed, including concurrent store and HTTP calls, persistence, retries after release, and CLI error output. The sandbox required a temporary runner that uses workspace temp folders with inherited Windows permissions. I’ll remove that runner after a final check of HTTP edge cases.
+
+
+The HTTP edge checks pass. I also found that SQLite arithmetic can lose precision when stock exceeds its 64-bit integer range. Quantities now use exact decimal storage with Python integer arithmetic inside transactions, and I added a regression test for large quantities.
+
+
+Implemented the persistent SQLite store, concurrent JSON HTTP API, CLI, and README instructions. Added tests for persistence, idempotency, concurrency, validation, and large integers.
+
+All 11 tests passed using a sandbox-specific temp-directory workaround. Supplied tests were preserved. Windows permissions prevented cleanup of temporary folders from the initial failed runs.

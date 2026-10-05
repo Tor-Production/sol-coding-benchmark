@@ -1,0 +1,19 @@
+I’ll inspect the workspace, implement the MVCC store, and run the supplied tests plus any needed contract checks.
+
+
+The configured PowerShell executable could not start. I’m trying the Windows system shell to access the files and run the tests.
+
+
+The starter contains only stubs and three public tests. I’ll use snapshot copies for transaction reads and retain every committed write, so validation catches ABA changes and temporary range inserts. Savepoints will restore pending writes while keeping all recorded reads.
+
+
+The three supplied tests pass. I’ve added checks for phantom and ABA conflicts, savepoint read retention, invalid-operation atomicity, defensive copies, recovery validation, and a deterministic interleaved trace that checks conflicts using per-key write versions.
+
+
+Implemented `Engine` and `Conflict` in `mvcc.py`, with savepoints, validation, defensive copies, and recovery.
+
+Transactions use isolated snapshots and validate every intervening committed write, catching ABA and phantom conflicts. Savepoint rollback preserves read dependencies. Recovery validates the entire checkpoint/log before replay and retains contiguous history.
+
+Added contract tests; supplied tests and instructions remain unchanged.
+
+`python -m unittest discover -s tests -v` — **18 tests passed**.

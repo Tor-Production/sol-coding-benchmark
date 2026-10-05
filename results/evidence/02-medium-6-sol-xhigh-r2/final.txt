@@ -1,0 +1,9 @@
+I’ll inspect the workspace and supplied tests, implement the cache, then run the requested unittest command.
+
+The cache is still a stub. I’ll use `OrderedDict` for constant time recency updates and scan for expired entries before any capacity eviction.
+
+All seven tests pass. I found one numeric edge worth covering: a valid, very large integer TTL can overflow when added to a float clock reading. I’ll handle that case and rerun the suite.
+
+Implemented `TTLCache` in [cache.py](<benchmark>/Sol-Effort-Comparison-20261001/workspaces/02-medium-6-sol-xhigh-r2/cache.py) with TTL expiry, LRU eviction, argument validation, and per-instance state. Added edge-case tests in [test_cache_behavior.py](<benchmark>/Sol-Effort-Comparison-20261001/workspaces/02-medium-6-sol-xhigh-r2/tests/test_cache_behavior.py).
+
+`python -m unittest discover -s tests -v` passes: 8 tests.

@@ -1,0 +1,26 @@
+name: Verify benchmark stand
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.18.0'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14.0'
+      - name: Verify the published archive
+        run: python -B scripts/verify_archive.py
+      - name: Qualify evaluators and verify the simulated protocol
+        run: npm test
+      - name: Reproduce result tables and SVG figures
+        run: python -B scripts/analyze_results.py
+      - name: Confirm generated documentation is current
+        run: git diff --exit-code -- docs/results.md assets

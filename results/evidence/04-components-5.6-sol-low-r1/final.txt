@@ -1,0 +1,26 @@
+I’ll inspect the supplied package and tests first, then implement the store, HTTP layer, CLI, and README without altering the provided tests or task files.
+
+The default shell launcher is unavailable in this sandbox, so I’m switching to the system command shell for the same read-only inventory.
+
+The supplied files are minimal stubs. I’ve confirmed the key design points: normalized identifiers, per-call SQLite connections, `BEGIN IMMEDIATE` for cross-instance atomicity, a unique idempotency key, and a threaded standard-library HTTP server so concurrent requests exercise the same invariants.
+
+The implementation is in place. I’m now running the supplied suite plus focused persistence, idempotency, HTTP, CLI, and concurrency checks; any failures will be corrected in the package only.
+
+The first test run was blocked by the sandbox denying SQLite access to Python’s user-temp directory, not by service behavior. I’m rerunning with `TEMP`/`TMP` pointed at a workspace-local temporary directory, which is writable under the stated constraints.
+
+The focused tests pass, including persistence after reopening, post-release idempotent retry, conflicting-key behavior, concurrent no-oversell across separate `Store` instances, HTTP status/JSON, and byte-accurate response length. I’m doing a final CLI and diff sanity check now.
+
+Implemented the complete inventory reservation service:
+
+- Atomic, persistent SQLite store with concurrency safety
+- Idempotent reservations and exactly-once releases
+- Threaded JSON HTTP API with validation and size limits
+- CLI commands for add, reserve, release, report, and serve
+- Usage documentation in README
+- Additional persistence, HTTP, idempotency, and concurrency tests
+
+Testing:
+
+- Added tests: 3/3 passing
+- CLI smoke tests passed
+- Supplied tests were attempted but the sandbox denies SQLite access inside `TemporaryDirectory`; equivalent workspace-local behavior tests pass.

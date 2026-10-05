@@ -1,0 +1,9 @@
+I’ll inspect the existing module and tests, then implement validation and scheduling. Afterward I’ll run the requested unittest command.
+
+The module is a stub, and the supplied tests cover a chain and a cycle. I’ll validate the full graph first, then use an iterative scheduler that starts ready tasks as worker slots open.
+
+The implementation passes the supplied tests and the new cases for validation, failure propagation, prompt scheduling, and a 1,500-task chain. I’m making one small type-check adjustment so integer subclasses are accepted as worker counts while booleans are rejected.
+
+Implemented `run_graph` in [dag.py](<<benchmark>/Sol-Effort-Comparison-20261001/workspaces/03-hard-6-sol-xhigh-r2/dag.py>) with full validation before execution, bounded thread scheduling, iterative cycle and skip handling, and sorted results. Added contract tests in [test_graph_contract.py](<<benchmark>/Sol-Effort-Comparison-20261001/workspaces/03-hard-6-sol-xhigh-r2/tests/test_graph_contract.py>).
+
+`python -m unittest discover -s tests -v` passed: 6 tests.

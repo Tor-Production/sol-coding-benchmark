@@ -1,0 +1,30 @@
+I’ll inspect the task files and supplied tests, then implement an exact solver with pruning suited to the 32-project structured cases.
+
+The initial inspection command is still running in the shell; I’m waiting for its output before changing anything.
+
+The public surface is small, so I’m implementing validation independently of optimization. The solver will use dependency closures, symmetric conflict propagation, exact branch-and-bound, and per-budget fractional-knapsack relaxations as safe upper bounds.
+
+The supplied tests pass. I’m tightening the implementation against hidden edge cases now—especially arbitrary-size Python integers and exhaustive cross-checks against brute force on small random instances.
+
+Randomized brute-force comparison passed, and the plain 32-item, three-budget stress cases complete comfortably. I’m adding one more safe bound for conflict-heavy fixtures, where budget-only bounds are intentionally weak.
+
+The exact solver now passes 1,200 randomized instances checked against exhaustive enumeration, including dependencies, asymmetric exclusions, negative values, multidimensional costs, required IDs, and all tie-break levels. I’m doing the clean final test run now.
+
+Implemented [`optimizer.py`](<benchmark>/Sol-Complex-Tasks-20261002/workspaces/05-optimizer-5.6-sol-medium-r1/optimizer.py).
+
+The solver:
+
+- Fully validates the input contract without mutation.
+- Computes transitive dependency closures and detects cycles.
+- Uses exact branch-and-bound with conflict propagation.
+- Applies safe fractional-knapsack and conflict-clique upper bounds.
+- Implements all value, cost, and sorted-ID tie-breaks exactly.
+
+Optimality follows because every feasible dependency-closed subset is represented by the search, while pruning uses only optimistic upper bounds.
+
+Worst-case complexity remains exponential, approximately `O(2^n · n² · d)`, as expected for an NP-hard problem, with substantial pruning for structured instances.
+
+Validation:
+
+- Supplied tests: all passed.
+- 1,200 randomized small cases matched exhaustive enumeration.

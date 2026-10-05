@@ -1,0 +1,11 @@
+I’ll inspect the workspace, implement the executor, and run the test suite.
+
+
+The supplied tests cover a simple chain and cycle rejection. I’ll use iterative graph validation and schedule work as futures finish, then add tests for concurrency, failure propagation, validation before execution, and a 1,500-task chain.
+
+
+Implemented `run_graph` in `dag.py` with full validation before execution, bounded concurrent threads, prompt dependent scheduling, and transitive failure skipping. Validation and traversal are iterative, and results use sorted task-ID order.
+
+Added seven tests covering concurrency, validation, failure propagation, input preservation, and a 1,500-task chain. Preserved supplied tests and contract files.
+
+`python -m unittest discover -s tests -v`: all 9 tests passed.

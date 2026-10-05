@@ -1,0 +1,11 @@
+I’ll inspect the implementation and tests, add the concurrent scheduler, then run the required test suite.
+
+
+The supplied tests cover only a short chain and cycle rejection. I’ll validate the whole graph iteratively, then schedule tasks as dependencies finish. I’ll add tests for failure propagation, concurrency, worker limits, and the 1,500-task chain.
+
+
+Implemented `run_graph` in [dag.py](/<benchmark>/Sol-Max-Ultra-20261001/workspaces/03-hard-6.1-sol-max-r2/dag.py) with full validation, bounded concurrency, transitive skipping, sorted results, and iterative graph traversal.
+
+Added regression tests for concurrency, worker limits, failures, input preservation, and 1,500-task chains. Supplied tests and contract files remain unchanged.
+
+`python -m unittest discover -s tests -v` — all 11 tests passed.

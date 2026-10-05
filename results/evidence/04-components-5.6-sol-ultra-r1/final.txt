@@ -1,0 +1,25 @@
+I’ll inspect the existing package and supplied tests first, then implement the store, HTTP layer, CLI, and README while preserving all provided files. Afterward I’ll run the full unittest suite and address any failures.
+
+The default shell executable is unavailable in this sandbox, so I’m switching to the system PowerShell executable and continuing the same read-only inventory.
+
+The supplied code is a clean skeleton with two basic store tests. I’ve mapped the hidden-risk areas—transactional idempotency, exact-once release, per-call connection cleanup, threaded HTTP handling, byte-accurate JSON responses, and JSON-formatted CLI validation errors—and I’m implementing those now.
+
+The patch utility rejected a multi-file replacement form before changing anything. I’m splitting the same implementation into atomic file updates, then I’ll immediately inspect and test the result.
+
+The implementation compiles. The first test run was blocked by the sandbox because `tempfile` defaulted to a user temp directory outside the workspace; this is environmental rather than a code failure. I’m rerunning the unchanged suite with `TMP`/`TEMP` pointed at the writable workspace, then exercising persistence, idempotency, concurrency, HTTP edge cases, and CLI exit behavior.
+
+The extended verification now passes on the active Python runtime, including 60-way stock contention, concurrent same-key retries, concurrent repeated releases, persistence across `Store` instances, all HTTP routes and error classes, the 64 KiB limit, UTF-8 byte lengths, and CLI stdout/stderr exit semantics. I’m doing a final cleanup and code audit, then I’ll rerun the supplied suite on the available Python version unaffected by the Python 3.14 temp-directory ACL issue.
+
+The final audit found and fixed one boundary case in `report()`: active quantities are now summed as Python integers so SQLite’s aggregate overflow cannot corrupt an otherwise valid report. The supplied tests pass cleanly on Python 3.12; I’m also validating the exact requested `python -m unittest ...` invocation under Python 3.14 with a temporary, local workaround for that runtime’s sandbox-incompatible `TemporaryDirectory` ACL behavior. The workaround will not remain in the project.
+
+Implemented the inventory reservation service:
+
+- Transactional SQLite store with persistence, validation, idempotency, exact-once release, reporting, and concurrency safety.
+- Threaded JSON HTTP API with correct status codes and 64 KiB body limits.
+- Full CLI with JSON output/error handling.
+- Package exports and updated [README.md](<benchmark>/Sol-Max-Ultra-20261001/workspaces/04-components-5.6-sol-ultra-r1/README.md).
+
+Testing:
+
+- Supplied tests: 2/2 passed.
+- Additional verification covered persistence, concurrent reservations/releases, HTTP routes and errors, UTF-8 content lengths, and CLI behavior.

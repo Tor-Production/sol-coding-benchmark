@@ -1,0 +1,21 @@
+I’ll inspect the package and supplied tests, implement the store, HTTP API, and CLI, then run the tests.
+
+
+The command runner couldn’t start PowerShell. I’m trying another local shell so I can inspect the files and run the tests.
+
+
+The package contains stubs and two supplied store tests. I’ll use SQLite transactions for stock changes, per-call connections, and a threaded HTTP server. I’ll also add tests for retries, persistence, validation, and concurrency.
+
+
+The implementation is in place. The first test run failed because the supplied tests created databases in a temporary directory the runner couldn’t access. I’ll rerun with temporary files under the workspace, without changing the supplied tests.
+
+
+The two supplied tests pass with a temporary runner workaround for Python 3.14’s directory permissions. I’m now checking concurrent stock changes and end-to-end HTTP and CLI behavior against the same database.
+
+
+All 23 tests pass, including persistence, concurrent reservations and releases, HTTP validation and body limits, and CLI/HTTP state sharing. I’m removing the temporary runner files; the supplied tests and contract remain unchanged.
+
+
+Implemented the persistent SQLite store, atomic reservations, threaded HTTP API, CLI, and README usage instructions. Added 21 tests; supplied tests and contract files are unchanged.
+
+`python -m unittest discover -s tests -v`: all 23 tests passed using a temporary Windows permission workaround. Two inaccessible empty scratch directories remain in `.test-tmp`.

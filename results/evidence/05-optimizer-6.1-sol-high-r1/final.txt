@@ -1,0 +1,19 @@
+I’ll inspect the workspace, implement an exact solver with strict validation, and run the supplied tests plus focused regression cases.
+
+
+I’ll split the projects into two halves and enumerate feasible selections within each half. Bitset indexes will then find compatible pairs under the dependency, exclusion, and budget constraints. Sorting IDs before the split lets me apply the final tie-break exactly.
+
+
+The solver passes the supplied tests and 240 randomized comparisons against exhaustive search. The added checks also cover invalid inputs, input preservation, tie-breaking, and 32-project dependency chains and exclusion pairs. I’ll now benchmark larger cases with three independent budget dimensions against the 8-second limit.
+
+
+One stress case with many tied values came close to the time limit. I added exact fractional-knapsack upper bounds to skip partial selections that cannot reach the best value found so far. That reduced the measured stress-case times to 1.7–3.5 seconds, and the exhaustive comparisons still pass.
+
+
+Implemented `solve` with strict validation, dependency closure, symmetric exclusions, and all three tie-breaks.
+
+The solver enumerates two halves and uses bitset indexes to find compatible partners. Every feasible portfolio is represented; choosing the best partner for each half-selection guarantees global optimality. Integer-only fractional bounds safely prune uncompetitive selections.
+
+Worst-case time remains exponential: O(n·2ⁿ) bit work, with O(n·2^(⌈n/2⌉)) space.
+
+Validation: all 11 tests pass, including 240 exhaustive randomized comparisons and an independent 32-project dynamic-programming check. Measured stress cases completed in 1.7–3.5 seconds.

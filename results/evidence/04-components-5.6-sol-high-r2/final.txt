@@ -1,0 +1,31 @@
+I’ll inspect the existing package, tests, and task documentation first, then implement the store, HTTP layer, and CLI while preserving all supplied files. Afterward I’ll run the full unittest suite and address any failures.
+
+The default PowerShell executable is unavailable in this sandbox, so I’m switching to the system Windows PowerShell for the same read-only inspection.
+
+The package is currently only stubs and the supplied tests cover the basic reserve/release path. I’ll implement stricter validation and normalized identifiers at the store boundary, serialize writes with SQLite transactions for cross-instance safety, and use a threaded standard-library server so concurrent HTTP requests share those same guarantees.
+
+The three layers are now implemented, including idempotent retries after release, exact-once restoration, consistent reports, UTF-8 response lengths, 64 KiB request limits, and JSON-formatted CLI failures. I’m running the supplied tests now, then I’ll exercise persistence, concurrency, HTTP error mapping, and CLI behavior beyond the public coverage.
+
+The first test run was blocked by the sandbox’s system temp directory permissions, not by an application assertion: `TemporaryDirectory` was created outside the writable workspace, so SQLite could not open it. I’m rerunning with Python’s temporary directory redirected to the workspace, which matches the allowed filesystem scope.
+
+Direct CLI operations against a database in the workspace succeed and persist correctly. The sandbox also blocks SQLite access inside directories created by `tempfile`, even when those directories are under the workspace, so the supplied test fixture cannot execute here as written; I’m continuing with equivalent checks using database files directly in the writable workspace, including concurrent Store instances and loopback HTTP.
+
+The broader checks pass: persistence across Store instances, normalization and validation, retry-after-release behavior, 24 simultaneous writers competing for seven units with no oversell, encoded Unicode/slash SKUs over HTTP, route/error statuses, response lengths, oversized-body rejection, and server recovery afterward. I’m removing only the temporary check script/database artifacts, then I’ll do a final syntax and diff review.
+
+The implementation also compiles cleanly. Two empty directories created by the failed `TemporaryDirectory` fixtures remain inaccessible to the process because of the sandbox ACL; they contain no application data and are outside the package/test discovery paths. I’m checking the remaining CLI failure paths and reviewing the final source directly since this workspace has no Git metadata for a diff.
+
+Final review found no contract gaps; I also exposed `Store`, `Conflict`, and `NotFound` at the package level while retaining their `reservation.store` API, and tightened connection cleanup if SQLite setup itself fails. I’m doing one last no-bytecode smoke test and workspace inventory now.
+
+That last inline check hit Windows command-line quoting before Python could run; it did not touch the implementation or create a database. I’m rerunning the same check from a short temporary script to avoid shell quoting ambiguity, then removing the script.
+
+Implemented the complete inventory reservation service:
+
+- SQLite-backed, transactional, persistent store with concurrency safety.
+- Idempotent reservations and exact-once releases.
+- Threaded JSON HTTP API with validation and size limits.
+- JSON CLI commands and error handling.
+- Package-level exports and usage documentation in [README.md](<benchmark>/Sol-Comparison-20260930/workspaces/04-components-5.6-sol-r2/README.md).
+
+Validation completed successfully for persistence, CLI behavior, HTTP routes, Unicode SKUs, and 24 concurrent writers without overselling.
+
+The requested unittest command was attempted, but the sandbox denied SQLite access inside `tempfile`-created directories before assertions ran. Equivalent workspace-local scenarios and the supplied test behaviors passed.

@@ -1,0 +1,11 @@
+I’ll inspect the implementation and supplied tests, build the executor, and run the requested test suite.
+
+
+The supplied tests cover a simple chain and a cycle. I’ll validate the graph iteratively, then schedule work as tasks finish so newly ready dependents can start promptly. I’ll add tests for concurrency, failure propagation, input preservation, and a 1,500-task chain.
+
+
+Implemented `run_graph` in `dag.py` with full graph validation, bounded concurrency, prompt dependent scheduling, failure propagation, sorted results, and iterative handling of long chains.
+
+Added tests for validation, concurrency, input preservation, and 1,500-task chains. Supplied tests and instructions remain unchanged.
+
+`python -m unittest discover -s tests -v` — all 12 tests passed.

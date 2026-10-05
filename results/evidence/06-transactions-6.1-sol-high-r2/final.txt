@@ -1,0 +1,19 @@
+I’ll inspect the workspace, implement the MVCC store, and run the supplied tests with any additional checks needed for edge cases.
+
+
+The configured PowerShell executable failed to launch. I’m trying the system PowerShell to access the workspace and run the checks.
+
+
+I’ll use snapshot copies and a retained commit log so validation catches every intervening write, including ABA changes and same-value writes. Savepoints will restore pending writes while retaining all reads. Recovery will validate the complete input before constructing the restored engine.
+
+
+The supplied tests pass. I’ve added checks for deleted phantoms, savepoint read retention, malformed recovery inputs, defensive copies, and an 800-step deterministic interleaving trace. I’ll run the full suite now.
+
+
+Implemented `Engine` and `Conflict` in `mvcc.py`.
+
+Isolation checks every committed write since the snapshot against reads, pending writes, and scanned prefixes. Savepoint rollback preserves read dependencies. Recovery validates the entire checkpoint/log before replay and retains the checkpoint’s base version. Inputs and exports are defensively copied.
+
+All **16 tests pass**, including added contract tests and an 800-step interleaving trace:
+
+`python -m unittest discover -s tests -v`

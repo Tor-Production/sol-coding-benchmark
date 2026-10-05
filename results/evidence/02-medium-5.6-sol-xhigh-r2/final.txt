@@ -1,0 +1,20 @@
+I’ll inspect the task, existing cache implementation, and supplied tests, then implement the cache and run the requested unittest suite.
+
+The default PowerShell executable is blocked by the workspace policy, so I’m switching to the permitted command shell for the same read-only inspection.
+
+The implementation will use an instance-local `OrderedDict`: recency updates stay O(1), while `put` and `len` can scan for expirations so stale entries never force eviction of a live LRU entry. Validation will explicitly reject booleans and non-finite floating TTLs.
+
+The supplied tests pass. I’m adding focused regression coverage for the less visible contract points—an expired MRU entry, non-extending reads, `None` values, live-only deletion, validation, replacement, and instance isolation—before the final full run.
+
+All eight tests now pass, including the added edge cases. I’m doing a final diff review to ensure only the intended implementation and additional tests changed.
+
+Implemented `TTLCache` in [cache.py](<benchmark>/Sol-Effort-Comparison-20261001/workspaces/02-medium-5.6-sol-xhigh-r2/cache.py).
+
+- Added constructor validation.
+- Implemented TTL expiration with inclusive boundaries.
+- Added O(1) LRU recency using `OrderedDict`.
+- Purges all expired entries before eviction.
+- Supports `None` values and instance isolation.
+- Added edge-case tests in [test_additional.py](<benchmark>/Sol-Effort-Comparison-20261001/workspaces/02-medium-5.6-sol-xhigh-r2/tests/test_additional.py).
+
+Verification: `python -m unittest discover -s tests -v` — all 8 tests passed.

@@ -1,0 +1,23 @@
+I’ll inspect the existing package, task notes, and supplied tests first, then implement the store, HTTP server, and CLI against those exact interfaces. Afterward I’ll run the full unittest suite and exercise any edge cases the supplied tests don’t cover.
+
+The default PowerShell launcher is unavailable in this sandbox, so I’m switching to the installed Windows shell for the same read-only inspection.
+
+The scaffold is untouched and the public tests only cover the simplest reserve/release flow. I’m implementing stricter boundary validation, one-connection-per-operation transactions, idempotency that survives release, and a threaded HTTP server so the concurrency guarantees come from the same SQLite transaction logic across all entry points.
+
+The first test run hit the sandbox’s Windows temp-directory permissions before reaching the implementation. I’ll rerun with Python’s temporary directory redirected inside the workspace, which matches the allowed write scope.
+
+The implementation works with a database directly in the workspace; the remaining public-test failure is specific to this runner denying access to directories created by `tempfile` (even when placed under the writable root). I’m continuing with workspace-local integration checks for persistence, validation, concurrency, HTTP behavior, and CLI output, while keeping the supplied tests unchanged.
+
+The workspace-local integration checks passed, including 60 concurrent reservation attempts, concurrent idempotent retries/releases, persistence across Store instances, all HTTP routes and error classes, the 64 KiB limit, and CLI exit behavior. I also reran the supplied tests with a process-local workaround for this sandbox’s Python 3.14 temporary-directory ACL issue; both supplied tests pass. I’m doing a final source/contract audit now.
+
+Implemented the inventory reservation service:
+
+- SQLite-backed atomic store with validation, idempotency, release, reporting, persistence, and concurrency protection.
+- Threaded JSON HTTP API with required routes, status codes, error handling, and 64 KiB body limit.
+- JSON CLI commands and server mode.
+- Package exports and usage documentation in [README.md](<benchmark>/Sol-Max-Ultra-20261001/workspaces/04-components-5.6-sol-max-r2/README.md).
+
+Validation completed:
+
+- Supplied tests: 2/2 passed.
+- Additional persistence, concurrency, idempotency, HTTP, body-limit, and CLI integration checks passed.

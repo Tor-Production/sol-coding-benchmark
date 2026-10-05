@@ -1,0 +1,14 @@
+I’ll inspect the task and tests, implement an exact solver with pruning, then run the required test suite.
+
+
+I’m using meet-in-the-middle for independent projects and branch-and-bound for projects with dependencies or exclusions. Both preserve the full tie-breaking order; the independent path splits a 32-project instance into two halves of at most 65,536 subsets each.
+
+
+The solver passes the supplied tests and 180 randomized comparisons against exhaustive enumeration. I also added tests for zero-value ID ties and validation of cycles in unaffordable projects. I’m checking a 32-project, three-budget case next.
+
+
+Implemented `optimizer.py` with full validation and exact tie-breaking.
+
+Independent projects use meet-in-the-middle with multidimensional range queries. Constrained projects use dependency propagation and branch-and-bound. The bounds only prune branches that cannot improve the result, preserving global optimality. Worst-case runtime remains exponential.
+
+All 6 tests pass, including 180 randomized exhaustive comparisons. A 32-project, three-budget check completed in about 3 seconds.

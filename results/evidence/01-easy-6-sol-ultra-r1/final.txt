@@ -1,0 +1,1 @@
+I’ll inspect the existing module and tests, implement the merge, then run the requested unittest command.

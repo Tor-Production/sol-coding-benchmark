@@ -1,0 +1,21 @@
+I’ll inspect the package and tests, implement the SQLite store, HTTP API, and CLI, then run the test suite.
+
+
+The command runner is failing before it starts PowerShell. I’ll try another shell path so I can inspect the files and run the tests.
+
+
+The package contains stubs and two basic store tests. I’ll use a transaction for each stock change and key lookup, and add coverage for persistence, concurrent calls, HTTP errors, and CLI behavior.
+
+
+The implementation is in place. The first test run failed because Windows’ default temporary directory is inaccessible in this sandbox. I’ll rerun with a temporary-directory override confined to this workspace, then add the broader checks.
+
+
+The supplied tests pass on Python 3.12 with temporary files kept in the workspace. Python 3.14’s temporary-directory permissions caused the sandbox failure. I’ll now check concurrent reservations and releases, HTTP validation and size limits, and shared state across all three interfaces.
+
+
+All 21 tests pass, including concurrent stock changes, retries, releases, and report consistency. I’ll add a check that starts the CLI server as a process, then remove the temporary runner and test artifacts.
+
+
+Implemented the persistent SQLite store, concurrent JSON HTTP API, CLI, and README. Added 20 tests; all 22 pass on Python 3.12.
+
+Python 3.14 hit sandbox temporary-directory permission errors. Two empty directories from failed runs remain because the sandbox denied deletion.

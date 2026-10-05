@@ -1,0 +1,11 @@
+I’ll inspect the workspace, implement the TTL and LRU behavior, then run the supplied tests.
+
+
+The cache is a stub, and the supplied tests cover expiry and basic LRU eviction. I’ll use an `OrderedDict` for O(1) recency updates and scan for expired entries before eviction. I’ll also add tests for validation, replacement, inclusive expiry, and an expired key that was recently used.
+
+
+Implemented `TTLCache` in `cache.py` with validation, inclusive expiry, O(1) LRU updates, and expiry cleanup before eviction.
+
+Added nine contract tests and preserved the supplied tests.
+
+`python -m unittest discover -s tests -v` passed all 11 tests.

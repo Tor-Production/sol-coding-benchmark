@@ -1,0 +1,7 @@
+I’ll inspect the existing cache and tests, implement the contract in `cache.py`, then run the requested test suite.
+
+The supplied tests cover basic expiry and LRU behavior. I’ll use `OrderedDict` for constant time recency updates and scan for expired entries before a capacity eviction.
+
+Implemented `TTLCache` in [cache.py](<benchmark>/Sol-Comparison-20260930/workspaces/02-medium-6-sol-r1/cache.py) with inclusive expiry, LRU eviction, argument validation, and independent instance state. Added edge case tests in [test_edge_cases.py](<benchmark>/Sol-Comparison-20260930/workspaces/02-medium-6-sol-r1/tests/test_edge_cases.py).
+
+`python -m unittest discover -s tests -v` passed all 7 tests.

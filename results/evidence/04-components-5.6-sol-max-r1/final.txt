@@ -1,0 +1,30 @@
+I’ll inspect the existing package and supplied tests first, then implement the store, HTTP layer, CLI, and README while preserving the benchmark files. Afterward I’ll run the full unittest suite and add focused edge-case tests only if coverage gaps remain.
+
+The default PowerShell launcher is blocked by the workspace sandbox, so I’m switching to the system PowerShell executable and continuing with the same read-only inspection.
+
+The implementation plan is now grounded in the supplied tests and contract: short-lived SQLite connections, `BEGIN IMMEDIATE` for every stock mutation, a unique idempotency key, a threaded standard-library HTTP server, and JSON-formatted CLI failures. I’m applying those pieces now, including strict input validation and byte-accurate HTTP responses.
+
+The core implementation is in place. I’m moving into verification now: first the supplied suite, then targeted persistence, idempotency, rollback, concurrency, HTTP framing, and CLI checks that exercise requirements not covered by the two public tests.
+
+The first test run was blocked by the sandbox, not by the service: Python’s default temp directory is outside the writable workspace, so SQLite could not create the test database and cleanup also failed. I’m rerunning the unchanged supplied tests with `TEMP`/`TMP` pointed at this workspace, which matches the allowed filesystem scope.
+
+The sandbox also denies access to directories that Python 3.14’s `TemporaryDirectory` creates—even when they are under the workspace—so the supplied test fixture itself cannot open its own directory here. I’m checking whether another installed standard Python runtime avoids that sandbox/3.14 interaction; independently, I’ll verify the implementation using fixed database paths inside the workspace.
+
+The extended checks pass, including 20-way oversell contention, 16-way idempotent reserve/release races, persistence across fresh `Store` instances, Unicode/encoded SKUs, all HTTP success/error mappings, the 64 KiB limit, and server survival after bad requests. I’m removing the temporary verifier and doing a final diff/static review before the final test pass.
+
+The implementation compiles cleanly. The temp-directory failure is specific to Python 3.13+ honoring Windows `0o700` ACLs under this per-process sandbox; Python 3.12 predates that behavior and is installed here, so I can run the supplied suite unchanged there without any test monkeypatching.
+
+The final review found two small hardening opportunities: ensure oversized integer failures are treated as bad HTTP input, and make unsupported common HTTP methods return the same JSON 404 format as other unknown routes. I’m also exposing the store’s public classes at package level for a clean import surface.
+
+Everything now passes the supplied suite and the broader contract checks. I’m doing one last run with the literal requested `python -m unittest ...` command, using only a process-local `PATH` selection for Python 3.12 so the sandbox’s Python 3.13+ temp-directory ACL issue does not interfere.
+
+Implemented the inventory reservation service:
+
+- Transactional, persistent SQLite store with concurrency-safe reservations and releases.
+- Threaded JSON HTTP API with validation, size limits, and correct status codes.
+- JSON CLI commands and documented usage.
+- Package-level exports for `Store`, `Conflict`, and `NotFound`.
+
+Files: [store.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/04-components-5.6-sol-max-r1/reservation/store.py), [http_api.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/04-components-5.6-sol-max-r1/reservation/http_api.py), [__main__.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/04-components-5.6-sol-max-r1/reservation/__main__.py), [README.md](<benchmark>/Sol-Max-Ultra-20261001/workspaces/04-components-5.6-sol-max-r1/README.md).
+
+Tests: `python -m unittest discover -s tests -v` — 2/2 passed. Additional concurrency, persistence, CLI, and loopback HTTP checks also passed.

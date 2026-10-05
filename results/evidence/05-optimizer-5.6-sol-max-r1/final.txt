@@ -1,0 +1,42 @@
+I’ll inspect the local specification, current implementation, and supplied tests, then implement an exact solver and stress it against brute force on small random instances before running the full suite.
+
+The default shell launcher is unavailable in this sandbox, so I’m switching to the installed Windows PowerShell executable and continuing within the workspace.
+
+The key design is a branch-and-bound search over dependency-closed selections. It propagates exclusions through reverse dependencies, uses exact fractional-knapsack, conflict-clique, and maximum-closure upper bounds, and separates the value/cost optimum from the final ID tie-break so equal-quality families do not force exhaustive enumeration.
+
+The supplied tests pass. I’m now cross-checking exactness—including transitive dependencies, asymmetric exclusions, negative values, multidimensional cost ties, and tuple-order ties—against exhaustive enumeration on hundreds of deterministic random small instances.
+
+The exhaustive cross-check matched all 1,000 cases. Initial 32-project timing probes are well below the limit (roughly 0.01–0.5 seconds), and I’m probing more adversarial multidimensional and conflict-heavy shapes now to catch weak bounds or pathological tie behavior.
+
+The adversarial probes also stay comfortably under the limit: the worst of 170 varied 32-project fixtures was under one second here. I’m cleaning the temporary stress harness, adding a compact permanent regression set for validation and unusual lexicographic ties, then I’ll rerun the full suite and syntax checks.
+
+Two new regression expectations were malformed—the supposedly competing portfolios could actually be combined. I’ve corrected those fixtures (by making the alternatives mutually exclusive); the implementation behavior was consistent with the contract.
+
+A deliberately hard subset-sum family exposed the expected branch-and-bound worst case—the batch is taking too long. I’m using that result to add a meet-in-the-middle path for interaction-free portfolios, which caps the main scale case near /(2^{n/2}/) rather than relying on pruning.
+
+The hard subset-sum path is now bounded by meet-in-the-middle; the long-running command is a 150-fixture batch rather than one fixture. Individual solves are completing, but I’m measuring the batch total and will optimize allocation overhead if the per-instance figure is too close to the limit.
+
+The meet-in-the-middle path now matches brute force on 500 additional independent cases (including required IDs and shuffled input). Hard 32-item subset-sum instances take about 0.5 seconds; random 3D instances take roughly 2.5–2.9 seconds, still comfortably below the fixture limit.
+
+The independent fast path also matches exhaustive enumeration on another 1,000 mixed-sign, 1–3 dimensional cases. I’m doing one final structured fuzz pass now, particularly for instances that simplify into an independent residual after required dependencies are propagated.
+
+The final structured fuzz pass matched exhaustive search on 2,000 more cases. I also hardened the tie-break phase so that once propagation removes the last interaction, it finishes the residual portfolio with one exact meet-in-the-middle solve instead of repeated feasibility searches.
+
+Implemented the exact optimizer in [optimizer.py](<benchmark>/Sol-Complex-Tasks-20261002/workspaces/05-optimizer-5.6-sol-max-r1/optimizer.py).
+
+- Uses dependency-closure bitmasks and symmetric conflict propagation.
+- Exact branch-and-bound with admissible knapsack, conflict-clique, and maximum-closure bounds.
+- Uses meet-in-the-middle for interaction-free 32-project cases.
+- Preserves all three tie-breaking objectives exactly.
+- Worst-case complexity remains exponential, as expected for NP-hard instances; independent cases are approximately /(O(2^{n/2}/operatorname{poly}(n))/).
+
+Added contract regressions in [test_contract_extra.py](<benchmark>/Sol-Complex-Tasks-20261002/workspaces/05-optimizer-5.6-sol-max-r1/tests/test_contract_extra.py).
+
+Verification:
+
+```text
+Ran 10 tests in 0.002s
+OK
+```
+
+The implementation was also cross-checked against exhaustive enumeration on several thousand randomized small instances.

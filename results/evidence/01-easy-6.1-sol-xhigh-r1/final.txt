@@ -1,0 +1,11 @@
+I’ll inspect the workspace, implement validation and merging, then run the required test suite.
+
+
+The supplied tests cover overlap, adjacency, empty input, and reversed endpoints. I’ll add coverage for malformed input, input preservation, large integers, and 30,000 intervals.
+
+
+Implemented `merge_intervals` with strict validation, overlap and adjacency merging, and no input mutation. Uses O(n log n) time and O(n) space.
+
+Added edge-case and 30,000-interval tests; supplied tests remain unchanged.
+
+Ran `python -m unittest discover -s tests -v`: all 10 tests passed.

@@ -1,0 +1,22 @@
+I’ll inspect the workspace and supplied tests first, then implement the executor and run the full unittest suite.
+
+The default PowerShell launcher is blocked by the environment, so I’m switching to the system PowerShell executable and continuing within the same workspace.
+
+The key scheduling detail is to avoid pre-queuing the whole graph into an executor: I’ll keep at most `max_workers` futures submitted, so a dependency that becomes ready can immediately take the next available slot. Validation and cycle detection will be iterative, including support for very deep chains.
+
+The supplied tests pass. I’m now checking the contract’s less visible edge cases: 1,500-node depth, whole-graph validation before execution, transitive skipping with multiple parents, sorted result insertion, and the “newly ready work starts immediately” concurrency condition.
+
+Implemented `run_graph` in [dag.py](<benchmark>/Sol-Effort-Comparison-20261001/workspaces/03-hard-5.6-sol-medium-r1/dag.py).
+
+It now provides:
+
+- Complete pre-execution validation and iterative cycle detection
+- Bounded thread concurrency with immediate dependent scheduling
+- Failure capture and transitive descendant skipping
+- Sorted result insertion
+- Non-recursive handling of 1,500-task chains
+- No mutation of task definitions
+
+Added focused edge-case tests in [test_additional.py](<benchmark>/Sol-Effort-Comparison-20261001/workspaces/03-hard-5.6-sol-medium-r1/tests/test_additional.py).
+
+Test result: **7 tests passed** via `python -m unittest discover -s tests -v`.

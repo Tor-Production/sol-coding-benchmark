@@ -1,0 +1,7 @@
+I’ll inspect the workspace and supplied tests, implement the engine, then run the requested unittest command.
+
+The module is a stub. I’ll use a snapshot per transaction and retain committed write records so validation catches changes even when a key returns to its earlier value.
+
+Implemented `Engine` and `Conflict` in [mvcc.py](<benchmark>/Sol-Complex-Tasks-20261002/workspaces/06-transactions-6-sol-low-r2/mvcc.py). Transactions read from a fixed snapshot plus their own writes; commits check every intervening committed write against tracked keys and scan prefixes, including writes later undone. Recovery validates and replays contiguous records, retaining them for `log_since`.
+
+`python -m unittest discover -s tests -v` passed: 3 tests.

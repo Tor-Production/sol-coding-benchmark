@@ -1,0 +1,21 @@
+I’ll inspect `TASK.md`, `dag.py`, and the supplied tests, then implement the executor and run the full unittest suite. I’ll keep validation iterative so deep chains are safe.
+
+The initial inspection command is still running without output, so I’m polling it before changing anything. If the shell pipeline itself is the issue, I’ll split the reads into smaller commands.
+
+The contract’s main scheduling trap is level-by-level execution: a fast branch’s dependent must be admitted as soon as that branch completes, even while another branch is still running. I’ll use bounded in-flight futures with `FIRST_COMPLETED`, plus iterative Kahn validation and iterative skip propagation.
+
+The public tests pass. I’m adding focused regression coverage for full pre-validation, failure/skip propagation, prompt branch scheduling, sorted results, input preservation, and the required 1,500-node nonrecursive chain before the final run.
+
+All eight tests pass, including the synchronization-based check that a dependent starts while an unrelated slow task is still running. I’m doing a final diff and syntax review now to ensure only the intended implementation and added tests changed.
+
+Implemented [`run_graph`](<benchmark>/Sol-Comparison-20260930/workspaces/03-hard-5.6-sol-r2/dag.py) with:
+
+- Complete pre-execution validation
+- Bounded thread concurrency and prompt dependency scheduling
+- Failure isolation and transitive skip propagation
+- Iterative cycle detection supporting 1,500+ task chains
+- Sorted result insertion without mutating inputs
+
+Added focused coverage in [`test_extended.py`](<benchmark>/Sol-Comparison-20260930/workspaces/03-hard-5.6-sol-r2/tests/test_extended.py).
+
+Verification: `python -m unittest discover -s tests -v` — all 8 tests passed.

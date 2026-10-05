@@ -1,0 +1,21 @@
+I’ll inspect the workspace and supplied tests, then implement validation and an exact search with pruning. I’ll run the requested unittest command and check additional cases where the tie breaks matter.
+
+The supplied file is a stub, and the public tests cover only the example, a basic tie, and one validation case. I’ll use meet in the middle for independent projects and a closure aware branch and bound search when dependencies or exclusions are present.
+
+The public tests pass. I’m adding a small exhaustive oracle test now, including required projects, transitive dependencies, asymmetric exclusions, negative values, and ties.
+
+A scale check found a slow tie-heavy case: one exclusion plus 30 otherwise independent unit-cost projects. I’ll let the search hand the independent remainder to the meet in the middle solver, then rerun the scale checks.
+
+The paired-exclusion case is still slow because the budget bound treats both members of each pair as selectable. I’m adding a clique-cover upper bound: each conflict clique can contribute at most its highest-valued project. That preserves exactness and should prune these branches early.
+
+The optimizer now passes the exhaustive tests and the scale cases checked so far. I’m checking one more dependency pattern: disjoint positive projects whose required partners erase their gain. That case can expose a weak upper bound around negative prerequisites.
+
+The dependency case is now fast, and all exhaustive checks still pass. I’m adding explicit validation cases for malformed containers and references, then I’ll run the requested suite once more.
+
+One edge case remains: costs and values can be arbitrarily large integers, and the search-order heuristic currently uses floating-point division. I’m switching that heuristic to exact rational arithmetic so valid large inputs cannot raise an overflow error.
+
+Implemented the exact optimizer in [optimizer.py](<benchmark>/Sol-Complex-Tasks-20261002/workspaces/05-optimizer-6-sol-max-r1/optimizer.py) and added [contract tests](<benchmark>/Sol-Complex-Tasks-20261002/workspaces/05-optimizer-6-sol-max-r1/tests/test_contract.py).
+
+Independent projects use meet in the middle, enumerating at most /(2^{16}/) subsets per half. Constrained projects use dependency-aware branching; a branch is pruned only when an upper bound proves it cannot improve the value, cost, or ID tie break. This preserves global optimality. Worst-case search remains exponential, up to /(O(2^{32})/).
+
+`python -m unittest discover -s tests -v`: **10 tests passed**.

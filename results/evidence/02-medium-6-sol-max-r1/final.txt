@@ -1,0 +1,9 @@
+I’ll inspect the workspace and supplied tests, implement the cache, then run the requested unittest command.
+
+`cache.py` is a stub, and the supplied tests cover expiry and basic LRU order. I’ll use an ordered dictionary so reads can update recency in constant time, with an expiry scan before capacity eviction.
+
+The implementation passes the supplied tests and the new behavior tests. I found one numeric edge case to cover: Python can raise when adding a valid, very large integer TTL to a float clock value. I’ll handle that before the final run.
+
+Implemented `TTLCache` in [cache.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/02-medium-6-sol-max-r1/cache.py) with fixed TTL, inclusive expiry, and O(1) LRU recency updates. Added contract tests, including an expired recent key and large valid time values.
+
+`python -m unittest discover -s tests -v` passed: **10 tests**.

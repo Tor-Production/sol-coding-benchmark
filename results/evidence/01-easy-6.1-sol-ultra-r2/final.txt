@@ -1,0 +1,9 @@
+I’ll inspect the workspace, implement validation and merging, then run the requested tests.
+
+
+The module is a stub. I’ll validate each interval, sort a copy, and merge it in one pass. I’ll also add tests for malformed input, large integers, input immutability, and 30,000 intervals.
+
+
+Implemented `merge_intervals` with input validation, overlap and adjacency merging, and no input mutation. Runs in O(n log n) time and O(n) space.
+
+Added edge-case and 30,000-interval tests. Ran `python -m unittest discover -s tests -v`: all 11 tests passed.

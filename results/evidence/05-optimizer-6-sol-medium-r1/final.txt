@@ -1,0 +1,13 @@
+I’ll inspect the existing module and tests, implement the exact solver, then run the requested test command and check the main scale cases.
+
+The public tests are small. I’m using transitive dependency masks and symmetric conflict masks so each search branch can reject infeasible selections early. Value and cost bounds will prune branches while preserving the required tie order.
+
+The requested tests pass. I’m adding a small brute-force comparison for random instances and a 32-project tie case to check both exactness and the pruning behavior.
+
+The random 32-project budget cases and conflict-heavy cases completed quickly. I found one robustness issue: the branch-order heuristic uses floating point, which can fail for very large valid integers. I’m changing that ordering to exact rational arithmetic.
+
+Implemented `solve` in [optimizer.py](<benchmark>/Sol-Complex-Tasks-20261002/workspaces/05-optimizer-6-sol-medium-r1/optimizer.py). It validates the full input, expands transitive dependencies, treats exclusions symmetrically, and searches feasible subsets with exact branch and bound.
+
+Pruning uses relaxed bounds on value, cost, and ID order. Those bounds cannot discard a better feasible subset, so the result is globally optimal under all three tie rules. Worst-case search remains exponential in the number of projects.
+
+The requested test command passed: **6 tests**, including added brute-force comparisons and a 32-project tie case.

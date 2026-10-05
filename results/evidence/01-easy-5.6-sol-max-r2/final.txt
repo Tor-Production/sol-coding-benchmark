@@ -1,0 +1,19 @@
+I’ll inspect the current implementation and supplied tests, then implement strict validation and interval merging without mutating the input. Afterward I’ll run the requested unittest command and any focused edge-case checks needed.
+
+The default shell launcher is unavailable in this environment, so I’m switching to the system PowerShell executable and continuing within the same workspace.
+
+The existing file is only a stub. I’ll add a single validation pass that copies endpoints into a fresh list, sort that copy, and merge whenever the next start is at most the current end plus one; this preserves the caller’s containers and supports Python’s unbounded integers.
+
+The supplied tests pass. I’m doing one additional in-memory check for the contract areas the public suite does not cover: tuple inputs, booleans and malformed containers, non-mutation, very large integers, containment/duplicates, and a 30,000-interval chain.
+
+Implemented [`merge_intervals`](<benchmark>/Sol-Max-Ultra-20261001/workspaces/01-easy-5.6-sol-max-r2/intervals.py:1) with:
+
+- Strict container, endpoint, boolean, and ordering validation
+- Non-mutating O(n log n) sorting and O(n) merging
+- Overlap, containment, duplicate, and adjacency handling
+- Support for negative and arbitrary-size integers
+
+Tests run:
+
+- `python -m unittest discover -s tests -v` — 3 tests passed
+- Additional contract checks, including 30,000 intervals — passed

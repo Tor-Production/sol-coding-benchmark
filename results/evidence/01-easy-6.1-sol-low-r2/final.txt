@@ -1,0 +1,8 @@
+I’ll inspect the implementation and tests, add validation and interval merging, then run the requested test suite.
+
+
+Implemented validation and merging in `intervals.py`, including adjacent intervals, without mutating input. Uses O(n log n) time and O(n) space.
+
+Added tests for malformed inputs, large integers, non-mutation, and 30,000 intervals. Supplied tests were preserved.
+
+`python -m unittest discover -s tests -v` — all 8 tests passed.

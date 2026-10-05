@@ -1,0 +1,15 @@
+I’ll inspect the package and tests, implement the SQLite store, HTTP API, and CLI, then run the required test suite.
+
+The command runner is failing to start PowerShell. I’m checking an alternate invocation so I can inspect the files and run the tests.
+
+The package contains stubs, and the supplied tests cover release and insufficient stock. I’ll use SQLite write transactions to protect stock and idempotency across Store instances, then add coverage for persistence, concurrent calls, HTTP errors, and CLI behavior.
+
+The implementation is in place. The first test run failed because the sandbox blocked access to Windows’ default temporary directory. I’ll direct test temporary files into this workspace for the next run and leave the supplied tests unchanged.
+
+Both supplied tests pass with a test-runner workaround for temporary-directory permissions. Python 3.14 creates those directories with permissions this sandbox cannot access. I’ll use that workaround for the broader suite; it does not change the service or supplied tests.
+
+All 19 tests pass, covering persistence, concurrent stock changes, reservation retries and releases, HTTP validation and body limits, and CLI output. I’ll remove the temporary artifacts and do a final source check.
+
+Implemented the persistent SQLite store, HTTP API, CLI, and README documentation. Added validation, persistence, and concurrency tests.
+
+All 19 tests pass with a test-runner workaround for sandbox temporary-directory permissions. Supplied tests remain unchanged. Two empty test directories remain because sandbox permissions blocked deletion.

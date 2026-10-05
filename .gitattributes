@@ -1,0 +1,11 @@
+* text=auto eol=lf
+*.pdf binary
+*.png binary
+*.db binary
+# Published archival bytes are hash-bound, including original line endings.
+candidates/** -text
+results/** -text
+artifacts/** -text
+tasks/** -text
+evaluator/** -text
+quality-v2.1/** -text

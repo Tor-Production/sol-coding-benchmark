@@ -1,0 +1,13 @@
+I’ll inspect the workspace, implement snapshot isolation and history-based conflict checks, then run the supplied tests.
+
+
+The implementation now validates commits against every intervening write, so ABA changes and insert-then-delete sequences remain detectable. Savepoint rollback restores writes while retaining reads. I’ll add tests for these cases, recovery validation, and defensive copies.
+
+
+Implemented `Engine` and `Conflict` in `mvcc.py`.
+
+Transactions use independent snapshots and validate all intervening committed writes, including ABA changes and range phantoms. Savepoint rollback preserves read tracking.
+
+Recovery validates the complete checkpoint and log before replay, retains the log’s base version, and defensively copies mutable data.
+
+Added contract tests; all 9 tests pass with `python -m unittest discover -s tests -v`. Supplied tests and instructions remain unchanged.

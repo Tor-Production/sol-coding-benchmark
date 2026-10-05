@@ -1,0 +1,11 @@
+I’ll inspect the implementation and tests, add graph validation and concurrent scheduling, then run the full unittest suite.
+
+
+The implementation is a stub, and the supplied tests cover only a chain and a cycle. I’ll add iterative validation and scheduling, plus tests for malformed inputs, failure propagation, concurrency, and the 1,500-task chain.
+
+
+Implemented [dag.py](/<benchmark>/Sol-Max-Ultra-20261001/workspaces/03-hard-6.1-sol-ultra-r1/dag.py) with full validation, bounded concurrent scheduling, iterative cycle detection and failure propagation, and sorted results.
+
+Added contract tests while preserving supplied tests.
+
+`python -m unittest discover -s tests -v` — **all 15 tests passed**.

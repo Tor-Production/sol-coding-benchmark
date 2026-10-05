@@ -1,0 +1,31 @@
+I’ll inspect the existing package and supplied tests first, then implement the store, HTTP layer, CLI, and README while preserving the provided files. I’ll verify everything with the requested unittest command and add focused edge-case checks only if useful.
+
+The default PowerShell launcher is blocked by the workspace sandbox, so I’m switching to the system shell and continuing with read-only inspection. No files have been changed.
+
+The supplied code is a clean skeleton with two basic store tests. I’ve settled the key implementation choices: each operation gets its own SQLite connection and transaction, write paths use an immediate transaction to serialize competing writers, reservation keys remain permanently unique for idempotency, and the HTTP server will be threaded with per-request store calls. I’m implementing validation at the store boundary so direct, HTTP, and CLI use the same rules.
+
+The first bulk patch was rejected by the patch tool’s format rules before applying anything. I’m splitting it into ordinary per-file updates; the implementation itself is unchanged.
+
+The core implementation is now in place across the store, HTTP API, CLI, and README. I’m at the verification stage: first syntax and supplied tests, then targeted persistence, idempotency, HTTP error handling, CLI exit behavior, and concurrent reservation checks.
+
+Syntax passes. The supplied tests reached SQLite but the sandbox denies Python’s default user temp directory, so their `TemporaryDirectory` cannot be opened or cleaned up; this is an environment restriction, not a service failure. I’m rerunning the exact suite with `TEMP`/`TMP` scoped to this writable workspace, then I’ll continue the behavioral checks there.
+
+The sandbox redirects temp creation into the workspace now, but directories created dynamically by `tempfile` are still assigned inaccessible permissions under this runner. I’ll verify against explicit database paths in the workspace (which matches normal SQLite behavior), and clean up only the two empty temp directories created by these failed test attempts.
+
+The CLI and persistence checks pass, including retry-after-release, exact-once restoration, report totals, conflict exit status, and validation JSON. I’m now exercising the HTTP contract and multi-instance contention with an isolated local verification script, including server survival after bad input and oversell attempts.
+
+The extended HTTP and contention verification passed: 30 concurrent reservations against 10 units produced exactly 10 active records with no oversell, and the HTTP server remained healthy after malformed and oversized requests. I’ve also isolated the unittest issue to Python 3.14’s Windows-only `0o700` temp-directory ACL under this impersonated runner; I’m applying a temporary, test-process-only ACL workaround so the unchanged supplied suite can run normally.
+
+All supplied tests now pass unchanged after the runner-only temp ACL workaround, and the temporary shim and verification files have been removed. I’m doing the final source audit now—checking for leftover stubs/artifacts and reviewing boundary behavior before handing it back.
+
+Implemented the inventory reservation service:
+
+- SQLite-backed atomic inventory, reservations, idempotency, releases, persistence, and reporting in [store.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/04-components-5.6-sol-ultra-r2/reservation/store.py).
+- Threaded JSON HTTP API with validation, error mapping, URL decoding, and 64 KiB limits in [http_api.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/04-components-5.6-sol-ultra-r2/reservation/http_api.py).
+- Full CLI implementation in [__main__.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/04-components-5.6-sol-ultra-r2/reservation/__main__.py).
+- Usage documentation in [README.md](<benchmark>/Sol-Max-Ultra-20261001/workspaces/04-components-5.6-sol-ultra-r2/README.md).
+
+Tests:
+
+- `python -m unittest discover -s tests -v` — 2 tests passed.
+- Additional persistence, HTTP, validation, idempotency, and concurrent oversell checks passed.

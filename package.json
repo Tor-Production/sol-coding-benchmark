@@ -1,0 +1,15 @@
+{
+  "name": "sol-coding-benchmark",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Reproducible six-task Sol coding benchmark stand and offline verification",
+  "type": "module",
+  "engines": { "node": ">=22.18.0" },
+  "scripts": {
+    "test": "node scripts/validate_stand.mjs",
+    "status": "node harness/cli.mjs status",
+    "prepare": "node harness/cli.mjs prepare",
+    "preflight": "node harness/cli.mjs preflight",
+    "report:fresh": "node harness/cli.mjs report"
+  }
+}

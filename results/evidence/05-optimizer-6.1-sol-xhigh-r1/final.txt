@@ -1,0 +1,23 @@
+I’ll inspect the workspace and tests, implement an exact solver with pruning for the 32-project cases, and run the required test command.
+
+
+The configured PowerShell executable failed to launch. I’m trying the built-in Windows PowerShell executable so I can access the workspace.
+
+
+I’m using meet-in-the-middle search: enumerate feasible selections in each half, then use integer bitsets to filter compatible selections in the other half by dependencies, exclusions, and budget. This will preserve exact results while avoiding a scan of all 2³² subsets.
+
+
+The supplied tests pass. The added tests also pass, including comparisons against exhaustive search on 350 small random instances and checks for validation, negative dependencies, tuple-prefix ties, and three 32-project cases. I’m checking larger budget-query cases next to measure performance against the eight-second limit.
+
+
+The local 32-project benchmarks took about 2–6 seconds, with the three-dimensional random case the slowest. I’m adding an exact fractional-knapsack upper bound to prune more branches, then I’ll rerun the correctness and timing checks.
+
+
+The bounds reduced the random three-dimensional benchmark to about 2.3 seconds. The hardest local case so far took about 6.5 seconds. I’m adding a final cost-tie pruning improvement and an exhaustive-oracle test that exercises budget indexes across multiple blocks.
+
+
+Implemented `solve` in `optimizer.py` with full validation and no input mutation.
+
+The exact meet-in-the-middle search considers at most 2¹⁶ selections per half. Bitsets enforce constraints and budgets; proven bounds prune branches without losing an optimal solution or any tie breaker. Worst-case complexity remains exponential.
+
+`python -m unittest discover -s tests -v` passed all 16 tests, including exhaustive-oracle comparisons and structured 32-project cases.

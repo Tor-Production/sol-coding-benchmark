@@ -1,0 +1,8 @@
+I’ll inspect the implementation and tests, add validation and interval merging, then run the requested test suite.
+
+
+Implemented `merge_intervals` with strict validation, adjacency merging, and no input mutation. Complexity is O(n log n) time and O(n) space.
+
+Added tests for malformed inputs, large integers, input independence, and 30,000 intervals. Supplied tests remain unchanged.
+
+Ran `python -m unittest discover -s tests -v`: all 8 tests passed.

@@ -1,0 +1,22 @@
+I’ll inspect the local task, implementation, and supplied tests first, then implement the executor and run the full unittest suite.
+
+The default PowerShell launcher is blocked in this sandbox, so I’m switching to the installed Windows PowerShell executable and continuing within the workspace.
+
+The starter contains only the stub and two public tests. I’m implementing two distinct phases: strict, iterative whole-graph validation, followed by event-driven scheduling so completions immediately free capacity for newly ready dependents.
+
+The first implementation is in place. I’m running the supplied suite now, then I’ll probe the contract’s harder cases—deep chains, failure propagation, validation-before-execution, concurrency, and prompt scheduling.
+
+All eight tests pass, including the 1,500-node chain and an event-coordinated scheduling test that proves a dependent starts while an unrelated worker remains occupied. I’m doing a final contract and diff check now.
+
+Implemented `run_graph` in [dag.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/03-hard-5.6-sol-max-r2/dag.py) with:
+
+- Complete pre-execution validation and iterative cycle detection
+- Bounded thread-pool execution
+- Immediate scheduling of newly ready tasks
+- Failure isolation and transitive skip propagation
+- Sorted result ordering without input mutation
+- Support for dependency chains beyond recursion limits
+
+Added focused coverage in [test_dag_additional.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/03-hard-5.6-sol-max-r2/tests/test_dag_additional.py).
+
+Verification: `python -m unittest discover -s tests -v` — all 8 tests passed.

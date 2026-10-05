@@ -1,0 +1,36 @@
+I’ll inspect the task, current implementation, and supplied tests first, then implement the exact solver and exercise it against both the suite and targeted edge cases.
+
+The initial inspection is still producing output; I’m waiting for it to finish before touching any files.
+
+The key implementation choice is an exact branch-and-bound over dependency-closed selections. I’m encoding transitive requirements and reverse “cannot still be chosen” propagation as bitmasks, then combining several safe upper bounds (fractional knapsack, dependency closure, and exclusion cliques) so structured 32-item cases can prune without scanning all subsets. Tie-breaking remains exact rather than folded into a heuristic score.
+
+The supplied tests pass. I’m now cross-checking the solver against a brute-force oracle on many small randomized instances, including dependencies, one-sided exclusions, negative values, multiple budget dimensions, required sets, and the full three-level tie-break. This is aimed at catching unsafe pruning, which ordinary example tests rarely expose.
+
+The brute-force comparison passed all 200 deterministic random cases. The pruning also stays comfortably below the scale limit on representative 32-project fixtures (equal-item knapsack, random 1D/3D knapsack, paired exclusions, and mixed structured constraints); the slowest local sample was about 0.052 seconds. I’m doing the final syntax/diff hygiene checks now.
+
+A deliberately adversarial subset-sum family (`value == cost`, 32 large random weights) exposed the expected weak spot of pure branch-and-bound: its relaxation can stay equal across many nodes. I’m tightening that unconstrained-knapsack path with an exact meet-in-the-middle solver, which is the right complement for 32 items.
+
+The new meet-in-the-middle path solves the adversarial 32-item subset-sum cases in about 0.6–0.74 seconds per fixture and matches exhaustive enumeration on targeted 18-item cases, including inactive secondary dimensions and zero-value ID-prefix ties. I’m probing the analogous genuinely two-dimensional case before deciding whether another dominance-query path is warranted.
+
+The multidimensional extension is now in place: exact dominance queries handle independent 1D, 2D, and 3D residuals. The formerly pathological two-dimensional cases complete in about 0.8–0.9 seconds, three-dimensional ones in about 3.1–4.2 seconds, and both variants matched brute force on 18-item cross-checks. Dependency-heavy and dense-exclusion 32-item checks also complete quickly.
+
+Implemented the exact optimizer in [optimizer.py](<benchmark>/Sol-Complex-Tasks-20261002/workspaces/05-optimizer-5.6-sol-xhigh-r1/optimizer.py) and added contract tests in [test_contract_extra.py](<benchmark>/Sol-Complex-Tasks-20261002/workspaces/05-optimizer-5.6-sol-xhigh-r1/tests/test_contract_extra.py).
+
+Algorithm:
+
+- Validates and privately copies all inputs.
+- Encodes transitive dependencies and symmetric exclusions as bitmasks.
+- Uses exact branch-and-bound with dependency/exclusion propagation and safe fractional, maximum-closure, and clique-cover bounds.
+- Solves large independent residuals by meet-in-the-middle with exact 1–3 dimensional dominance queries.
+- Applies value, cost-tuple, and selected-ID tie-breaks exactly.
+
+Optimality follows because every feasible include/exclude decision is covered; pruning occurs only when optimistic bounds prove a branch cannot improve the incumbent. Worst-case complexity remains exponential, as required for this NP-hard problem—up to `O(2^n)` for general constrained instances, with independent residuals handled in roughly `O(2^(n/2) poly(n))` time and storage.
+
+Verification:
+
+```text
+Ran 6 tests in 0.068s
+OK
+```
+
+This includes 200 deterministic randomized comparisons against brute force plus targeted validation, mutation, tie-breaking, and scale checks.

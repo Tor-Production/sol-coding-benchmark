@@ -1,0 +1,13 @@
+I’ll inspect the workspace and supplied tests, implement the exact solver, then run the requested test command.
+
+The starter contains only a stub. I’m using dependency and exclusion propagation during search, with budget based upper bounds to prune branches that cannot win.
+
+The supplied tests pass. I found and fixed one validation gap: an unknown ID in a reference must raise `ValueError` before search begins. I’m checking exactness against exhaustive results on small cases and trying a 32-project tie case.
+
+The equal-weight 32-project case exposed excessive tie exploration. I added a lower bound on the cost and a lexicographic bound for tied solutions; it now finishes quickly, and the small exhaustive comparisons still pass.
+
+Implemented the exact solver in [optimizer.py](<benchmark>/Sol-Complex-Tasks-20261002/workspaces/05-optimizer-6-sol-medium-r2/optimizer.py) and added contract checks in [test_contract_extra.py](<benchmark>/Sol-Complex-Tasks-20261002/workspaces/05-optimizer-6-sol-medium-r2/tests/test_contract_extra.py).
+
+The solver validates every project, propagates dependencies and exclusions, and searches feasible subsets. Its value, cost, and ID bounds prune branches only when they cannot improve the result, so the returned subset is globally optimal under all three tie breakers. Worst-case search remains exponential.
+
+`python -m unittest discover -s tests -v` passed: 8 tests.

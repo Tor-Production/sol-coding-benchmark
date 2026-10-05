@@ -1,0 +1,11 @@
+I’ll inspect the implementation and tests, build the executor, then run the required test suite.
+
+
+The supplied tests cover a chain and cycle rejection. I’ll use iterative cycle validation and schedule tasks as individual futures finish, then add tests for concurrency, failure propagation, validation, and a 1,500-task chain.
+
+
+Implemented `run_graph` in `dag.py` with full graph validation, bounded concurrent execution, failure propagation, sorted results, and iterative handling of long chains.
+
+Added tests for validation, concurrency, multiple-parent failures, and 1,500-task chains. Preserved supplied tests and contract files.
+
+`python -m unittest discover -s tests -v` passed all 6 tests.

@@ -1,0 +1,26 @@
+I’ll inspect the task files and supplied tests, then implement an exact solver with validation and pruning tailored to the 32-project, 1–3 budget constraints. I’ll preserve all supplied files and run the full unittest suite afterward.
+
+The configured PowerShell executable is blocked by the environment before any command starts. I’m switching to the system shell for the same read-only inspection; no workspace changes have occurred yet.
+
+The core design is now settled: validate everything first, encode the first two tie-break levels into one exact integer objective, use dependency/conflict propagation plus branch-and-bound for constrained cases, and a meet-in-the-middle dominance solver for independent 32-project knapsacks. A final constrained feasibility pass determines the selected-ID tuple exactly, including subtle zero-value/zero-cost ties.
+
+The public tests pass. I’m now checking the harder correctness edges against an independent brute-force oracle: transitive dependencies, one-sided exclusions, negative values, all three tie-break levels, required selections, and randomized small instances. This is also useful for catching pruning mistakes that ordinary examples won’t expose.
+
+Randomized correctness checks all match brute force. I’m moving on to adversarial 32-project timing cases now—especially sparse logical constraints around an otherwise large three-dimensional knapsack, where repeated tie-resolution queries can be more expensive than the primary optimization.
+
+The scale checks are comfortably within the fixture limit: representative independent 32-item, three-budget cases complete in roughly 0.7–1.5 seconds, sparse-constraint variants in about 2–3 seconds, and denser dependency/conflict cases much faster. I’m doing a final validation audit and clean test run now.
+
+Implemented the exact optimizer in [optimizer.py](<benchmark>/Sol-Complex-Tasks-20261002/workspaces/05-optimizer-5.6-sol-ultra-r2/optimizer.py:701) and added randomized brute-force comparisons in [test_contract_extra.py](<benchmark>/Sol-Complex-Tasks-20261002/workspaces/05-optimizer-5.6-sol-ultra-r2/tests/test_contract_extra.py:49).
+
+Algorithm:
+
+- Full contract validation before optimization.
+- Transitive dependency closures and symmetric exclusion propagation.
+- Exact mixed-radix objective encoding for value and cost tie-breaking.
+- Branch-and-bound with fractional-knapsack upper bounds.
+- Meet-in-the-middle dominance queries for structured independent 32-project cases.
+- Exact feasibility reconstruction for the lexicographically smallest selected-ID tuple.
+
+Optimality follows because every feasible positive-improvement decision is exhaustively branched unless eliminated by a valid relaxation bound; meet-in-the-middle considers every feasible half-subset combination. Worst-case complexity remains exponential, up to `O(2**n)`, as expected for NP-hard instances; independent cases use approximately `O(2**(n/2) log²(2**(n/2)))`.
+
+All 5 tests pass, including 160 randomized cases checked against brute force.

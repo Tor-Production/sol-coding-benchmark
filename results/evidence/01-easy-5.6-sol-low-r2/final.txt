@@ -1,0 +1,21 @@
+I’ll inspect the task files and supplied tests, then implement the validation and O(n log n) merge without mutating inputs.
+
+The default shell couldn’t start in this environment, so I’m retrying the same read-only inspection through the system command shell.
+
+The contract’s edge cases are clear: only list/tuple containers are accepted at both levels, exact pairs are required, and `bool` must be rejected despite being an `int` subclass. I’m applying those checks before sorting and merging.
+
+The supplied suite passes. I’m doing one additional smoke check for non-mutation, malformed shapes/types, very large integers, containment, and the 30,000-interval scale requested by the contract.
+
+The inline smoke-check command hit Windows quoting rather than the implementation. I’ll put those checks into an additional unittest file so they’re repeatable, then rerun discovery.
+
+Implemented `merge_intervals` with:
+
+- Complete input validation, including boolean rejection
+- Overlap, containment, duplicate, and adjacency merging
+- Input preservation
+- Support for negative and arbitrarily large integers
+- O(n log n) time and O(n) space
+
+Added tests for validation, non-mutation, large integers, and 30,000 intervals.
+
+Test result: all 6 tests passed.

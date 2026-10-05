@@ -1,0 +1,9 @@
+I’ll inspect `dag.py` and the supplied tests, implement the executor, then run the requested test command.
+
+The supplied tests cover a simple chain and cycle rejection. I’ll use iterative graph validation and a scheduler that handles each completion as it arrives, so a newly ready task can start while unrelated work is still running.
+
+The initial implementation passes the supplied tests. I’m adding focused tests for concurrency, failure propagation, full validation before execution, and a 1,500-task chain.
+
+Implemented `run_graph` in [dag.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/03-hard-6-sol-ultra-r2/dag.py). It validates the full graph before execution, runs ready tasks with bounded threads, propagates failures to descendants, and returns results in sorted task-ID order.
+
+Added coverage for concurrency, validation, failure propagation, and a 1,500-task chain in [test_dag_additional.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/03-hard-6-sol-ultra-r2/tests/test_dag_additional.py). The requested unittest command passed: **8 tests**.

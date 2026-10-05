@@ -1,0 +1,23 @@
+I’ll inspect the supplied module and tests, then implement the transaction state machine, conflict validation, and recovery validation. I’ll keep all work inside this workspace and use only the standard library.
+
+The default PowerShell host was denied before any command ran. I’m switching to the system Windows PowerShell executable and continuing the same read-only inspection.
+
+The supplied tests cover the core flow, while the contract adds several hidden-edge requirements: failed commits must close, reads survive savepoint rollback, tombstones must remain historical writes, and restore must reject the entire input before constructing an engine. I’m implementing those invariants directly, with immutable-by-convention snapshots and defensive export reconstruction.
+
+The initial implementation passes the supplied suite. I’m now exercising the contract edges that tend to expose MVCC bugs: write-free conflict checks, insert/delete history, blind writes merging against current committed state, savepoint read retention, defensive log copies, and restored log bounds.
+
+All 11 tests now pass, including a nonzero-version checkpoint/log replay. I’m doing the final workspace cleanup and source-only verification, then I’ll summarize the isolation and recovery guarantees.
+
+Implemented in [mvcc.py](<benchmark>/Sol-Complex-Tasks-20261002/workspaces/06-transactions-5.6-sol-ultra-r2/mvcc.py).
+
+Key invariants:
+
+- Transactions read stable snapshots plus their own writes.
+- Commits validate point reads, range reads, and pending writes against every intervening log record, preserving ABA detection.
+- Savepoint rollback restores writes while retaining all reads.
+- Recovery fully validates checkpoint/log structure before replay and retains correct log bounds.
+- Returned state and logs are defensively copied and deterministically sorted.
+
+Added focused contract tests in [test_contract_edges.py](<benchmark>/Sol-Complex-Tasks-20261002/workspaces/06-transactions-5.6-sol-ultra-r2/tests/test_contract_edges.py).
+
+`python -m unittest discover -s tests -v`: **11 tests passed**.

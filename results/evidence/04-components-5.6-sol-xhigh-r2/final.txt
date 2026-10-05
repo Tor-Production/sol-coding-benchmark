@@ -1,0 +1,31 @@
+I’ll inspect the supplied package, tests, and task files, then implement the store, HTTP API, CLI, and README without altering the provided tests or contract files. Afterward I’ll run the full unittest suite and targeted checks for persistence and concurrency.
+
+The configured PowerShell executable is unavailable in this sandbox, so I’m switching to the system command shell for read-only inspection and test execution. This does not change the implementation scope.
+
+The supplied files are stubs and the public tests cover only the basic reserve/release path. I’m implementing the full contract with one connection per operation, explicit SQLite transactions, a unique idempotency key, and a threaded HTTP server so the same invariants hold across direct, CLI, and concurrent HTTP access.
+
+The first implementation pass is complete. I’m now exercising the public suite plus broader cases the contract calls out: whitespace normalization, validation (including `bool`), idempotent retries after release, atomic failure behavior, persistence, concurrent Store instances, HTTP body/error handling, and CLI exit streams.
+
+The initial test command hit a sandbox-specific Windows temp-directory permission issue before reaching the service logic. I’ll rerun with `TEMP`/`TMP` pointed at a workspace-local test directory, which is writable under the stated workspace policy.
+
+The targeted contract suite passes, including 20-way oversell contention, same-key concurrency, persistence, release idempotency, validation, URL-encoded SKUs, malformed JSON, and the 64 KiB limit. I’m cleaning the temporary verification artifacts, then I’ll do a final source review and CLI stream/exit-code checks.
+
+A stress check of simultaneous `Store(...)` creation exposed a SQLite edge case: repeatedly setting WAL mode can fail immediately while another initializer holds the database lock. WAL is not required for correctness here, so I’m removing that mode switch; the explicit `BEGIN IMMEDIATE` transactions provide the required serialization without making concurrent initialization fragile.
+
+The implementation and targeted checks are clean. The supplied tests themselves cannot create their `TemporaryDirectory` under this restricted Windows token (Python 3.14 applies an ACL that immediately excludes the sandbox identity), so I’m doing one isolated rerun with a pre-created workspace directory substituted only for that temporary-directory helper. This leaves the supplied tests unchanged and will be removed immediately afterward.
+
+All functional checks now pass: the supplied two tests pass under the workspace-temp workaround, the broader four-case contract suite passed, concurrent initialization/addition passed with 32 workers, and CLI success/error stream behavior passed. I’m doing the final inventory check to ensure only the intended source and README changes remain.
+
+Implemented the inventory reservation service:
+
+- SQLite persistence with atomic, concurrency-safe reservations and releases.
+- Idempotency, validation, reporting, and domain exceptions.
+- Threaded JSON HTTP API with required status codes and 64 KiB limit.
+- Complete CLI with JSON output/error handling.
+- Updated package exports and README usage instructions.
+
+Tests:
+
+- Supplied suite: 2/2 passed.
+- Additional store, HTTP, persistence, concurrency, and CLI checks passed.
+- Verified concurrent initialization and updates with 32 workers.

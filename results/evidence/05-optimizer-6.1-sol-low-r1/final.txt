@@ -1,0 +1,14 @@
+I’ll inspect the task and tests, then implement an exact solver with pruning and run the full test suite.
+
+
+I’ll use dependency closures to include prerequisites together and propagate exclusions. The search will use optimistic value and cost bounds to prune branches that cannot beat the best feasible result, including the tie-breaking rules.
+
+
+All tests pass, including 150 small random cases checked against exhaustive enumeration and a structured 32-project tie case. I’ll also check performance on a 32-project instance with three budget dimensions.
+
+
+Implemented `solve` in `optimizer.py` with full validation, dependency propagation, symmetric exclusions, and exact tie-breaking.
+
+The solver uses branch and bound with fractional-knapsack bounds. Include/exclude branches cover every feasible completion; pruning removes only branches that cannot improve the result, so the optimum is global. Worst-case time remains exponential, with polynomial memory.
+
+All 6 tests pass, including 150 randomized comparisons against exhaustive enumeration and structured 32-project cases. Supplied tests and instructions were preserved.

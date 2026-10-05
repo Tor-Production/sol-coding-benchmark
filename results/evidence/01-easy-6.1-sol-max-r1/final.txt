@@ -1,0 +1,12 @@
+I’ll inspect the implementation and tests, add validation and merging without mutating the input, then run the requested test suite.
+
+
+The shell failed to launch with an “Access is denied” error. I’m trying another local shell to see whether I can access the files and run the tests.
+
+
+The implementation is a stub. I’ll validate the input, sort a copy, and merge in one pass. I’m adding tests for malformed input, large integers, input preservation, and 30,000 intervals.
+
+
+Implemented `merge_intervals` with input validation, overlap and adjacency merging, and no input mutation. Complexity is O(n log n) time and O(n) space.
+
+`python -m unittest discover -s tests -v` passed all 12 tests, including added coverage for malformed input, large integers, and 30,000 intervals.

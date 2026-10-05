@@ -1,0 +1,9 @@
+I’ll inspect `dag.py` and the supplied tests, implement validation and scheduling, then run the requested unittest command.
+
+`dag.py` is a stub. I’ll validate the graph with an iterative topological pass before creating workers, then schedule tasks as dependencies finish so a slow unrelated task does not hold up newly ready work.
+
+The two supplied tests pass. I’ll add focused tests for invalid graphs, failure propagation, the 1,500-task chain, and starting a dependent while another worker remains busy.
+
+Implemented `run_graph` in [dag.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/03-hard-6-sol-max-r2/dag.py). It validates the full graph before running any function, schedules ready tasks with bounded threads, propagates failures to descendants, and returns results in sorted task-ID order.
+
+Added coverage in [test_dag_extra.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/03-hard-6-sol-max-r2/tests/test_dag_extra.py). `python -m unittest discover -s tests -v` passed all 7 tests.

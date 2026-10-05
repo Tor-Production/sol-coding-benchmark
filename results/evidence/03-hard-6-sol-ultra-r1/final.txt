@@ -1,0 +1,7 @@
+I’ll inspect the workspace and supplied tests, implement the executor, then run the requested unittest command.
+
+The graph can be validated with an iterative topological pass, which also handles the 1,500 task chain. I’ll use completion driven scheduling so a free worker can start a newly ready task while other work is still running.
+
+Implemented `run_graph` in [dag.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/03-hard-6-sol-ultra-r1/dag.py). It validates the full graph before execution, runs ready tasks with bounded thread concurrency, and records failures and skipped descendants. Added contract tests in [test_dag_contract.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/03-hard-6-sol-ultra-r1/tests/test_dag_contract.py).
+
+`python -m unittest discover -s tests -v` passed: 7 tests.

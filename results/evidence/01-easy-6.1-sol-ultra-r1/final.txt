@@ -1,0 +1,11 @@
+I’ll inspect the implementation and supplied tests, add interval validation and merging, then run the requested test suite.
+
+
+The implementation is a stub. I’ll validate and copy the intervals, sort them, then merge them in one pass. I’ll add tests for malformed input, input preservation, large integers, and 30,000 intervals.
+
+
+Implemented `merge_intervals` with strict validation, sorted merging of overlapping and adjacent intervals, and no input mutation. Uses O(n log n) time and O(n) space.
+
+Added edge-case, randomized, and 30,000-interval tests; preserved supplied tests and contract files.
+
+`python -m unittest discover -s tests -v` passed all 12 tests.

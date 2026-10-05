@@ -1,0 +1,22 @@
+I’ll inspect the task specification, current implementation, and supplied tests first, then implement the executor and run the full unittest suite.
+
+The default PowerShell launcher is unavailable in this sandbox, so I’m switching to the built-in command shell for the same read-only inspection.
+
+The core design is an iterative topological validation followed by an event-driven thread-pool scheduler. It snapshots dependency lists, bounds in-flight work to the worker limit, and propagates failed/skipped states only after dependency outcomes are known, so unrelated branches continue immediately.
+
+The supplied tests pass. I’m adding focused regression coverage for full preflight validation, transitive skipping with multiple parents, sorted output, the non-barrier scheduling requirement, input immutability, and a 1,500-node chain.
+
+Implemented `run_graph` in [dag.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/03-hard-5.6-sol-max-r1/dag.py:1).
+
+Key features:
+
+- Full validation before execution
+- Iterative cycle detection supporting 1,500+ task chains
+- Bounded, event-driven thread execution
+- Failure isolation and transitive descendant skipping
+- Sorted result insertion order
+- No input mutation
+
+Added regression coverage in [test_additional.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/03-hard-5.6-sol-max-r1/tests/test_additional.py:1).
+
+Validation: `python -m unittest discover -s tests -v` — all 8 tests passed.

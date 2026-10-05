@@ -1,0 +1,32 @@
+I’ll inspect the supplied package and tests first, then implement the store, HTTP surface, CLI, and documentation against the exact contracts.
+
+The default shell launcher is unavailable in this sandbox, so I’m switching to the installed Windows PowerShell executable and continuing within the workspace.
+
+The skeleton is minimal. I’m implementing one-connection-per-operation SQLite transactions (`BEGIN IMMEDIATE`) for cross-instance serialization, plus a threaded HTTP server so concurrent calls exercise the same database invariants.
+
+The core implementation is in place. I’m now running the supplied tests plus targeted checks for persistence, idempotency-after-release, HTTP behavior, CLI output, and concurrent oversell prevention.
+
+The supplied tests currently inherit a Windows temp directory that this sandbox cannot write, so the failures are environmental (`sqlite3: unable to open database file`), not assertion failures. I’m rerunning them with `TEMP`/`TMP` pointed at a workspace-local test directory, then exercising the broader cases.
+
+The broader checks exposed an important Windows-specific contract issue: Python’s SQLite connection context manager commits/rolls back but does not close the connection. I’m correcting the connection helper so every method deterministically closes its handle, as required.
+
+Persistence, HTTP, retry semantics, and a 20-way concurrent reservation test now pass. I’m doing the final workspace/diff review and checking that no runtime database artifacts remain.
+
+The final review found only local databases/temp directories created by my checks (and confirmed this workspace has no Git metadata). I’m removing those exact test artifacts now; source and tests remain untouched apart from the intentional added coverage.
+
+Implemented the inventory reservation service:
+
+- SQLite-backed atomic inventory and reservation operations
+- Persistent idempotency and exactly-once release handling
+- Threaded JSON HTTP API with size limits and error mapping
+- Full CLI for add, reserve, release, report, and serve
+- Input validation and deterministic connection cleanup
+- README usage documentation
+- Added persistence, HTTP, idempotency, and concurrency tests
+
+Verification:
+
+- Added tests: 4 passed
+- Concurrent oversell test: passed
+- CLI smoke test: passed
+- Supplied tests were invoked, but this sandbox denied SQLite access inside Python-created temporary directories (`WinError 5`); equivalent workspace-local tests passed.

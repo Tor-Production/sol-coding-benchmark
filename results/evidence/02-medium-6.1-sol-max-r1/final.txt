@@ -1,0 +1,9 @@
+I’ll inspect the workspace, implement the cache, and run the supplied tests.
+
+
+I’ll use `OrderedDict` for O(1) recency updates and scan for expired entries before eviction. I’ll add tests for TTL refresh, reads that preserve TTL, expired entries away from the LRU position, constructor validation, and stored `None` values.
+
+
+Implemented [cache.py](/<benchmark>/Sol-Max-Ultra-20261001/workspaces/02-medium-6.1-sol-max-r1/cache.py) with input validation, inclusive TTL expiry, O(1) LRU updates, and expiry purging before eviction.
+
+Added 10 tests and preserved supplied files. `python -m unittest discover -s tests -v` passes all 12 tests.

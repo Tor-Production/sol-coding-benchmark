@@ -1,0 +1,13 @@
+I’ll inspect the workspace, implement the store, and run the supplied tests plus any useful contract checks.
+
+
+The implementation now checks reads, scans, and pending writes against committed write history, so ABA changes and deleted phantoms still cause conflicts. Savepoints restore only pending writes; reads remain tracked. Recovery validates and copies the full log before replaying it.
+
+
+Implemented `Engine`, transactions, and `Conflict` in `mvcc.py`.
+
+Snapshot reads and pending writes are validated against committed write history, including ABA changes and range phantoms. Savepoint rollback preserves all reads.
+
+Recovery validates the entire checkpoint/log, copies inputs defensively, and retains the checkpoint’s base version.
+
+Added contract tests. All 9 tests pass with `python -m unittest discover -s tests -v`.

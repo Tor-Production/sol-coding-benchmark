@@ -1,0 +1,9 @@
+I’ll check the workspace, implement interval validation and merging, then run the requested tests.
+
+
+The function is a stub, and the supplied tests cover basic merging, adjacency, and reversed endpoints. I’ll validate and copy the intervals before sorting, and add tests for malformed input, input preservation, large integers, and 30,000 intervals.
+
+
+Implemented `merge_intervals` with strict validation, overlap and adjacency merging, and no input mutation. It uses O(n log n) time and O(n) space.
+
+Added edge-case and 30,000-interval tests. All 12 tests passed with `python -m unittest discover -s tests -v`. Supplied tests and contract files are unchanged.

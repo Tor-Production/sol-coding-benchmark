@@ -1,0 +1,20 @@
+I’ll inspect the task files and existing tests, then implement the engine and run the full unittest suite.
+
+The default shell could not start in this sandbox, so I’m switching to the available command interpreter and continuing with read-only inspection.
+
+The core design is a snapshot copy per transaction plus an append-only committed-write log. Validation will use log history (not current values), which preserves conflicts across ABA and insert/delete sequences; savepoints will snapshot only staged writes so read tracking remains monotonic.
+
+The supplied tests pass. I’m doing a second contract-focused pass now—especially closed-transaction precedence, empty-scan phantom conflicts, restore validation/retention boundaries, and defensive-copy behavior.
+
+Implemented [mvcc.py](<benchmark>/Sol-Complex-Tasks-20261002/workspaces/06-transactions-5.6-sol-medium-r2/mvcc.py) with:
+
+- Serializable optimistic conflict validation using complete committed-write history.
+- Snapshot reads, prefix scans, staged writes, tombstones, and savepoints.
+- Strict argument validation and closed-transaction handling.
+- Deterministic checkpoints and defensive log exports.
+- Atomic validation and replay for checkpoint/log recovery.
+- Retained-history boundaries after restoration.
+
+Added contract-focused tests covering phantom/ABA conflicts, read-only validation, savepoint read retention, defensive copies, and recovery validation.
+
+Validation: all 8 tests pass with `python -m unittest discover -s tests -v`.

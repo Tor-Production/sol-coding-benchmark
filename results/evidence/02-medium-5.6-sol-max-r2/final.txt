@@ -1,0 +1,19 @@
+I’ll inspect the repository and supplied tests first, then implement `TTLCache` in `cache.py` and run the full unittest suite.
+
+The default PowerShell executable is blocked by the workspace sandbox, so I’m switching to the available Windows PowerShell shell and continuing within the same directory.
+
+The implementation will use `OrderedDict`: recency updates stay O(1), while `put` and `len` can scan the bounded cache to remove every expired entry. Reads will remove only the requested entry if it has expired, without extending its deadline.
+
+The supplied tests pass. I’m doing a second pass over validation and edge cases now—especially inclusive expiry, replacing keys, `None` values, deleting expired entries, instance isolation, and purging an expired MRU entry before LRU eviction.
+
+Implemented `TTLCache` in [cache.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/02-medium-5.6-sol-max-r2/cache.py) with:
+
+- Strict constructor validation
+- Inclusive TTL expiration
+- O(1) LRU recency via `OrderedDict`
+- Expired-entry purging before eviction
+- Correct replacement, deletion, `None` values, and instance isolation
+
+Added edge-case tests in [test_edge_cases.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/02-medium-5.6-sol-max-r2/tests/test_edge_cases.py).
+
+`python -m unittest discover -s tests -v` passes all 9 tests.

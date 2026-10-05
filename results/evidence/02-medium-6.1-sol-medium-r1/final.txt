@@ -1,0 +1,9 @@
+I’ll inspect the workspace, implement the cache, and run the supplied tests.
+
+
+I’ll use an `OrderedDict` for O(1) recency updates and scan for expired entries before capacity eviction. I’ll add tests for replacement, stored `None` values, validation, and expired keys that aren’t least recently used.
+
+
+Implemented `TTLCache` in `cache.py` with input validation, inclusive expiry, O(1) LRU updates, and expiry purging before eviction.
+
+Added six contract tests while preserving supplied tests. All 8 tests pass with `python -m unittest discover -s tests -v`.

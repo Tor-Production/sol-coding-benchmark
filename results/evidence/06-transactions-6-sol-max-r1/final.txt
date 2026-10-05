@@ -1,0 +1,11 @@
+I’ll inspect the workspace and supplied tests, implement the engine, then run the requested unittest suite.
+
+The starter file contains only method stubs. I’m using per-transaction snapshot copies and an ordered commit log; the log lets validation catch writes that a comparison of current values would miss.
+
+The supplied tests pass. I’m adding focused contract tests for read-only conflicts, savepoint behavior, no-op writes, and recovery validation.
+
+Implemented the MVCC engine in [mvcc.py](<benchmark>/Sol-Complex-Tasks-20261002/workspaces/06-transactions-6-sol-max-r1/mvcc.py) and added contract tests in [test_contract.py](<benchmark>/Sol-Complex-Tasks-20261002/workspaces/06-transactions-6-sol-max-r1/tests/test_contract.py).
+
+Transactions read from a fixed snapshot plus their own writes. Commit checks every later committed write against tracked keys, scan prefixes, and pending writes, so intervening writes still conflict even if the final value is unchanged. Recovery validates the checkpoint and log before returning a restored engine, and copies exported data to prevent aliasing.
+
+`python -m unittest discover -s tests -v`: **11 tests passed**.

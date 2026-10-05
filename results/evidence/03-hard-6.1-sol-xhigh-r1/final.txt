@@ -1,0 +1,14 @@
+I’ll inspect `dag.py` and the supplied tests, implement validation and scheduling, then run the requested test suite.
+
+
+The command runner is failing to launch PowerShell with an “Access is denied” error. I’m trying another local shell so I can inspect the files and run the tests.
+
+
+`dag.py` is a stub, and the supplied tests cover a chain and cycle rejection. I’ll validate the whole graph before creating workers, use an iterative traversal for cycle detection, and schedule dependents as soon as their prerequisites finish.
+
+
+Implemented `run_graph` with full validation, bounded concurrency, prompt dependent scheduling, sorted results, and iterative failure propagation.
+
+Added tests covering validation, concurrency, failures, and 1,500-task graphs. Preserved supplied tests and contract files.
+
+`python -m unittest discover -s tests -v` — **all 14 tests passed**.

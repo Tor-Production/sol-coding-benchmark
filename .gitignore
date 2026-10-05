@@ -1,0 +1,19 @@
+# Fresh benchmark execution creates local credentials and measured artifacts.
+/.runtime/
+/preparation/
+/runs/
+/workspaces/
+/tmp/
+/analysis/
+/config/runtime.json
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+node_modules/
+.env
+.env.*
+auth.json
+*.log
+.DS_Store
+Thumbs.db

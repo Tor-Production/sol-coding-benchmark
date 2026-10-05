@@ -1,0 +1,15 @@
+I’ll inspect the workspace and supplied tests, implement the exact solver, then run the requested test command.
+
+The supplied tests cover the example and a few validation cases. I’m implementing dependency and exclusion propagation in the search, with an admissible value bound to prune branches without losing the optimum.
+
+The exhaustive comparison found a propagation bug: forbidding a dependent was also forbidding its prerequisite. I corrected the direction and the small-instance comparisons now pass. I’m checking 32-project runtimes next.
+
+The 32-project benchmarks finish within the target so far; the slowest of 20 random three-budget cases took about 2.8 seconds. I’m reducing repeated bound calculations before the final test run.
+
+The solver and added contract tests now pass, including exhaustive comparisons on random small cases and a 32-project dependency case. I’ll make one final workspace check to confirm only the intended files changed.
+
+Implemented the exact `solve` function in [optimizer.py](/<benchmark>/Sol-Complex-Tasks-20261002/workspaces/05-optimizer-6-sol-high-r1/optimizer.py) and added contract tests in [test_exact.py](/<benchmark>/Sol-Complex-Tasks-20261002/workspaces/05-optimizer-6-sol-high-r1/tests/test_exact.py).
+
+The solver validates every input, expands transitive prerequisites, propagates exclusions, and searches feasible subsets. Fractional budget bounds prune branches only when they cannot beat the best result, so the answer remains globally optimal under all three tie breakers. Worst-case time is exponential.
+
+`python -m unittest discover -s tests -v` passed all 9 tests.

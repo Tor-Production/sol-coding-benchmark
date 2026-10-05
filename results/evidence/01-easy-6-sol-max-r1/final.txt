@@ -1,0 +1,9 @@
+I’ll inspect `intervals.py` and the supplied tests, implement the merge with input validation, then run the requested unittest command.
+
+The module is a stub. I’ll validate the full input before sorting, then merge in one pass; this keeps the input untouched and meets the requested complexity.
+
+The implementation is in place, and the supplied tests pass. I added coverage for malformed values, large integers, input preservation, and 30,000 intervals; I’ll run the full suite now.
+
+Implemented `merge_intervals` in [intervals.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/01-easy-6-sol-max-r1/intervals.py) with input validation and O(n log n) merging. Added edge case and 30,000-interval tests.
+
+`python -m unittest discover -s tests -v`: **6 tests passed**. Command policy rejected cleanup of test-generated `__pycache__` files, so they remain.

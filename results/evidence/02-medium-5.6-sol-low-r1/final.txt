@@ -1,0 +1,22 @@
+I’ll inspect the task and supplied tests, implement the cache in-place, then run the requested unittest suite.
+
+The default shell launcher was denied by the Windows environment, so I’m retrying with the built-in PowerShell executable and keeping the same workspace-only scope.
+
+The implementation can use `OrderedDict` for constant-time LRU updates, with a full expiry sweep before every capacity eviction. I’ll also ensure each operation samples the supplied clock only once, so boundary behavior is deterministic.
+
+The public tests pass. One validation edge case merits tightening before finalizing: arbitrarily large positive integers are valid TTLs, and converting them through `math.isfinite` can overflow. I’m adjusting the finite check to apply only to floats, then exercising validation, replacement, `None`, inclusive expiry, and non-LRU expiry purging.
+
+The requested suite still passes; the combined ad-hoc command hit Windows quoting before its extra assertions ran. I’ll encode those useful edge cases as a normal unittest file instead, which avoids shell quoting ambiguity and leaves reproducible coverage.
+
+Implemented `TTLCache` in `cache.py` with:
+
+- Validated constructor arguments
+- Inclusive TTL expiration
+- O(1) LRU recency updates using `OrderedDict`
+- Expired-entry purging before eviction
+- Correct replacement, deletion, `None` values, and live-length behavior
+- Independent instance state
+
+Added edge-case tests in `tests/test_additional.py`.
+
+Test result: all 6 tests passed with `python -m unittest discover -s tests -v`.

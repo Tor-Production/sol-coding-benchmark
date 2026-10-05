@@ -1,0 +1,17 @@
+I’ll inspect the existing files and tests, implement the exact solver, then run the requested unittest command. I’ll also check the stated validation and tie-breaking rules.
+
+The workspace has a stub solver and a small public test file. I’m using a meet-in-the-middle search for independent projects and a branch-and-bound search for dependencies and exclusions. Both paths keep the full value, cost, and ID tie order.
+
+The first implementation passes the public tests and 250 small instances checked against exhaustive enumeration. I’m testing 32-project cases next, especially three-budget instances where search performance is less predictable.
+
+A targeted 32-project case exposed a performance gap: one exclusion plus an otherwise hard subset-sum instance caused the general search to run past 30 seconds. I’m extending the meet-in-the-middle path to handle a small constrained core, so that case stays exact and fast.
+
+The small-core change handles the hard one-exclusion case. A second stress case with a chain of exclusions still takes almost the full 8 seconds. I’m adding a balanced split at a small number of cross-group constraints; each side can then be searched exactly and combined under the budgets.
+
+The split search now brings the chain case well below the time limit, and exhaustive comparisons pass for small mixed cases, zero-value ties, and cross-group constraints. I’ve removed the temporary benchmark scripts and am running the requested test suite once more.
+
+Implemented the exact solver in [optimizer.py](<benchmark>/Sol-Complex-Tasks-20261002/workspaces/05-optimizer-6-sol-ultra-r2/optimizer.py) and added contract tests in [test_contract.py](<benchmark>/Sol-Complex-Tasks-20261002/workspaces/05-optimizer-6-sol-ultra-r2/tests/test_contract.py).
+
+It uses meet-in-the-middle search where constraints allow a useful split, and branch-and-bound with safe upper bounds otherwise. Every potentially optimal subset remains in the search, so the returned portfolio is globally optimal under all three tie rules. Worst-case time remains exponential, up to /(O(2^{32}/operatorname{poly}(32))/).
+
+`python -m unittest discover -s tests -v`: **9 tests passed**.

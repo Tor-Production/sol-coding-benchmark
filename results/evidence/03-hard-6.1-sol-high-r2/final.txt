@@ -1,0 +1,14 @@
+I’ll inspect the implementation and tests, add validation and concurrent scheduling, then run the requested test suite.
+
+
+The supplied tests cover a simple chain and cycle rejection. I’ll use iterative validation and a scheduler that processes each completed task so newly ready tasks can start promptly. I’ll add tests for concurrency, failure propagation, full validation before execution, and long chains.
+
+
+All 9 tests pass. The added tests verify concurrent execution within the worker limit, prompt scheduling of dependents, transitive skipping after failures, and execution of a 1,500-task chain without recursion.
+
+
+Implemented `run_graph` in `dag.py` with full validation before execution, bounded concurrency, prompt dependent scheduling, and transitive failure skipping.
+
+Added tests for validation, concurrency, shared dependencies, and 1,500-task chains. Preserved supplied tests and instruction files.
+
+`python -m unittest discover -s tests -v` passed all 9 tests.

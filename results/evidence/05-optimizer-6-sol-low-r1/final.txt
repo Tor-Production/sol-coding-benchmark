@@ -1,0 +1,11 @@
+I’ll inspect the workspace and supplied tests, implement an exact solver, then run the requested test command.
+
+I’m using dependency closure and exclusion propagation to rule out impossible branches, with budget bounds to prune branches that cannot beat the current solution. I’ll keep the tie rules in the comparison.
+
+The supplied tests pass. I’m tightening pruning for large equal-value portfolios, where many branches tie on value and the cost and ID rules decide the result.
+
+Implemented `solve` in [optimizer.py](/abs/path/optimizer.py) using dependency closure, exclusion propagation, and branch and bound. It compares feasible subsets by value, then cost, then sorted IDs.
+
+The search is exact: it prunes only when an upper bound proves a branch cannot improve the current result, so the returned subset is globally optimal. Worst-case time remains exponential, as expected for this problem.
+
+The requested test command passed all 4 tests, including an added exhaustive comparison over small random instances.

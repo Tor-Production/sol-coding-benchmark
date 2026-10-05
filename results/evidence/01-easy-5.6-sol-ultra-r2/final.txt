@@ -1,0 +1,15 @@
+I’ll inspect the contract, current implementation, and supplied tests, then implement the validation and merge logic without mutating inputs. Afterward I’ll run the requested unittest command and a few focused edge checks if needed.
+
+The default shell executable is unavailable in this sandbox, so I’m retrying with the permitted Windows PowerShell host; no task assumptions change.
+
+The existing file is only a stub, and the public tests cover the basic merge path. I’m implementing a validation-first copy-and-sort approach: only list/tuple containers are accepted, booleans are rejected explicitly despite being `int` subclasses, and adjacency is handled with inclusive integer semantics.
+
+The supplied suite passes. I’m doing one additional read-only stress/edge check for negative and huge integers, duplicate/contained ranges, invalid shapes and endpoint types, input preservation, and the 30,000-interval requirement.
+
+The inline Windows command was misquoted before Python could run, so it did not exercise the code. I’m putting those checks into a small additional unittest module (explicitly allowed by the contract) and will rerun the full discovery command.
+
+Implemented [intervals.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/01-easy-5.6-sol-ultra-r2/intervals.py) with validation, non-mutating sorting, and inclusive overlap/adjacency merging in O(n log n) time.
+
+Added edge, validation, immutability, large-integer, and 30,000-interval tests.
+
+`python -m unittest discover -s tests -v` — 6 tests passed.

@@ -1,0 +1,24 @@
+I’ll inspect the workspace and supplied tests first, then implement the executor and run the full unittest suite.
+
+The default PowerShell launcher is unavailable in this environment, so I’m switching to the system shell for the same read-only inspection.
+
+The supplied tests cover a basic chain and cycle rejection. I’ve mapped the implementation around iterative Kahn validation plus event-driven scheduling, which also avoids recursion on the required 1,500-task chain.
+
+The public suite passes. I’m now exercising the deeper contract: long-chain stack safety, failure propagation with shared descendants, whole-graph validation before side effects, sorted output, and scheduler responsiveness when an unrelated worker remains busy.
+
+Implemented `run_graph` in [dag.py](<benchmark>/Sol-Effort-Comparison-20261001/workspaces/03-hard-5.6-sol-low-r2/dag.py).
+
+Key features:
+
+- Complete validation before execution
+- Iterative cycle detection and failure propagation
+- Bounded concurrent execution with `ThreadPoolExecutor`
+- Prompt scheduling of newly ready tasks
+- Transitive descendant skipping after failures
+- Sorted result insertion order
+- No mutation of input data
+- Handles 1,500-task chains without recursion
+
+Added focused tests in [test_additional.py](<benchmark>/Sol-Effort-Comparison-20261001/workspaces/03-hard-5.6-sol-low-r2/tests/test_additional.py).
+
+Verification: all 6 tests pass.

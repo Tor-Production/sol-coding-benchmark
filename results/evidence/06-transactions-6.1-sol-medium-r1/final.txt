@@ -1,0 +1,14 @@
+I’ll inspect the workspace, implement the store, and run the supplied tests plus focused checks for conflict history and recovery validation.
+
+
+The command runner is failing to start PowerShell with an access-denied error. I’ll try another local shell to access the workspace and run the tests.
+
+
+Transactions will use copied snapshots and retain key and prefix reads across savepoint rollbacks. Commit validation will check every later write record, so same-value writes and insert-then-delete changes still trigger conflicts. Recovery will validate the entire input before replaying it.
+
+
+Implemented `Engine`, `Conflict`, and transactions in `mvcc.py`, with added contract tests.
+
+Snapshot isolation uses copied committed state. Commit validation checks all subsequent writes against tracked reads, prefixes, and pending writes. Savepoint rollback preserves reads. Recovery validates the entire checkpoint/log before replay and retains defensive copies.
+
+All 12 tests pass with `python -m unittest discover -s tests -v`. Supplied tests and instructions remain unchanged.

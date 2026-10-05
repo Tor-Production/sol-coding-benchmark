@@ -1,0 +1,21 @@
+I’ll inspect the supplied task and tests, implement the cache in `cache.py`, then run the full unittest suite.
+
+The default shell could not be launched in this sandbox, so I’m retrying the same read-only inspection with Windows PowerShell explicitly.
+
+The supplied tests cover basic expiry and recency. I’ll use a per-instance `OrderedDict`, validate constructor arguments precisely (including rejecting booleans and non-finite TTLs), and purge all expired entries before any capacity eviction.
+
+The public suite passes. I’m doing a focused edge-case check now: constructor rejection cases, inclusive expiration, `None` values, TTL reset, deletion semantics, instance isolation, and an expired MRU entry not forcing eviction of a live LRU entry.
+
+All edge cases passed. I also adjusted deletion so the clock is evaluated before mutation; I’m rerunning the complete suite after that final semantic cleanup.
+
+Implemented `TTLCache` in [cache.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/02-medium-5.6-sol-ultra-r2/cache.py) with:
+
+- Strict constructor validation
+- Inclusive TTL expiration
+- O(1) LRU recency via `OrderedDict`
+- Full expiry purge before capacity eviction
+- Correct `None`, replacement, deletion, and instance-isolation behavior
+
+Added focused edge-case tests in [test_additional.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/02-medium-5.6-sol-ultra-r2/tests/test_additional.py).
+
+`python -m unittest discover -s tests -v`: all 8 tests pass.

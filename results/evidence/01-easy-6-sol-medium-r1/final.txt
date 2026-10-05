@@ -1,0 +1,9 @@
+I’ll inspect the workspace files, implement the merge, and run the requested test suite.
+
+The module is a stub, and the supplied tests cover the basic merge, adjacency, and one validation case. I’ll validate every interval before sorting so malformed input consistently raises `ValueError`.
+
+The merge is implemented. I added tests for malformed input, large integers, input preservation, and 30,000 intervals; I’ll run the full suite now.
+
+Implemented `merge_intervals` with input validation, sorting, and merging of overlapping or adjacent integer intervals. It leaves the input unchanged.
+
+Ran `python -m unittest discover -s tests -v`: all 6 tests passed, including the added 30,000-interval case.

@@ -1,0 +1,7 @@
+I’ll inspect the workspace contract and tests, implement the cache, then run the requested unittest command.
+
+The cache is implemented with `OrderedDict` for recency. I’ll run the supplied tests now.
+
+Implemented `TTLCache` in [cache.py](<benchmark>/Sol-Effort-Comparison-20261001/workspaces/02-medium-6-sol-low-r2/cache.py) with input validation, inclusive expiry, LRU eviction, and a separate cache for each instance.
+
+The requested unittest command passed: 2 tests, 0 failures.

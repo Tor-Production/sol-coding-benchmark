@@ -1,0 +1,27 @@
+{
+  "fixture": "positive_bound",
+  "diagnostic_only": true,
+  "original_scores_unchanged": true,
+  "records": [
+    {
+      "label": "positive_control",
+      "passed": true,
+      "seconds": 0.19634729996323586,
+      "timeout": false,
+      "detail": ""
+    },
+    {
+      "label": "Sol_6_Low_r1",
+      "passed": false,
+      "seconds": 8.0124247999629,
+      "timeout": true
+    },
+    {
+      "label": "Sol_6_Low_r2",
+      "passed": true,
+      "seconds": 0.22295139997731894,
+      "timeout": false,
+      "detail": ""
+    }
+  ]
+}

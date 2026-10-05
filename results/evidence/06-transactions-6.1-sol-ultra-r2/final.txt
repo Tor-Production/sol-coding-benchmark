@@ -1,0 +1,19 @@
+I’ll inspect the workspace, implement the MVCC engine, and run the supplied tests with added coverage for conflict history and recovery validation.
+
+
+The command runner failed to start PowerShell. I’ll try another local shell so I can inspect the files and run the tests.
+
+
+The supplied tests cover commit/recovery, write skew, and a basic savepoint. I’ll use snapshot copies and a retained commit log so validation catches ABA changes, same-value writes, and deleted scan phantoms.
+
+
+The implementation passes all three supplied tests. I’m adding contract tests for write-free conflict checks, savepoint read retention, malformed recovery logs, and defensive copies.
+
+
+Implemented `Engine` and `Conflict` in `mvcc.py`.
+
+Transactions use snapshot isolation plus commit-history validation for serializability, including ABA changes and deleted phantoms. Savepoints restore writes while retaining reads.
+
+Recovery validates the entire checkpoint/log before replay, preserves retained history, and defensively copies inputs and exports.
+
+Added contract tests; all **28 tests pass** with `python -m unittest discover -s tests -v`. Supplied tests and instructions are unchanged.

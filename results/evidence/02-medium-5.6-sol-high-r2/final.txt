@@ -1,0 +1,18 @@
+I’ll inspect the workspace contract and supplied tests, then implement `cache.py` and run the requested unittest suite.
+
+The configured PowerShell executable was denied before any command ran. I’m retrying with the system Windows PowerShell executable, staying within the workspace.
+
+The supplied tests cover inclusive expiry and basic LRU behavior. I’ll use an instance-local `OrderedDict`: it provides O(1) recency updates, while a full expiry purge before each insertion ensures stale entries anywhere in the order cannot displace live ones.
+
+The public suite passes. I’m tightening one validation edge case before broader checks: Python integers are always finite, including arbitrarily large ones, so TTL validation should not force a huge integer through a floating-point conversion.
+
+All eight tests now pass, including added coverage for constructor validation, `None` values, replacement semantics, non-extending reads, instance isolation, and the key case where an expired MRU entry must be purged before LRU eviction. I’m doing a final diff and syntax check.
+
+Implemented `TTLCache` in [cache.py](<benchmark>/Sol-Comparison-20260930/workspaces/02-medium-5.6-sol-r2/cache.py:7).
+
+- Added constructor validation, inclusive TTL expiry, LRU eviction, replacement, deletion, and live-length behavior.
+- Uses `OrderedDict` for O(1) recency operations.
+- Purges all expired entries before capacity eviction.
+- Added comprehensive tests in [test_cache_additional.py](<benchmark>/Sol-Comparison-20260930/workspaces/02-medium-5.6-sol-r2/tests/test_cache_additional.py:1).
+- Syntax checks passed.
+- Test result: **8 tests passed** with `python -m unittest discover -s tests -v`.

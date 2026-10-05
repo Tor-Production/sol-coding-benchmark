@@ -1,0 +1,12 @@
+I’ll check the workspace files, implement validation and merging without mutating the input, then run the requested tests.
+
+
+The configured PowerShell launcher is failing with “Access is denied.” I’ll try another local shell to inspect the files and run the tests.
+
+
+The supplied tests cover the basic merge, adjacency, empty input, and reversed endpoints. I’ll add checks for the remaining validation rules, large integers, input preservation, and 30,000 intervals.
+
+
+Implemented `merge_intervals` with input validation, overlap and adjacency merging, and no input mutation. It uses O(n log n) time and O(n) space.
+
+Ran `python -m unittest discover -s tests -v`: all 13 tests passed, including added checks for malformed input, large integers, input preservation, and 30,000 intervals.

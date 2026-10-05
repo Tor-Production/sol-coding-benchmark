@@ -1,0 +1,23 @@
+I’ll inspect the workspace instructions, implementation, and supplied tests first, then build an exact solver with validation and run the full suite.
+
+The default PowerShell executable is unavailable in this sandbox, so I’m switching to the built-in Windows PowerShell for the same workspace-only inspection.
+
+The main design is now settled: dependency/conflict propagation for feasibility, branch-and-bound with exact capacity and closure bounds, and full three-level tie-breaking. I’m implementing validation and the solver together so malformed projects are never skipped by preprocessing.
+
+The supplied tests pass. I’m now doing a deterministic brute-force differential check on many small random instances, which is the most useful way to catch subtle dependency propagation or tie-break errors in an exact optimizer.
+
+The differential suite matches exhaustive enumeration, including a non-obvious zero-value ID tie. Initial 32-project stress cases also complete in milliseconds; I’m checking harder random capacity patterns and then I’ll do a final syntax/diff/test pass.
+
+Implemented [optimizer.py](<benchmark>/Sol-Complex-Tasks-20261002/workspaces/05-optimizer-5.6-sol-xhigh-r2/optimizer.py) with:
+
+- Complete contract validation without input mutation.
+- Exact bitmask branch-and-bound search.
+- Immediate dependency and exclusion propagation.
+- Fractional-knapsack, clique-cover, and dependency min-cut upper bounds.
+- Exact value, cost-tuple, and sorted-ID tie-breaking.
+
+Optimality follows because every feasible subset belongs to exactly one search branch, while pruning uses only admissible bounds or proven infeasibility.
+
+Worst-case complexity remains exponential, `O(2^n · poly(n))`, as expected for an NP-hard problem.
+
+Added exhaustive randomized differential tests in [test_optimizer_contract.py](<benchmark>/Sol-Complex-Tasks-20261002/workspaces/05-optimizer-5.6-sol-xhigh-r2/tests/test_optimizer_contract.py). All five tests pass, including 100 random cases checked against brute force.

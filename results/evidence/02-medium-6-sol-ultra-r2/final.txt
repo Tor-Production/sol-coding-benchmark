@@ -1,0 +1,7 @@
+I’ll inspect `cache.py` and the supplied tests, implement the cache, then run the requested unittest command.
+
+The starter file has only method stubs, and the supplied tests cover basic expiry and LRU behavior. I’ll use `OrderedDict` for constant time recency updates and scan for expired entries before a `put` needs to evict anything.
+
+Implemented `TTLCache` in [cache.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/02-medium-6-sol-ultra-r2/cache.py) with TTL expiry, LRU eviction, constructor validation, and live-only deletion and length. Added contract tests in [test_contract.py](<benchmark>/Sol-Max-Ultra-20261001/workspaces/02-medium-6-sol-ultra-r2/tests/test_contract.py).
+
+`python -m unittest discover -s tests -v` passed all 8 tests.

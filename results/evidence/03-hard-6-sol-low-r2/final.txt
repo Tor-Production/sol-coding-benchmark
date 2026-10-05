@@ -1,0 +1,9 @@
+I’ll inspect the workspace and existing tests, implement the executor, then run the requested test command.
+
+The file is a stub, and the supplied tests cover a chain and a cycle. I’ll use an iterative graph check for validation and schedule tasks as their dependencies finish.
+
+The supplied tests pass. I’ll add focused tests for full validation before execution, failure propagation, concurrency, and the 1,500-task chain.
+
+Implemented `run_graph` in [dag.py](<benchmark>/Sol-Effort-Comparison-20261001/workspaces/03-hard-6-sol-low-r2/dag.py). It validates the full graph before running functions, schedules ready tasks with standard-library threads, and propagates failures to descendants without recursion.
+
+Added focused tests in [test_executor.py](<benchmark>/Sol-Effort-Comparison-20261001/workspaces/03-hard-6-sol-low-r2/tests/test_executor.py). The requested `python -m unittest discover -s tests -v` run passed all 6 tests.

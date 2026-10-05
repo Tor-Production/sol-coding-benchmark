@@ -1,0 +1,21 @@
+I’ll inspect the package and tests, implement the store, HTTP API, and CLI, then run the requested test suite.
+
+
+The configured PowerShell executable is failing to start. I’ll try a different shell so I can inspect the workspace and run the tests.
+
+
+The package is a stub, and the supplied tests cover release and insufficient stock. I’ll use SQLite write transactions to make stock changes atomic, store idempotency keys permanently, and add coverage for concurrency, persistence, validation, HTTP errors, and CLI behavior.
+
+
+The implementation is in place. The first test run failed because the supplied tests use a system temporary directory that this sandbox cannot access. I’ll rerun with a temporary-directory setting scoped to the test process, pointing inside the workspace.
+
+
+The supplied tests pass with a test-process workaround for Python 3.14’s temporary-directory permissions in this Windows sandbox. I’m now checking retries, concurrent calls, and HTTP validation. I’ll also store unit counts as decimal text so SQLite’s integer limit doesn’t reject otherwise valid Python quantities.
+
+
+All 18 tests pass, including concurrent stock changes, duplicate-key retries, rollback after an injected SQL failure, HTTP body limits, and CLI persistence. I’ll make one final check that `serve` starts correctly, then remove the smoke-test artifacts.
+
+
+Implemented the persistent SQLite store, concurrent JSON HTTP API, CLI, and README instructions.
+
+All 19 tests pass using a process-local workaround for sandbox temporary-directory permissions. Supplied tests remain unchanged. Two empty temporary folders remain because the sandbox denied cleanup.

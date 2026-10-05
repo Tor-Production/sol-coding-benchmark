@@ -1,0 +1,12 @@
+I’ll inspect the workspace, implement the cache, and run the supplied tests.
+
+
+The configured PowerShell executable is failing with an access error. I’m trying another local shell so I can inspect the files and run the tests.
+
+
+I’ll use an ordered dictionary for O(1) recency updates and scan for expired entries before each insertion. I’ll add tests for expiration boundaries, replacement, `None` values, validation, and an expired key that was recently used.
+
+
+Implemented [cache.py](/<benchmark>/Sol-Max-Ultra-20261001/workspaces/02-medium-6.1-sol-max-r2/cache.py) with validation, inclusive TTL expiration, O(1) LRU recency updates, and expiry purging before eviction.
+
+Added 14 tests and preserved the supplied files. `python -m unittest discover -s tests -v` passes all 16 tests.
