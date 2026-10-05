@@ -9,13 +9,15 @@ The public repository separates **immutable measured evidence** from a **portabl
 | [results/results.json](../results/results.json) | Unified 216 attempts, 18 setting summaries, frozen rates and scoring policy |
 | [results/quality-v2.1.json](../results/quality-v2.1.json) | Original four tasks' 144 detailed supplementary evaluations and rubric |
 | [results/complex-test-strength.json](../results/complex-test-strength.json) | The two complex tasks' 72 candidate-test evaluations |
+| [results/insights.json](../results/insights.json) | Derived records for the six findings, with source bindings and run IDs |
 | [results/candidate-manifests.json](../results/candidate-manifests.json) | Expected hashes for the files in each saved candidate |
 | [candidates/](../candidates/) | Candidate snapshots, addressed by run ID |
 | [results/report-audit.json](../results/report-audit.json) | Original report audit of settings, snapshots, turns, usage and arithmetic |
 | [results/provenance.json](../results/provenance.json) | Source identities and publication transformations |
 | [results/archive-manifest.json](../results/archive-manifest.json) | File hashes for the public archive |
-| [artifacts/Sol_Benchmark_Consolidated_EN.pdf](../artifacts/Sol_Benchmark_Consolidated_EN.pdf) | Current English report, revised to lead with cost versus functional quality |
+| [artifacts/Sol_Benchmark_Consolidated_EN.pdf](../artifacts/Sol_Benchmark_Consolidated_EN.pdf) | Current English report presenting six concrete findings |
 | [artifacts/archive/Sol_Benchmark_Consolidated_EN_20261004.pdf](../artifacts/archive/Sol_Benchmark_Consolidated_EN_20261004.pdf) | Original 4 October English report, preserved unchanged |
+| [artifacts/archive/Sol_Benchmark_Consolidated_EN_20261005_cost_quality.pdf](../artifacts/archive/Sol_Benchmark_Consolidated_EN_20261005_cost_quality.pdf) | Earlier 5 October cost-versus-functional-quality report, preserved unchanged |
 | [results/report-presentation.json](../results/report-presentation.json) | Current presentation metadata and PDF verification |
 | [scripts/verify_archive.py](../scripts/verify_archive.py) | Offline public-export verification |
 
@@ -38,11 +40,11 @@ Credentials, authenticated homes and private account/session machinery are not r
 
 ## Current presentation revision
 
-The current report, figures and documentation were revised on **5 October 2026** in the Europe/Kiev client time context. The primary chart now places frozen API-equivalent USD per attempt on X and the existing six-task main functional macro score out of 100 on Y. Time is secondary; candidate-test strength and completed-delivery percentage remain separate. This is a presentation revision: there were no new model calls, changed candidates, rewritten measurements or regraded attempts.
+The current **insight presentation** was prepared on **5 October 2026** in the Europe/Kiev client time context. It leads with MVCC dollar cost versus candidate-test sensitivity and adds a per-defect matrix, DAG code performance, effort premiums, paired cost spread and a frozen-pricing bridge. The six-task functional comparison and other criteria remain available separately. There were no new model calls, changed candidates, rewritten measurements or regraded attempts.
 
-The original report remains byte-for-byte preserved in `artifacts/archive/`. The current report has its own path and SHA-256 in [results/provenance.json](../results/provenance.json), alongside the original report's archived path and SHA-256. [results/report-presentation.json](../results/report-presentation.json) records the revised presentation and PDF checks. The historical [report audit](../results/report-audit.json) continues to attest the measured evidence, while the publication manifest covers the current public files.
+The original 4 October report and earlier 5 October functional-chart revision remain byte-for-byte preserved in `artifacts/archive/`. The current report has its own path and SHA-256 in [results/provenance.json](../results/provenance.json), alongside the original and previous report identities. Archived verification records describe their historical inputs rather than pretending to verify current code. [results/report-presentation.json](../results/report-presentation.json) records the current presentation and PDF checks. The historical [report audit](../results/report-audit.json) continues to attest the measured evidence, while the publication manifest covers the current public files.
 
-The portable [PDF builder](../scripts/build_report.py) reads the public archive and provenance, then draws charts directly from those results. Rebuilding the presentation does not recreate the original local report or its original-source hashes. Fonts and PDF metadata can change generated PDF bytes across environments; use the published manifest for the delivered artifact and verify the same measurements and chart definitions when rebuilding.
+The [insight derivation](../scripts/derive_insights.py) binds [results/insights.json](../results/insights.json) to the public result exports and retains original run IDs. It adds computed views rather than substituting a new measured result set. The portable [PDF builder](../scripts/build_report.py) reads the public archive, derived insights, provenance and generated vector figures. Rebuilding the presentation does not recreate either archived report or its original-source hashes. Fonts and PDF metadata can change generated PDF bytes across environments; use the published manifest for the delivered artifact and verify the same measurements and chart definitions when rebuilding.
 
 ## What the original audit checked
 

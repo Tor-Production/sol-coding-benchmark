@@ -15,30 +15,8 @@ new_usable=sum(q['score'] is not None for q in TS.values())
 new_no_tests=sum(q['status']=='no_added_tests' for q in TS.values())
 manual_count=sum(q.get('manual_review') is not None for q in QROWS)
 
-story=[p('Sol coding benchmark','title'),p('Six programming tasks. Three models. Six reasoning effort levels.'),
- p('Sol 5.6, Sol 6 and Sol 6.1 at Low, Medium, High, Xhigh, Max and Ultra. Two independent attempts per task, Standard speed.'),
- Graphic(BODY,105,cards),Spacer(1,7),p('What the results show','h2'),
- p(f'<b>Best measured cost with full acceptance:</b> {label(cheapest)}: {usd(cost(cheapest))} per attempt, {fmt(cheapest["model_seconds_mean"],1)} seconds, 12/12 accepted. This is also the fastest setting with full acceptance.'),
- p(f'<b>Complex tasks:</b> {new_accepted}/72 accepted; {AUDIT["new_hidden_passed"]}/{AUDIT["new_hidden_total"]} hidden checks passed. One Sol 6 Low optimizer attempt exceeded the 8-second scale limit. Every optimizer small-case oracle and all MVCC checks passed.'),
- p(f'<b>Broader behavioral evidence:</b> {code_passed}/{code_total} expanded checks passed on completed solutions for the first four tasks. Two Low cache solutions fail a valid huge-integer TTL boundary. {AUDIT["completed"]}/216 attempts completed; the two earlier noncompletions remain included in delivery and cost accounting.'),
- p(f'<b>Own-test evidence:</b> {usable_own}/{len(completed)} completed candidates have a usable score, including zero for no discovered added tests. {no_own} have no recognized added tests. The two new tasks have {new_usable}/72 usable scores. Manual rubric scoring remains incomplete.'),
- p('<b>Test-strength separation:</b> Sol 6.1 MVCC added tests detect all six fixed defects in both repetitions at High, Xhigh, Max and Ultra. Optimizer test-strength evidence is often inconclusive, so this benefit is specific to the MVCC defect set.'),
- p('How to interpret the comparison','h2'),
- p('The lower-cost settings already solve nearly all tested behavior. Higher effort generally costs more and takes longer, with little additional correctness separation here. The complex tasks still show a strong score ceiling: this evidence supports a workload-specific comparison, without a reliable ranking of general intelligence.'),
- p('USD is a counterfactual Standard API token estimate for observed Codex usage, not an invoice. Partial usage creates lower bounds. The primary charts place API-equivalent dollars on X and functional quality on Y; effort points are connected within each model.','small'),PageBreak(),
- p('Cost versus functional quality','h1'),p('X: mean API-equivalent USD per attempt. Y: equal six-task functional macro score, out of 100. Each setting contains twelve attempts. Higher quality for less money occupies the upper-left region.'),
- public_figure('cost-quality'),
- p('The full 0-100 scale makes the score ceiling visible. Most settings score 100; large spending differences buy little main-score separation in this suite. Effort symbols and colors identify every point; the complete table follows.','small'),
- p('Lines connect effort order within each model. Asterisks, dashed links and rightward arrows mark observed cost lower bounds, because the complete cost of Sol 6 Max and Ultra is unknown. They are not quality uncertainty bars.','small'),
- p('This is observable contract behavior, not a completed overall code-quality grade. The timeout snapshot passes functional checks but is not an accepted delivery. The manual design rubric remains pending.','small'),PageBreak(),
- p('Cost versus accepted delivery','h1'),p('X: mean USD per attempt, including unsuccessful spending. Y: completed deliveries that pass main acceptance, as a percentage of twelve attempts.'),
- public_figure('cost-acceptance'),
- p('Fifteen settings deliver 12/12 accepted attempts. Sol 6 Low, Max and Ultra deliver 11/12 (91.67%) for three different reasons: optimizer scaling, unfinished service delivery and provider capacity. These observations do not estimate a production failure probability.','small'),
- p('Acceptance adds completed delivery and protected/public-test gates to functional behavior. This separate chart prevents a passing snapshot after timeout from appearing equivalent to a completed accepted delivery. Only two repetitions per task were collected.','small'),PageBreak(),
- p('Effort curves: money and quality','h1'),p('Follow each model across six settings. Dashed USD segments use partial observations.'),
- Graphic(BODY,44,legend),p('API-equivalent USD per attempt','h2'),Graphic(BODY,205,effort_chart),
- p('Main functional score / 100','h2'),Graphic(BODY,205,lambda c,w,h:effort_chart(c,w,h,'quality')),
- p('Higher effort is a setting, not a guarantee of higher correctness. Compare these premiums with the behavior and acceptance tables.','small'),PageBreak(),
+exec((ROOT/'scripts/report_insight_story.py').read_text(encoding='utf-8'))
+story += [
  p('Dollars, quality and delivery','h1'),p('Twelve attempts per setting. USD / accepted includes spending on unsuccessful attempts.'),
  table(['Model / effort','USD / attempt','Functional / 100','Accepted','USD / accepted','Mean time, s'],
  [[label(s),cost_display(s),fmt(s['quality_macro_mean'],2),f'{s["accepted"]}/12',
@@ -47,27 +25,6 @@ story=[p('Sol coding benchmark','title'),p('Six programming tasks. Three models.
  [116,79,85,58,91,BODY-429],24),
  p('Sol 6 / Max has a 40-minute reservation-service timeout; its saved code passes the functional and expanded checks. Sol 6 / Ultra has a provider capacity failure on the interval task. Sol 6 / Low completes every attempt but misses one optimizer scale check. These are distinct outcomes.','small'),
  p('Displayed >= costs are observed lower bounds, rounded down. Accepted-cost totals and exact token estimates remain in the public data; incomplete final spending is not assigned zero.','small'),PageBreak(),
- p('What does extra effort buy?','h1'),p('Multiples use the same model at Low as the baseline. Functional quality is an equal six-task macro average.'),
- table(['Model / effort','Cost multiple','Functional / 100','Accepted','Time multiple'],
- [[label(s),fmt(cost(s)/cost(summary(s['model'],'low')) if cost(s) is not None else None),fmt(s['quality_macro_mean'],2),f'{s["accepted"]}/12',fmt(s['model_seconds_mean']/summary(s['model'],'low')['model_seconds_mean'])] for s in SUM],
- [140,92,112,79,BODY-423],24),
- p('The main score averages the two repetitions within each task, then gives each of six tasks equal weight. It includes retained snapshot grades; acceptance also requires completed delivery. The capacity-failed stub scores zero; the timeout snapshot has passing code but is not accepted delivery.','small'),
- p('Do not read a small score difference as a statistically established effect. Each model/effort/task has only two observations.','small'),PageBreak(),
- p('Workload cost and quality: core tasks','h1'),p('Each point averages two attempts: USD on X, task functional score on Y. Dollar ranges differ; every quality axis uses the full 0-100 scale.'),Graphic(BODY,44,legend)]
-for row in range(2):
-    panels=[]
-    for col in range(2):
-        i=row*2+col; task=TASKS[i]
-        panels.append([p(TASK_NAMES[i],'h2'),Graphic((BODY-16)/2,205,lambda c,w,h,t=task:scatter(c,w,h,t,True))])
-    t=Table([panels],colWidths=[BODY/2]*2)
-    t.setStyle(TableStyle([('VALIGN',(0,0),(-1,-1),'TOP'),('LEFTPADDING',(0,0),(-1,-1),0),('RIGHTPADDING',(0,0),(-1,-1),8)]))
-    story.append(t)
-story += [p('Intervals test inclusive union and purity; the cache tests TTL/LRU semantics; the DAG tests concurrency and failure propagation; the service combines SQLite transactions, HTTP and CLI behavior.','small'),PageBreak(),
- p('Workload cost and quality: complex tasks','h1'),p('Algorithmic optimization and interacting transaction invariants add complementary complexity.'),Graphic(BODY,44,legend),
- p('Exact constrained portfolio optimizer','h2'),Graphic(BODY,220,lambda c,w,h:scatter(c,w,h,TASKS[4])),
- p('Signed values, transitive prerequisites, one-sided exclusions, mandatory projects, up to three resource budgets, exact optimality and cost/ID tie-breaking. Structured cases contain 32 projects.','small'),
- p('Serializable MVCC store with recovery','h2'),Graphic(BODY,220,lambda c,w,h:scatter(c,w,h,TASKS[5])),
- p('Snapshot reads, staged writes, conservative optimistic validation, missing-key/range reads, savepoints, retained read history and checkpoint/log replay. Calls use deterministic in-memory interleavings.','small'),PageBreak(),
  p('Task-level dollars and quality','h1'),p('Each cell shows mean API USD above mean functional score / 100, across two repetitions.'),
  table(['Model / effort']+SHORT_TASKS,
  [[label(s)]+[task_cost_display(s,t['task'])+'<br/>'+fmt(t['quality_mean'],2)+' / 100' for t in s['tasks']] for s in SUM],
@@ -115,14 +72,6 @@ story += [table(['Model / effort']+SHORT_TASKS,own_rows,[116]+[(BODY-116)/6]*6,2
  [130]+[(BODY-130)/4]*4,24),
  p('One warm-up, then the median of three sequential runs. Workloads: 30,000 intervals; cache capacity 1,000 with 1,000 writes and 3,000 reads; 1,500 DAG nodes; 40 reservation cycles. Allocation is a separate tracemalloc measurement, not process RSS or native/SQLite memory.','small'),
  p('These values describe execution after generation, separate from agent completion time. The complex tasks have their scored scale/trace checks; equivalent runtime and memory profiles were not collected for them. Small differences can reflect scheduling noise.','small'),PageBreak(),
- p('Repetition spread','h1'),p('Median second-to-first ratios across six task pairs. Two observations per pair support descriptive spread, not confidence intervals.'),
- table(['Model / effort','USD r2 / r1','Time r2 / r1','Largest time spread'],
- [[label(s),fmt(st.median([sorted(group(s,t),key=lambda r:r['repetition'])[1]['costs']['api_usd_estimated']/sorted(group(s,t),key=lambda r:r['repetition'])[0]['costs']['api_usd_estimated'] for t in TASKS]) if all(r['costs']['api_usd_estimated'] is not None for r in group(s)) else None),
- fmt(st.median([sorted(group(s,t),key=lambda r:r['repetition'])[1]['model_elapsed_seconds']/sorted(group(s,t),key=lambda r:r['repetition'])[0]['model_elapsed_seconds'] for t in TASKS])),
- fmt(max(max(r['model_elapsed_seconds'] for r in group(s,t))/min(r['model_elapsed_seconds'] for r in group(s,t)) for t in TASKS))+'x'] for s in SUM],
- [150,111,111,BODY-372],25),
- p('A ratio above 1 means repetition two used more money/time. The last column is the largest max/min time ratio among that setting\'s six pairs, including interruptions. Server load and tool behavior can affect elapsed time.','small'),
- p('Paid attempts are sequential, with model/effort order interleaved and reversed inside each task in repetition two. There are no automatic retries, model fallbacks or post-grading feedback.','small'),PageBreak(),
  p('Code quality and design review','h1'),p('Behavior, test strength and execution efficiency are reported separately. Manual rubric scoring remains pending.'),
  table(['Evidence layer','Scope','Interpretation'],[
  ['Main functional score','All six tasks','Equal task weights; fixed category weights for the complex tasks.'],
@@ -150,22 +99,25 @@ story += [table(['Model / effort']+SHORT_TASKS,own_rows,[116]+[(BODY-116)/6]*6,2
  p(f'Pinned runtime: {escape(AUDIT["runtime"]["codex_version"])}; Node {escape(AUDIT["runtime"]["node_version"])}; {escape(AUDIT["runtime"]["python_version"])} on Windows. Shell/tool recovery is included in agent time. Read isolation is instruction-based; automated command scans are diagnostics.','small'),
  p('Sources and evidence','h2'),
  p('<link href="https://developers.openai.com/api/docs/models/gpt-5.6-sol">Sol 5.6 API rates</link> | <link href="https://developers.openai.com/api/docs/models/gpt-6-sol">Sol 6 API rates</link> | <link href="https://developers.openai.com/api/docs/models/gpt-6.1-sol">Sol 6.1 API rates</link><br/><link href="https://learn.chatgpt.com/docs/pricing">Codex credits</link> | <link href="https://learn.chatgpt.com/docs/app-server">Codex app-server</link>','small'),
- p('Public evidence: results/results.json, quality-v2.1.json, complex-test-strength.json, report-audit.json and provenance.json; candidates/ and per-attempt prompt/final evidence. The original local audit verified all 216 snapshots/settings/turns and price calculations. Raw RPC/session logs are not distributed. This revision changes presentation, with no new inference or rescoring.','small'),
- p('Public results SHA-256: '+sha(ROOT/'results/results.json')+'<br/>Original source identities and the unchanged 4 Oct report are recorded in results/provenance.json. Current report revision: 5 Oct 2026.','small')]
+ p('Public evidence: results/results.json, quality-v2.1.json, complex-test-strength.json, report-audit.json and provenance.json; candidates/ and per-attempt prompt/final evidence. The original local audit verified all 216 snapshots/settings/turns and price calculations. Raw RPC/session logs are not distributed. Six insight views and results/insights.json derive from the same measurements, with no new inference or rescoring.','small'),
+ p('Public results SHA-256: '+sha(ROOT/'results/results.json')+'<br/>Original source identities and both prior reports are recorded in results/provenance.json. Current insight presentation: 5 Oct 2026.','small')]
 
 out=ROOT/'output/pdf/Sol_Benchmark_Consolidated_EN.pdf'; out.parent.mkdir(parents=True,exist_ok=True)
 doc=SimpleDocTemplate(str(out),pagesize=A4,leftMargin=40,rightMargin=40,topMargin=38,bottomMargin=47,
-                     title='Sol coding benchmark: cost and quality',author='Tor Production')
+                     title='Sol coding benchmark: the cost of better tests and code',author='Tor Production')
 doc.build(story,onFirstPage=footer,onLaterPages=footer)
 reader=PdfReader(out); all_text='\n'.join(page.extract_text() or '' for page in reader.pages)
-assert len(reader.pages) == 17, 'Inspect unexpected report pagination before publication'
+assert len(reader.pages) == 16, 'Inspect unexpected report pagination before publication'
 assert not any('\u0400'<=ch<='\u04ff' for ch in all_text)
 assert all(k in all_text for k in ['216','MVCC','optimizer','API-equivalent','Code quality'])
 audit=dict(pdf=str(out),pdf_sha256=sha(out),pages=len(reader.pages),source_sha256=sha(ROOT/'results/results.json'),
  quality_sha256=sha(ROOT/'results/quality-v2.1.json'),strength_sha256=sha(ROOT/'results/complex-test-strength.json'),
  english_text_verified=True,page_text_lengths=[len(page.extract_text() or '') for page in reader.pages],report_date=REPORT_DATE,timezone='Europe/Kiev',
- primary_axes={'x':'API-equivalent USD per attempt','y':'Main functional macro score / 100'},
- secondary_delivery_axes={'x':'API-equivalent USD per attempt','y':'Accepted completed deliveries (%)'},quality_scale=[0,100],partial_cost_arrow_direction='right',
+ primary_axes={'x':'API-equivalent USD per MVCC attempt','y':'MVCC generated-test mutation sensitivity (%)'},
+ primary_quality_scope='Six fixed MVCC defects; pair means require 2/2 available scores',
+ primary_attempts=36,primary_available_test_scores=35,insights_sha256=sha(ROOT/'results/insights.json'),
+ evidence_views=['mvcc-test-value','mvcc-defect-matrix','dag-code-efficiency','effort-value','repeat-cost','pricing-bridge'],
+ quality_scale=[0,100],partial_cost_policy='Two incomplete attempts retain lower bounds; arrows follow increasing USD',
  measured_data_changed=False,model_inference_calls=0)
 (ROOT/'analysis').mkdir(exist_ok=True)
 (ROOT/'analysis/pdf_audit.json').write_text(json.dumps(audit,indent=2)+'\n',encoding='utf-8')

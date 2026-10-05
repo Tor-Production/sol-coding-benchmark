@@ -4,25 +4,32 @@
 
 **A reproducible comparison of Sol 5.6, Sol 6, and Sol 6.1 across six programming tasks and six reasoning efforts.**
 
-This benchmark compares **API-equivalent dollar cost against functional code quality**, with execution time as a secondary measure. It includes the executable stand, task contracts, evaluators, all **216 attempt records**, submitted implementations, and an English report.
+This benchmark examines **what extra reasoning buys in generated code and tests, and what it costs in dollars**. It includes the executable stand, task contracts, evaluators, all **216 attempt records**, submitted implementations, and an English report.
 
 | Models | Reasoning efforts | Tasks | Repetitions | Attempts |
 | :--- | :--- | ---: | ---: | ---: |
 | Sol 5.6 · Sol 6 · Sol 6.1 | Low · Medium · High · Xhigh · Max · Ultra | 6 | 2 per task and configuration | **216** |
 
-## Read the results
+## What extra reasoning buys
 
-**Sol 6.1 Low achieved a 100/100 main functional score at the lowest observed cost:** about **$0.101 per attempt**, with **12/12 accepted deliveries**. Its secondary time result was **162 seconds per attempt**. Costs use a frozen Standard API-equivalent token schedule, rather than a subscription invoice.
+**About 10% more spending from Sol 6.1 Low to Medium improved MVCC defect detection from 9/12 to 11/12 across the two attempts.** Mean task cost rose from about **$0.129 to $0.142**. High detected all six fixed defects in both attempts at about **$0.203**. These are task-specific test results, measured against the same declared defect set.
 
-![API-equivalent USD per attempt on X against six-task main functional score out of 100 on Y, with connected effort points and an explicitly labeled ceiling zoom](assets/cost-quality.svg)
+![MVCC API-equivalent USD per attempt on X against candidate-added test sensitivity to six fixed defects on Y, with individual repetitions and model effort paths](assets/mvcc-test-value.svg)
 
-**Read the main chart:** lower cost is left; higher functional score is up. Each point averages two repetitions on each of six equally weighted tasks. Lines connect effort settings within a model. The 0–100 overview preserves the scale; the labeled zoom exposes small differences near the ceiling. Partial-cost arrows point right toward an unknown full cost.
+**Read the chart:** farther left costs less; higher detects more of these six defects. Faint points retain the individual repetitions; connected effort means require two usable evaluations. N/A stays unavailable. Dollar estimates use frozen Standard API token rates, rather than a subscription invoice.
 
-Across the full comparison, **214 attempts completed** and **213 completed with main acceptance**. A provider capacity failure, a timed-out delivery, and an optimizer scale failure remain in the dataset. Expanded checks also found two cache defects that the original acceptance tests missed.
+The [six findings](docs/findings.md) connect cost to concrete evidence:
 
-Functional scores are close to the ceiling. The chart measures tested contract behavior, while accepted delivery, expanded checks, candidate-written tests, and pending design review provide separate evidence. It does not establish a general intelligence ranking or a complete code-quality score. See the [results and all 18 configurations](docs/results.md) and [interpretation limits](docs/limitations.md).
+- **Test value:** MVCC defect detection differs even though every implementation passed the main checks.
+- **Bugs anticipated:** a per-attempt matrix shows which transactional defects the generated tests caught.
+- **Code performance:** Sol 6.1 Ultra's DAG code had 32.3% lower execution time than Low's on the fixed workload, at 2.11× generation cost.
+- **Effort premium:** Sol 6.1 Max cost 2.90× Low across the suite, with the same main functional score and accepted count.
+- **Repeatability:** 105 of 106 exact-cost repetition pairs had identical main grades; 20 pairs differed by more than 1.5× in cost.
+- **Price versus usage:** a matched Sol 6/Sol 6.1 bridge separates frozen tariff repricing from the remaining observed usage difference.
 
-**Start here:** [English PDF report](artifacts/Sol_Benchmark_Consolidated_EN.pdf) · [Results](docs/results.md) · [Methodology](docs/methodology.md) · [Run the stand](docs/reproduction.md)
+For context, **16 of 18 settings reached a 100/100 main functional score** and **213 of 216 attempts were accepted deliveries**. Sol 6.1 Low was the cheapest fully observed setting at 100/100 with 12/12 acceptance: about **$0.101 per attempt**. The findings measure different aspects of these tasks; they do not create an overall code-quality or intelligence ranking. [All settings and supplementary charts](docs/results.md) retain the full comparison.
+
+**Start here:** [Six findings](docs/findings.md) · [English PDF report](artifacts/Sol_Benchmark_Consolidated_EN.pdf) · [All results](docs/results.md) · [Methodology](docs/methodology.md) · [Run the stand](docs/reproduction.md)
 
 ## What the tasks test
 
@@ -53,9 +60,9 @@ To run offline stand checks or start a fresh experiment, follow [reproduction](d
 
 ## Quality is more than a passing score
 
-- **Functional behavior, the main chart's Y-axis:** six-task macro score from original acceptance tests and category-weighted checks for the two larger tasks.
+- **Functional behavior:** six-task macro score from original acceptance tests and category-weighted checks for the two larger tasks.
 - **Expanded correctness:** additional boundary and property tests for the original four tasks.
-- **Candidate-written tests:** sensitivity to fixed task-specific defects, with unavailable coverage shown explicitly.
+- **Candidate-written tests, the lead chart's Y-axis:** sensitivity to six fixed MVCC defects, with unavailable coverage shown explicitly; other tasks retain their own defect sets.
 - **Runtime and memory:** measured separately for the original four task implementations.
 - **Design review:** a documented rubric, still pending; no complete manual quality score is claimed.
 
@@ -65,7 +72,7 @@ Read [scoring](docs/scoring.md) before comparing these criteria. They measure di
 
 | Path | Contents |
 | :--- | :--- |
-| [`docs/`](docs/methodology.md) | Methodology, tasks, scoring, reproduction, limitations, and provenance |
+| [`docs/`](docs/findings.md) | Six findings, methodology, tasks, scoring, reproduction, limitations, and provenance |
 | [`tasks/`](tasks/) | Exact task contracts, starter files, and supplied tests |
 | [`harness/`](harness/) · [`evaluator/`](evaluator/) | Scheduling, native protocol, telemetry, grading, controls, and qualification |
 | [`quality-v2.1/`](quality-v2.1/) | Expanded checks and quality evaluation for the original four tasks |
@@ -73,6 +80,6 @@ Read [scoring](docs/scoring.md) before comparing these criteria. They measure di
 | [`candidates/`](candidates/) | All 216 captured candidate snapshots, including unsuccessful attempts |
 | [`artifacts/`](artifacts/) · [`assets/`](assets/) | Consolidated PDF and data-derived figures |
 
-Published metadata removes local account balances, session identifiers, and machine-specific paths. Candidate files retain their original bytes. The current PDF and figures were revised on **5 October 2026** to lead with cost versus functional quality; measurements and grades are unchanged. The [original 4 October PDF](artifacts/archive/Sol_Benchmark_Consolidated_EN_20261004.pdf) is preserved unchanged. Raw authentication files and RPC/session logs are excluded.
+Published metadata removes local account balances, session identifiers, and machine-specific paths. Candidate files retain their original bytes. The current PDF and figures were revised on **5 October 2026** to present six evidence-based findings; measurements and grades are unchanged. The [original 4 October PDF](artifacts/archive/Sol_Benchmark_Consolidated_EN_20261004.pdf) and [earlier cost-versus-functional-quality revision](artifacts/archive/Sol_Benchmark_Consolidated_EN_20261005_cost_quality.pdf) are preserved unchanged. Raw authentication files and RPC/session logs are excluded.
 
 Maintained by [Tor Production](https://github.com/Tor-Production). This is an independent benchmark, unaffiliated with OpenAI.

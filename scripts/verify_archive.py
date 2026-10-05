@@ -135,17 +135,28 @@ def main():
     assert presentation["pdf"] == provenance["pdf_path"]
     assert presentation["pdf_sha256"] == provenance["pdf_sha256"]
     assert presentation["primary_axes"] == {
-        "x": "API-equivalent USD per attempt", "y": "Main functional macro score / 100"}
+        "x": "API-equivalent USD per MVCC attempt", "y": "MVCC generated-test mutation sensitivity (%)"}
     assert presentation["quality_scale"] == [0, 100]
-    assert presentation["partial_cost_arrow_direction"] == "right"
+    assert presentation["primary_attempts"] == 36 and presentation["primary_available_test_scores"] == 35
+    assert presentation["evidence_views"] == ["mvcc-test-value", "mvcc-defect-matrix", "dag-code-efficiency",
+                                              "effort-value", "repeat-cost", "pricing-bridge"]
+    assert presentation["partial_cost_policy"] == "Two incomplete attempts retain lower bounds; arrows follow increasing USD"
     assert presentation["model_inference_calls"] == 0 and not presentation["measured_data_changed"]
     assert presentation["visual_qa_verified"] and presentation["text_geometry_violations"] == []
     assert presentation["visually_inspected_pages"] == list(range(1, presentation["pages"] + 1))
     for relative, expected in presentation["input_sha256"].items():
         verify_hash(relative, expected)
+    from derive_insights import derive, encoded
+    assert file_in_repo("results/insights.json").read_bytes() == encoded(derive()), "Changed derived insights"
+    verify_hash("results/insights.json", presentation["insights_sha256"])
+    for previous in provenance["previous_reports"]:
+        verify_hash(previous["pdf_path"], previous["pdf_sha256"])
+        previous_presentation = read(previous["presentation_metadata"])
+        assert previous_presentation["pdf_sha256"] == previous["pdf_sha256"]
     print(json.dumps({"verified": True, "attempts":216, "accepted":accepted, "candidate_files":files,
                       "archive_files":len(archive), "exact_cost_attempts":214,
-                      "presentation_pages":presentation["pages"], "original_report_preserved":True}, indent=2))
+                      "presentation_pages":presentation["pages"], "evidence_views":len(presentation["evidence_views"]),
+                      "original_report_preserved":True}, indent=2))
 
 
 if __name__ == "__main__":

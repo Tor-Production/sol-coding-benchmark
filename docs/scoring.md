@@ -11,7 +11,7 @@ Code quality is reported as several evidence layers. Passing hidden tests, compl
 | Generated-code runtime/allocation | Original four tasks | Descriptive, unscored workloads |
 | Manual design review | Pending | Source-based clarity, design and failure-maintenance assessment |
 
-The primary results chart uses **API-equivalent USD per attempt on X** and the **six-task main functional macro score out of 100 on Y**. This score measures tested contract behavior; it does not combine design review, mutation sensitivity or delivery completion. Time and these other criteria are reported separately. See the [results](results.md) and [methodology](methodology.md) for chart interpretation and accounting.
+The leading results chart uses **MVCC API-equivalent USD per attempt on X** and **candidate-test sensitivity to six fixed MVCC defects on Y**. The supplementary functional chart uses the six-task main macro score out of 100. Neither combines design review, mutation sensitivity, delivery completion and performance into an overall quality score. See the [six findings](findings.md), [complete results](results.md) and [methodology](methodology.md) for chart interpretation and accounting.
 
 ## Main functional score and acceptance
 
@@ -47,7 +47,7 @@ task_score = Σ(category_weight × category_score) / 100
 setting_score = mean_over_six_tasks(mean_of_two_repetitions(task_score))
 ```
 
-Each task contributes one sixth to the setting score, which supplies the main cost-versus-quality chart's Y-axis. Larger test suites do not get extra weight. Both repetitions are required for each task before publishing a complete setting mean. All recorded grades remain included, rather than filtering to accepted deliveries: the provider-failed scaffold contributes its zero and the passing timeout snapshot contributes its 100. The optimizer's single failed scale check produces 93.333333 points for that attempt, 96.666667 for its paired task mean and approximately 99.444444 for Sol 6 / Low's six-task macro score.
+Each task contributes one sixth to the setting score, which supplies the supplementary cost-versus-functional-quality chart's Y-axis. Larger test suites do not get extra weight. Both repetitions are required for each task before publishing a complete setting mean. All recorded grades remain included, rather than filtering to accepted deliveries: the provider-failed scaffold contributes its zero and the passing timeout snapshot contributes its 100. The optimizer's single failed scale check produces 93.333333 points for that attempt, 96.666667 for its paired task mean and approximately 99.444444 for Sol 6 / Low's six-task macro score.
 
 ## Expanded correctness for the original four tasks
 
@@ -84,6 +84,8 @@ No recognized added tests produces **zero for test strength only**, without redu
 In the archive, 175 of 214 completed candidates have usable sensitivity scores; 29 completed candidates have no recognized added tests. For the complex tasks, 55 of 72 scores are usable, including ten no-added-test zeros. Sixteen optimizer results are unavailable: twelve positive-control runs hit the 30-second limit, three have import/execution issues and one has inconclusive mutant execution. One MVCC result is unavailable because its candidate-added tests fail on the reference. These limitations, particularly optimizer reference timeouts, do not establish a candidate implementation defect.
 
 A model/effort/task pair mean requires both usable scores; otherwise the results display N/A with coverage. Read the per-task coverage before comparing models. High sensitivity demonstrates detection of these seeded defects, not comprehensive test coverage or freedom from other bugs.
+
+The leading MVCC finding applies this same policy to all eighteen settings. Thirty-five of thirty-six attempts have usable sensitivity evidence, including four no-added-test zeros; one is unavailable. Sol 6.1 Low detected four and five defects, Medium five and six, and High through Ultra six in both repetitions. These are recorded outcomes, not new grades. The defect matrix uses the per-mutant evidence and retains unavailable rows rather than inferring misses.
 
 ## Generated-code runtime and allocation
 

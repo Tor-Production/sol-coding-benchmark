@@ -1,0 +1,201 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1200 1080">
+<title id="title">Same functional score, different repeated spending</title>
+<desc id="desc">The top panel counts all one hundred six pairs with complete API-equivalent cost in five ratio bins. The bottom dumbbells show every one of the twenty pairs whose expensive-to-cheap cost ratio exceeds one point five; each endpoint is an actual repetition and is labeled with its cost. All one hundred eight repeated task pairs are accounted for, including two incomplete-cost pairs listed separately. There are only two repetitions per setting, so no confidence intervals are asserted.</desc>
+<rect x="0" y="0" width="1200" height="1080" rx="0" fill="#FFFFFF" stroke="none"/>
+<text x="54" y="44" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="bold" text-anchor="start" fill="#182D44">The same functional score can cost different amounts</text>
+<text x="54" y="75" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#53667B">105/106 complete-cost pairs have identical main grades; 20 cost ratios exceed 1.5x</text>
+<text x="54" y="120" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="bold" text-anchor="start" fill="#182D44">All complete-cost pairs: larger / smaller actual repetition cost</text>
+<rect x="140" y="222.22" width="132" height="84.78" rx="4" fill="#536F8B" stroke="none"/>
+<text x="206" y="212.22" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#536F8B">27</text>
+<text x="206" y="333" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="normal" text-anchor="middle" fill="#53667B">1.00-1.10x</text>
+<rect x="350" y="209.66" width="132" height="97.34" rx="4" fill="#536F8B" stroke="none"/>
+<text x="416" y="199.66" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#536F8B">31</text>
+<text x="416" y="333" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="normal" text-anchor="middle" fill="#53667B">1.10-1.25x</text>
+<rect x="560" y="219.08" width="132" height="87.92" rx="4" fill="#536F8B" stroke="none"/>
+<text x="626" y="209.08" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#536F8B">28</text>
+<text x="626" y="333" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="normal" text-anchor="middle" fill="#53667B">1.25-1.50x</text>
+<rect x="770" y="247.34" width="132" height="59.66" rx="4" fill="#D75B3B" stroke="none"/>
+<text x="836" y="237.34" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#D75B3B">19</text>
+<text x="836" y="333" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="normal" text-anchor="middle" fill="#53667B">1.50-2.00x</text>
+<rect x="980" y="303.86" width="132" height="3.14" rx="4" fill="#D75B3B" stroke="none"/>
+<text x="1046" y="293.86" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#D75B3B">1</text>
+<text x="1046" y="333" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="normal" text-anchor="middle" fill="#53667B">&gt;2.00x</text>
+<text x="54" y="372" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" text-anchor="start" fill="#182D44">Every pair above 1.5x - endpoints are actual costs, sorted by ratio</text>
+<polyline points="410,392 410,901" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="410" y="383" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="middle" fill="#53667B">$0.00</text>
+<polyline points="536.25,392 536.25,901" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="536.25" y="383" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="middle" fill="#53667B">$0.90</text>
+<polyline points="662.5,392 662.5,901" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="662.5" y="383" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="middle" fill="#53667B">$1.80</text>
+<polyline points="788.75,392 788.75,901" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="788.75" y="383" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="middle" fill="#53667B">$2.70</text>
+<polyline points="915,392 915,901" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="915" y="383" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="middle" fill="#53667B">$3.60</text>
+<text x="1023" y="385" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#182D44">Ratio</text>
+<text x="1110" y="385" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#182D44">Main grade</text>
+<text x="54" y="417" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6.1 Medium / Optimizer</text>
+<polyline points="455.66,412 431.084,412" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="455.66" cy="412" r="4.5" fill="#128C7E" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="426.584" y="407.5" width="9" height="9" rx="0" fill="#128C7E" stroke="#FFFFFF"/>
+<text x="423.084" y="417" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$0.150</text>
+<text x="463.66" y="417" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">$0.325</text>
+<text x="1023" y="417" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#128C7E">2.166x</text>
+<text x="1110" y="417" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#182D44">100</text>
+<text x="54" y="442" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6 Ultra / Optimizer</text>
+<polyline points="518.116,437 610.684,437" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="518.116" cy="437" r="4.5" fill="#3478BE" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="606.184" y="432.5" width="9" height="9" rx="0" fill="#3478BE" stroke="#FFFFFF"/>
+<text x="510.116" y="442" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$0.771</text>
+<text x="618.684" y="442" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">$1.431</text>
+<text x="1023" y="442" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#3478BE">1.856x</text>
+<text x="1110" y="442" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#182D44">100</text>
+<text x="54" y="467" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6.1 Low / MVCC</text>
+<polyline points="423,462 433.153,462" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="423" cy="462" r="4.5" fill="#128C7E" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="428.653" y="457.5" width="9" height="9" rx="0" fill="#128C7E" stroke="#FFFFFF"/>
+<text x="415" y="467" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$0.093</text>
+<text x="441.153" y="467" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">$0.165</text>
+<text x="1023" y="467" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#128C7E">1.781x</text>
+<text x="1110" y="467" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#182D44">100</text>
+<text x="54" y="492" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6.1 Xhigh / DAG</text>
+<polyline points="436.504,487 424.94,487" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="436.504" cy="487" r="4.5" fill="#128C7E" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="420.44" y="482.5" width="9" height="9" rx="0" fill="#128C7E" stroke="#FFFFFF"/>
+<text x="416.94" y="492" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$0.107</text>
+<text x="444.504" y="492" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">$0.189</text>
+<text x="1023" y="492" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#128C7E">1.774x</text>
+<text x="1110" y="492" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#182D44">100</text>
+<text x="54" y="517" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#182D44">Sol 5.6 Max / Intervals</text>
+<polyline points="465.319,512 441.376,512" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="465.319" cy="512" r="4.5" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="436.876" y="507.5" width="9" height="9" rx="0" fill="#D75B3B" stroke="#FFFFFF"/>
+<text x="433.376" y="517" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$0.224</text>
+<text x="473.319" y="517" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">$0.394</text>
+<text x="1023" y="517" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#D75B3B">1.763x</text>
+<text x="1110" y="517" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#182D44">100</text>
+<text x="54" y="542" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6 Max / TTL</text>
+<polyline points="434.982,537 424.372,537" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="434.982" cy="537" r="4.5" fill="#3478BE" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="419.872" y="532.5" width="9" height="9" rx="0" fill="#3478BE" stroke="#FFFFFF"/>
+<text x="416.372" y="542" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$0.102</text>
+<text x="442.982" y="542" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">$0.178</text>
+<text x="1023" y="542" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#3478BE">1.738x</text>
+<text x="1110" y="542" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#182D44">100</text>
+<text x="54" y="567" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6 Low / TTL</text>
+<polyline points="425.26,562 418.882,562" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="425.26" cy="562" r="4.5" fill="#3478BE" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="414.382" y="557.5" width="9" height="9" rx="0" fill="#3478BE" stroke="#FFFFFF"/>
+<text x="410.882" y="567" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$0.063</text>
+<text x="433.26" y="567" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">$0.109</text>
+<text x="1023" y="567" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#3478BE">1.718x</text>
+<text x="1110" y="567" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#182D44">100</text>
+<text x="54" y="592" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#182D44">Sol 5.6 High / Intervals</text>
+<polyline points="430.621,587 444.484,587" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="430.621" cy="587" r="4.5" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="439.984" y="582.5" width="9" height="9" rx="0" fill="#D75B3B" stroke="#FFFFFF"/>
+<text x="422.621" y="592" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$0.147</text>
+<text x="452.484" y="592" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">$0.246</text>
+<text x="1023" y="592" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#D75B3B">1.672x</text>
+<text x="1110" y="592" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#182D44">100</text>
+<text x="54" y="617" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6.1 High / Intervals</text>
+<polyline points="419.609,612 415.825,612" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="419.609" cy="612" r="4.5" fill="#128C7E" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="411.325" y="607.5" width="9" height="9" rx="0" fill="#128C7E" stroke="#FFFFFF"/>
+<text x="407.825" y="617" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$0.042</text>
+<text x="427.609" y="617" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">$0.069</text>
+<text x="1023" y="617" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#128C7E">1.650x</text>
+<text x="1110" y="617" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#182D44">100</text>
+<text x="54" y="642" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#182D44">Sol 5.6 High / SQLite</text>
+<polyline points="609.976,637 532.484,637" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="609.976" cy="637" r="4.5" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="527.984" y="632.5" width="9" height="9" rx="0" fill="#D75B3B" stroke="#FFFFFF"/>
+<text x="524.484" y="642" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$0.873</text>
+<text x="617.976" y="642" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">$1.426</text>
+<text x="1023" y="642" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#D75B3B">1.633x</text>
+<text x="1110" y="642" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#182D44">100</text>
+<text x="54" y="667" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6.1 Ultra / TTL</text>
+<polyline points="426.497,662 420.141,662" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="426.497" cy="662" r="4.5" fill="#128C7E" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="415.641" y="657.5" width="9" height="9" rx="0" fill="#128C7E" stroke="#FFFFFF"/>
+<text x="412.141" y="667" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$0.072</text>
+<text x="434.497" y="667" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">$0.118</text>
+<text x="1023" y="667" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#128C7E">1.627x</text>
+<text x="1110" y="667" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#182D44">100</text>
+<text x="54" y="692" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6.1 Xhigh / Optimizer</text>
+<polyline points="497.273,687 464.339,687" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="497.273" cy="687" r="4.5" fill="#128C7E" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="459.839" y="682.5" width="9" height="9" rx="0" fill="#128C7E" stroke="#FFFFFF"/>
+<text x="456.339" y="692" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$0.387</text>
+<text x="505.273" y="692" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">$0.622</text>
+<text x="1023" y="692" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#128C7E">1.606x</text>
+<text x="1110" y="692" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#182D44">100</text>
+<text x="54" y="717" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#182D44">Sol 5.6 Max / Optimizer</text>
+<polyline points="898.787,712 716.753,712" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="898.787" cy="712" r="4.5" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="712.253" y="707.5" width="9" height="9" rx="0" fill="#D75B3B" stroke="#FFFFFF"/>
+<text x="708.753" y="717" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$2.187</text>
+<text x="906.787" y="717" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">$3.484</text>
+<text x="1023" y="717" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#D75B3B">1.593x</text>
+<text x="1110" y="717" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#182D44">100</text>
+<text x="54" y="742" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#182D44">Sol 5.6 Xhigh / SQLite</text>
+<polyline points="585.789,737 685.98,737" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="585.789" cy="737" r="4.5" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="681.48" y="732.5" width="9" height="9" rx="0" fill="#D75B3B" stroke="#FFFFFF"/>
+<text x="577.789" y="742" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$1.253</text>
+<text x="693.98" y="742" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">$1.967</text>
+<text x="1023" y="742" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#D75B3B">1.570x</text>
+<text x="1110" y="742" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#182D44">100</text>
+<text x="54" y="767" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#182D44">Sol 5.6 Xhigh / Optimizer</text>
+<polyline points="721.742,762 610.012,762" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="721.742" cy="762" r="4.5" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="605.512" y="757.5" width="9" height="9" rx="0" fill="#D75B3B" stroke="#FFFFFF"/>
+<text x="602.012" y="767" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$1.426</text>
+<text x="729.742" y="767" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">$2.222</text>
+<text x="1023" y="767" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#D75B3B">1.559x</text>
+<text x="1110" y="767" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#182D44">100</text>
+<text x="54" y="792" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#182D44">Sol 5.6 Max / TTL</text>
+<polyline points="469.615,787 448.515,787" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="469.615" cy="787" r="4.5" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="444.015" y="782.5" width="9" height="9" rx="0" fill="#D75B3B" stroke="#FFFFFF"/>
+<text x="440.515" y="792" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$0.275</text>
+<text x="477.615" y="792" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">$0.425</text>
+<text x="1023" y="792" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#D75B3B">1.548x</text>
+<text x="1110" y="792" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#182D44">100</text>
+<text x="54" y="817" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6 Xhigh / Optimizer</text>
+<polyline points="488.113,812 460.551,812" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="488.113" cy="812" r="4.5" fill="#3478BE" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="456.051" y="807.5" width="9" height="9" rx="0" fill="#3478BE" stroke="#FFFFFF"/>
+<text x="452.551" y="817" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$0.360</text>
+<text x="496.113" y="817" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">$0.557</text>
+<text x="1023" y="817" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#3478BE">1.545x</text>
+<text x="1110" y="817" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#182D44">100</text>
+<text x="54" y="842" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6 Low / MVCC</text>
+<polyline points="433.108,837 425.246,837" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="433.108" cy="837" r="4.5" fill="#3478BE" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="420.746" y="832.5" width="9" height="9" rx="0" fill="#3478BE" stroke="#FFFFFF"/>
+<text x="417.246" y="842" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$0.109</text>
+<text x="441.108" y="842" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">$0.165</text>
+<text x="1023" y="842" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#3478BE">1.516x</text>
+<text x="1110" y="842" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#182D44">100</text>
+<text x="54" y="867" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6 Low / Optimizer</text>
+<polyline points="439.728,862 429.698,862" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="439.728" cy="862" r="4.5" fill="#3478BE" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="425.198" y="857.5" width="9" height="9" rx="0" fill="#3478BE" stroke="#FFFFFF"/>
+<text x="421.698" y="867" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$0.140</text>
+<text x="447.728" y="867" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">$0.212</text>
+<text x="1023" y="867" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#3478BE">1.509x</text>
+<text x="1110" y="867" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#182D44">93.3/100</text>
+<text x="54" y="892" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#182D44">Sol 5.6 Medium / DAG</text>
+<polyline points="457.052,887 441.286,887" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="457.052" cy="887" r="4.5" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1"/>
+<rect x="436.786" y="882.5" width="9" height="9" rx="0" fill="#D75B3B" stroke="#FFFFFF"/>
+<text x="433.286" y="892" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$0.223</text>
+<text x="465.052" y="892" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">$0.335</text>
+<text x="1023" y="892" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#D75B3B">1.504x</text>
+<text x="1110" y="892" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#182D44">100</text>
+<rect x="54" y="944" width="1092" height="112" rx="8" fill="#F2F6FA" stroke="none"/>
+<text x="73" y="971" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="start" fill="#182D44">Two pairs have incomplete cost, so no exact spending ratio is calculated:</text>
+<text x="73" y="996" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="normal" text-anchor="start" fill="#53667B">Sol 6 Max / SQLite - recorded observations remain in the archive.</text>
+<text x="73" y="1018" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="normal" text-anchor="start" fill="#53667B">Sol 6 Ultra / Intervals - recorded observations remain in the archive.</text>
+<text x="73" y="1043" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="start" fill="#53667B">Circles: r1. Squares: r2. Two observations describe this sample; no confidence intervals or forecast are claimed.</text>
+</svg>

@@ -20,6 +20,9 @@ PUBLIC = read(ROOT/'results/results.json')
 PROVENANCE = read(ROOT/'results/provenance.json')
 QUALITY = read(ROOT/'results/quality-v2.1.json')
 STRENGTH = read(ROOT/'results/complex-test-strength.json')
+INSIGHTS = read(ROOT/'results/insights.json')
+for filename, expected in INSIGHTS['source_sha256'].items():
+    assert sha(ROOT/filename) == expected, 'Insight source changed: ' + filename
 AUDIT = read(ROOT/'results/report-audit.json')
 assert AUDIT['verified']
 assert AUDIT['source_json_sha256'] == PROVENANCE['original_consolidated_results_sha256']
@@ -141,14 +144,15 @@ class Graphic(Flowable):
     def draw(self):
         self.fn(self.canv, self.width, self.height)
 
-def public_figure(name):
+def public_figure(name, max_height=None):
     """Draw a generated public SVG as PDF vectors, using its exact geometry."""
     root = ET.parse(ROOT / 'assets' / (name + '.svg')).getroot()
     _, _, source_width, source_height = map(float, root.attrib['viewBox'].split())
-    scale = BODY / source_width
+    scale = min(BODY / source_width, max_height / source_height if max_height else BODY / source_width)
+    offset = (BODY - source_width * scale) / 2
     height = source_height * scale
     def draw(c, width, height):
-        def point(x, y): return float(x) * scale, height - float(y) * scale
+        def point(x, y): return offset + float(x) * scale, height - float(y) * scale
         for node in root:
             kind = node.tag.rsplit('}', 1)[-1]
             a = node.attrib

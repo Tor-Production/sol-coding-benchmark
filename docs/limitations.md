@@ -1,8 +1,8 @@
 # Limits of the conclusions
 
-The archive supports a comparison of **API-equivalent USD against tested functional quality on specified Python workloads**, with end-to-end agent time and delivery as supplementary evidence. It does not establish a general intelligence ranking. Most settings reach the main functional ceiling, so the tasks provide too little separation to say which model is universally smarter.
+The archive supports a comparison of **API-equivalent USD against specific test and code evidence on specified Python workloads**, with end-to-end agent time and delivery as supplementary evidence. It does not establish a general intelligence ranking. Most settings reach the main functional ceiling, so the tasks provide too little separation to say which model is universally smarter.
 
-The primary chart's 0–100 overview and labeled ceiling zoom describe the same scores. A small visible gap in the zoom remains a small numerical gap. Points at 100 can differ in expanded correctness, candidate-written tests, runtime and design. Connecting effort points identifies model settings; it does not demonstrate that additional spending reliably improves quality.
+The leading MVCC chart measures detection of six fixed defects, and does not expand that result into general intelligence or all-task test quality. The supplementary functional chart's 0–100 overview and labeled ceiling detail describe the same grades. Points at 100 can differ in expanded correctness, candidate-written tests, runtime and design. Connecting effort points identifies model settings; it does not demonstrate that additional spending reliably improves quality.
 
 ## Sample and workload limits
 
@@ -18,7 +18,7 @@ The original main contracts and checks are retained, with one disclosed reservat
 
 Mutation sensitivity concerns fixed per-task defect sets, with different historical/new detection rules documented in [scoring](scoring.md). A 100% result means all those mutants were detected, not that the tests detect every plausible bug. Reference portability and timeouts make some scores unavailable. Optimizer positive-control timeouts particularly reduce Sol 6.1's usable coverage; N/A cannot be interpreted as bad code or ignored to create a favorable mean. No recognized added tests is a zero only for this criterion.
 
-Manual clarity, design and failure-maintenance review is pending. Static counts and attractive explanations do not replace source-based review. The main chart's functional score is one quality criterion; there is no complete overall code-quality score. A separate accepted-delivery percentage includes completion and therefore differs from the saved-snapshot functional grade. Generated-code runtime/allocation profiles cover only the original four tasks, so an all-six-task performance or memory ranking would be unsupported.
+Manual clarity, design and failure-maintenance review is pending. Static counts and attractive explanations do not replace source-based review. Mutation sensitivity and functional score are separate quality criteria; there is no complete overall code-quality score. Accepted-delivery percentage includes completion and therefore differs from the saved-snapshot functional grade. Generated-code runtime/allocation profiles cover only the original four tasks, so an all-six-task performance or memory ranking would be unsupported.
 
 ## Failure types should remain distinct
 
@@ -36,6 +36,10 @@ All remain in the archive. No successful inference rerun replaces a failure. The
 USD is a counterfactual Standard API token estimate from Codex usage under a historical frozen schedule. It is not actual billed money, an API benchmark run or a guarantee of current prices. Token estimates omit hosted-tool fees and regional premiums. Two partial observations prevent a complete experiment cost total. Shared account balances cannot attribute billed credits to one run.
 
 Agent time includes model reasoning, commands, self-tests and waits during the turn. It is not pure inference latency. Limits can censor completion time: the 40-minute timeout gives an observed interrupted duration, not the time the agent would eventually have needed. Generated-code runtime is measured separately; allocation is Python `tracemalloc`, not total process or native memory.
+
+The paired dollar-spread analysis includes only 106 pairs with both exact costs and excludes two partial pairs; it does not estimate population variance. The matched pricing bridge excludes the two partial Sol 6 keys from both models. Repricing the same usage under another frozen tariff is counterfactual and order-dependent, not causal proof of model efficiency. A new cache tariff changes the allocation between the bridge steps; it does not explain why recorded usage differed.
+
+The [six findings](findings.md) were selected after observing the archive. They provide inspectable task-specific evidence, not preregistered significance tests. Differences in fixed-workload runtime can reflect code structure and historical host noise, and cannot be generalized to other workloads without new measurements.
 
 ## Isolation, audit and publication
 

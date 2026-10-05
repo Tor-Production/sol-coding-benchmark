@@ -1,0 +1,615 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1200 1380">
+<title id="title">Which MVCC defects did candidate-written tests detect?</title>
+<desc id="desc">All thirty-six MVCC attempts and all six fixed injected defects. Detected means an executed assertion failure on a mutant with passing candidate and reference controls. Missed means the valid tests passed the mutant. No-added-tests is a scored zero with no submitted tests. Unavailable is an unusable evaluation and has no numerical score. Sol 6 Max repetition two is unavailable. Colors and cell labels distinguish all four states.</desc>
+<rect x="0" y="0" width="1200" height="1380" rx="0" fill="#FFFFFF" stroke="none"/>
+<text x="54" y="44" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="bold" text-anchor="start" fill="#182D44">Which MVCC defects did the tests detect?</text>
+<text x="54" y="75" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#53667B">Every attempt is shown; each column is one frozen contract mutation</text>
+<rect x="54" y="96" width="35" height="25" rx="3" fill="#128C7E" stroke="none"/>
+<text x="71.5" y="114" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<text x="100" y="114" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#182D44">Detected</text>
+<rect x="334" y="96" width="35" height="25" rx="3" fill="#F5DBD5" stroke="none"/>
+<text x="351.5" y="114" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<text x="380" y="114" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#182D44">Missed</text>
+<rect x="614" y="96" width="35" height="25" rx="3" fill="#E5EAF0" stroke="none"/>
+<text x="631.5" y="114" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#53667B">none</text>
+<text x="660" y="114" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#182D44">No added tests</text>
+<rect x="894" y="96" width="35" height="25" rx="3" fill="#596C80" stroke="none"/>
+<text x="911.5" y="114" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#FFFFFF">N/A</text>
+<text x="940" y="114" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#182D44">Unavailable</text>
+<text x="54" y="164" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="bold" text-anchor="start" fill="#182D44">Model / effort / attempt</text>
+<text x="321" y="164" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="bold" text-anchor="middle" fill="#182D44">Found</text>
+<text x="433" y="151" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">Snapshot</text>
+<text x="433" y="174" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">reads</text>
+<text x="561" y="151" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">Write</text>
+<text x="561" y="174" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">skew</text>
+<text x="689" y="151" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">Phantom</text>
+<text x="689" y="174" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">reads</text>
+<text x="817" y="151" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">Rollback</text>
+<text x="817" y="174" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">reads</text>
+<text x="945" y="151" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">Recovery</text>
+<text x="1073" y="151" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">Checkpoint</text>
+<text x="1073" y="174" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">aliasing</text>
+<polyline points="54,187 1137,187" fill="none" stroke="#D75B3B" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="54" y="190" width="283" height="27" rx="0" fill="#F5F8FB" stroke="none"/>
+<rect x="54" y="190" width="4" height="27" rx="0" fill="#D75B3B" stroke="none"/>
+<text x="65" y="210" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 5.6 Low - r1</text>
+<text x="321" y="210" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">0/6</text>
+<rect x="372" y="190" width="122" height="27" rx="2" fill="#E5EAF0" stroke="none"/>
+<text x="433" y="210" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#53667B">none</text>
+<rect x="500" y="190" width="122" height="27" rx="2" fill="#E5EAF0" stroke="none"/>
+<text x="561" y="210" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#53667B">none</text>
+<rect x="628" y="190" width="122" height="27" rx="2" fill="#E5EAF0" stroke="none"/>
+<text x="689" y="210" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#53667B">none</text>
+<rect x="756" y="190" width="122" height="27" rx="2" fill="#E5EAF0" stroke="none"/>
+<text x="817" y="210" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#53667B">none</text>
+<rect x="884" y="190" width="122" height="27" rx="2" fill="#E5EAF0" stroke="none"/>
+<text x="945" y="210" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#53667B">none</text>
+<rect x="1012" y="190" width="122" height="27" rx="2" fill="#E5EAF0" stroke="none"/>
+<text x="1073" y="210" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#53667B">none</text>
+<rect x="54" y="219" width="283" height="27" rx="0" fill="#FFFFFF" stroke="none"/>
+<rect x="54" y="219" width="4" height="27" rx="0" fill="#D75B3B" stroke="none"/>
+<text x="65" y="239" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 5.6 Low - r2</text>
+<text x="321" y="239" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">0/6</text>
+<rect x="372" y="219" width="122" height="27" rx="2" fill="#E5EAF0" stroke="none"/>
+<text x="433" y="239" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#53667B">none</text>
+<rect x="500" y="219" width="122" height="27" rx="2" fill="#E5EAF0" stroke="none"/>
+<text x="561" y="239" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#53667B">none</text>
+<rect x="628" y="219" width="122" height="27" rx="2" fill="#E5EAF0" stroke="none"/>
+<text x="689" y="239" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#53667B">none</text>
+<rect x="756" y="219" width="122" height="27" rx="2" fill="#E5EAF0" stroke="none"/>
+<text x="817" y="239" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#53667B">none</text>
+<rect x="884" y="219" width="122" height="27" rx="2" fill="#E5EAF0" stroke="none"/>
+<text x="945" y="239" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#53667B">none</text>
+<rect x="1012" y="219" width="122" height="27" rx="2" fill="#E5EAF0" stroke="none"/>
+<text x="1073" y="239" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#53667B">none</text>
+<rect x="54" y="248" width="283" height="27" rx="0" fill="#F5F8FB" stroke="none"/>
+<rect x="54" y="248" width="4" height="27" rx="0" fill="#D75B3B" stroke="none"/>
+<text x="65" y="268" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 5.6 Medium - r1</text>
+<text x="321" y="268" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">3/6</text>
+<rect x="372" y="248" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="433" y="268" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="500" y="248" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="268" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="248" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="268" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="248" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="817" y="268" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="884" y="248" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="945" y="268" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="1012" y="248" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="1073" y="268" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="54" y="277" width="283" height="27" rx="0" fill="#FFFFFF" stroke="none"/>
+<rect x="54" y="277" width="4" height="27" rx="0" fill="#D75B3B" stroke="none"/>
+<text x="65" y="297" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 5.6 Medium - r2</text>
+<text x="321" y="297" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">3/6</text>
+<rect x="372" y="277" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="433" y="297" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="500" y="277" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="297" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="277" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="297" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="277" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="817" y="297" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="884" y="277" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="945" y="297" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="1012" y="277" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="1073" y="297" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="54" y="306" width="283" height="27" rx="0" fill="#F5F8FB" stroke="none"/>
+<rect x="54" y="306" width="4" height="27" rx="0" fill="#D75B3B" stroke="none"/>
+<text x="65" y="326" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 5.6 High - r1</text>
+<text x="321" y="326" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">3/6</text>
+<rect x="372" y="306" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="433" y="326" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="500" y="306" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="326" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="306" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="326" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="306" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="817" y="326" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="884" y="306" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="945" y="326" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="1012" y="306" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="1073" y="326" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="54" y="335" width="283" height="27" rx="0" fill="#FFFFFF" stroke="none"/>
+<rect x="54" y="335" width="4" height="27" rx="0" fill="#D75B3B" stroke="none"/>
+<text x="65" y="355" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 5.6 High - r2</text>
+<text x="321" y="355" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">2/6</text>
+<rect x="372" y="335" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="433" y="355" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="500" y="335" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="355" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="335" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="355" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="335" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="817" y="355" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="884" y="335" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="945" y="355" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="1012" y="335" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="1073" y="355" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="54" y="364" width="283" height="27" rx="0" fill="#F5F8FB" stroke="none"/>
+<rect x="54" y="364" width="4" height="27" rx="0" fill="#D75B3B" stroke="none"/>
+<text x="65" y="384" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 5.6 Xhigh - r1</text>
+<text x="321" y="384" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">0/6</text>
+<rect x="372" y="364" width="122" height="27" rx="2" fill="#E5EAF0" stroke="none"/>
+<text x="433" y="384" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#53667B">none</text>
+<rect x="500" y="364" width="122" height="27" rx="2" fill="#E5EAF0" stroke="none"/>
+<text x="561" y="384" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#53667B">none</text>
+<rect x="628" y="364" width="122" height="27" rx="2" fill="#E5EAF0" stroke="none"/>
+<text x="689" y="384" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#53667B">none</text>
+<rect x="756" y="364" width="122" height="27" rx="2" fill="#E5EAF0" stroke="none"/>
+<text x="817" y="384" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#53667B">none</text>
+<rect x="884" y="364" width="122" height="27" rx="2" fill="#E5EAF0" stroke="none"/>
+<text x="945" y="384" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#53667B">none</text>
+<rect x="1012" y="364" width="122" height="27" rx="2" fill="#E5EAF0" stroke="none"/>
+<text x="1073" y="384" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#53667B">none</text>
+<rect x="54" y="393" width="283" height="27" rx="0" fill="#FFFFFF" stroke="none"/>
+<rect x="54" y="393" width="4" height="27" rx="0" fill="#D75B3B" stroke="none"/>
+<text x="65" y="413" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 5.6 Xhigh - r2</text>
+<text x="321" y="413" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">5/6</text>
+<rect x="372" y="393" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="433" y="413" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="500" y="393" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="413" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="393" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="413" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="393" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="817" y="413" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="884" y="393" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="945" y="413" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="1012" y="393" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="1073" y="413" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="54" y="422" width="283" height="27" rx="0" fill="#F5F8FB" stroke="none"/>
+<rect x="54" y="422" width="4" height="27" rx="0" fill="#D75B3B" stroke="none"/>
+<text x="65" y="442" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 5.6 Max - r1</text>
+<text x="321" y="442" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">3/6</text>
+<rect x="372" y="422" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="433" y="442" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="500" y="422" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="442" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="422" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="442" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="422" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="817" y="442" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="884" y="422" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="945" y="442" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="1012" y="422" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="1073" y="442" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="54" y="451" width="283" height="27" rx="0" fill="#FFFFFF" stroke="none"/>
+<rect x="54" y="451" width="4" height="27" rx="0" fill="#D75B3B" stroke="none"/>
+<text x="65" y="471" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 5.6 Max - r2</text>
+<text x="321" y="471" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">5/6</text>
+<rect x="372" y="451" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="433" y="471" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="500" y="451" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="471" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="451" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="471" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="451" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="817" y="471" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="884" y="451" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="945" y="471" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="1012" y="451" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="1073" y="471" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="54" y="480" width="283" height="27" rx="0" fill="#F5F8FB" stroke="none"/>
+<rect x="54" y="480" width="4" height="27" rx="0" fill="#D75B3B" stroke="none"/>
+<text x="65" y="500" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 5.6 Ultra - r1</text>
+<text x="321" y="500" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">3/6</text>
+<rect x="372" y="480" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="433" y="500" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="500" y="480" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="500" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="480" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="500" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="480" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="817" y="500" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="884" y="480" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="945" y="500" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="1012" y="480" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="1073" y="500" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="54" y="509" width="283" height="27" rx="0" fill="#FFFFFF" stroke="none"/>
+<rect x="54" y="509" width="4" height="27" rx="0" fill="#D75B3B" stroke="none"/>
+<text x="65" y="529" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 5.6 Ultra - r2</text>
+<text x="321" y="529" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">4/6</text>
+<rect x="372" y="509" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="433" y="529" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="500" y="509" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="529" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="509" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="529" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="509" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="817" y="529" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="884" y="509" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="945" y="529" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="1012" y="509" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="1073" y="529" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<polyline points="54,535 1137,535" fill="none" stroke="#3478BE" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="54" y="538" width="283" height="27" rx="0" fill="#F5F8FB" stroke="none"/>
+<rect x="54" y="538" width="4" height="27" rx="0" fill="#3478BE" stroke="none"/>
+<text x="65" y="558" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6 Low - r1</text>
+<text x="321" y="558" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">3/6</text>
+<rect x="372" y="538" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="433" y="558" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="500" y="538" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="558" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="538" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="558" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="538" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="817" y="558" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="884" y="538" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="945" y="558" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="1012" y="538" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="1073" y="558" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="54" y="567" width="283" height="27" rx="0" fill="#FFFFFF" stroke="none"/>
+<rect x="54" y="567" width="4" height="27" rx="0" fill="#3478BE" stroke="none"/>
+<text x="65" y="587" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6 Low - r2</text>
+<text x="321" y="587" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">0/6</text>
+<rect x="372" y="567" width="122" height="27" rx="2" fill="#E5EAF0" stroke="none"/>
+<text x="433" y="587" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#53667B">none</text>
+<rect x="500" y="567" width="122" height="27" rx="2" fill="#E5EAF0" stroke="none"/>
+<text x="561" y="587" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#53667B">none</text>
+<rect x="628" y="567" width="122" height="27" rx="2" fill="#E5EAF0" stroke="none"/>
+<text x="689" y="587" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#53667B">none</text>
+<rect x="756" y="567" width="122" height="27" rx="2" fill="#E5EAF0" stroke="none"/>
+<text x="817" y="587" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#53667B">none</text>
+<rect x="884" y="567" width="122" height="27" rx="2" fill="#E5EAF0" stroke="none"/>
+<text x="945" y="587" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#53667B">none</text>
+<rect x="1012" y="567" width="122" height="27" rx="2" fill="#E5EAF0" stroke="none"/>
+<text x="1073" y="587" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#53667B">none</text>
+<rect x="54" y="596" width="283" height="27" rx="0" fill="#F5F8FB" stroke="none"/>
+<rect x="54" y="596" width="4" height="27" rx="0" fill="#3478BE" stroke="none"/>
+<text x="65" y="616" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6 Medium - r1</text>
+<text x="321" y="616" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">4/6</text>
+<rect x="372" y="596" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="433" y="616" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="500" y="596" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="616" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="596" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="616" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="596" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="817" y="616" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="884" y="596" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="945" y="616" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="1012" y="596" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="1073" y="616" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="54" y="625" width="283" height="27" rx="0" fill="#FFFFFF" stroke="none"/>
+<rect x="54" y="625" width="4" height="27" rx="0" fill="#3478BE" stroke="none"/>
+<text x="65" y="645" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6 Medium - r2</text>
+<text x="321" y="645" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">5/6</text>
+<rect x="372" y="625" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="433" y="645" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="500" y="625" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="645" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="625" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="645" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="625" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="817" y="645" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="884" y="625" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="945" y="645" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="1012" y="625" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="1073" y="645" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="54" y="654" width="283" height="27" rx="0" fill="#F5F8FB" stroke="none"/>
+<rect x="54" y="654" width="4" height="27" rx="0" fill="#3478BE" stroke="none"/>
+<text x="65" y="674" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6 High - r1</text>
+<text x="321" y="674" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">4/6</text>
+<rect x="372" y="654" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="433" y="674" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="500" y="654" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="674" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="654" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="674" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="654" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="817" y="674" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="884" y="654" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="945" y="674" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="1012" y="654" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="1073" y="674" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="54" y="683" width="283" height="27" rx="0" fill="#FFFFFF" stroke="none"/>
+<rect x="54" y="683" width="4" height="27" rx="0" fill="#3478BE" stroke="none"/>
+<text x="65" y="703" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6 High - r2</text>
+<text x="321" y="703" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">4/6</text>
+<rect x="372" y="683" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="433" y="703" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="500" y="683" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="703" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="683" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="703" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="683" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="817" y="703" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="884" y="683" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="945" y="703" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="1012" y="683" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="1073" y="703" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="54" y="712" width="283" height="27" rx="0" fill="#F5F8FB" stroke="none"/>
+<rect x="54" y="712" width="4" height="27" rx="0" fill="#3478BE" stroke="none"/>
+<text x="65" y="732" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6 Xhigh - r1</text>
+<text x="321" y="732" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">5/6</text>
+<rect x="372" y="712" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="433" y="732" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="500" y="712" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="732" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="712" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="732" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="712" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="817" y="732" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="884" y="712" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="945" y="732" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="1012" y="712" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="1073" y="732" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="54" y="741" width="283" height="27" rx="0" fill="#FFFFFF" stroke="none"/>
+<rect x="54" y="741" width="4" height="27" rx="0" fill="#3478BE" stroke="none"/>
+<text x="65" y="761" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6 Xhigh - r2</text>
+<text x="321" y="761" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">5/6</text>
+<rect x="372" y="741" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="433" y="761" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="500" y="741" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="761" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="741" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="761" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="741" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="817" y="761" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="884" y="741" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="945" y="761" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="1012" y="741" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="1073" y="761" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="54" y="770" width="283" height="27" rx="0" fill="#F5F8FB" stroke="none"/>
+<rect x="54" y="770" width="4" height="27" rx="0" fill="#3478BE" stroke="none"/>
+<text x="65" y="790" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6 Max - r1</text>
+<text x="321" y="790" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">5/6</text>
+<rect x="372" y="770" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="433" y="790" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="500" y="770" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="790" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="770" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="790" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="770" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="817" y="790" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="884" y="770" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="945" y="790" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="1012" y="770" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="1073" y="790" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="54" y="799" width="283" height="27" rx="0" fill="#FFFFFF" stroke="none"/>
+<rect x="54" y="799" width="4" height="27" rx="0" fill="#3478BE" stroke="none"/>
+<text x="65" y="819" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6 Max - r2</text>
+<text x="321" y="819" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">N/A</text>
+<rect x="372" y="799" width="122" height="27" rx="2" fill="#596C80" stroke="none"/>
+<text x="433" y="819" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">N/A</text>
+<rect x="500" y="799" width="122" height="27" rx="2" fill="#596C80" stroke="none"/>
+<text x="561" y="819" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">N/A</text>
+<rect x="628" y="799" width="122" height="27" rx="2" fill="#596C80" stroke="none"/>
+<text x="689" y="819" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">N/A</text>
+<rect x="756" y="799" width="122" height="27" rx="2" fill="#596C80" stroke="none"/>
+<text x="817" y="819" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">N/A</text>
+<rect x="884" y="799" width="122" height="27" rx="2" fill="#596C80" stroke="none"/>
+<text x="945" y="819" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">N/A</text>
+<rect x="1012" y="799" width="122" height="27" rx="2" fill="#596C80" stroke="none"/>
+<text x="1073" y="819" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">N/A</text>
+<rect x="54" y="828" width="283" height="27" rx="0" fill="#F5F8FB" stroke="none"/>
+<rect x="54" y="828" width="4" height="27" rx="0" fill="#3478BE" stroke="none"/>
+<text x="65" y="848" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6 Ultra - r1</text>
+<text x="321" y="848" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">5/6</text>
+<rect x="372" y="828" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="433" y="848" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="500" y="828" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="848" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="828" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="848" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="828" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="817" y="848" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="884" y="828" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="945" y="848" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="1012" y="828" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="1073" y="848" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="54" y="857" width="283" height="27" rx="0" fill="#FFFFFF" stroke="none"/>
+<rect x="54" y="857" width="4" height="27" rx="0" fill="#3478BE" stroke="none"/>
+<text x="65" y="877" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6 Ultra - r2</text>
+<text x="321" y="877" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">5/6</text>
+<rect x="372" y="857" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="433" y="877" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="500" y="857" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="877" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="857" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="877" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="857" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="817" y="877" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="884" y="857" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="945" y="877" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="1012" y="857" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="1073" y="877" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<polyline points="54,883 1137,883" fill="none" stroke="#128C7E" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="54" y="886" width="283" height="27" rx="0" fill="#F5F8FB" stroke="none"/>
+<rect x="54" y="886" width="4" height="27" rx="0" fill="#128C7E" stroke="none"/>
+<text x="65" y="906" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6.1 Low - r1</text>
+<text x="321" y="906" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">4/6</text>
+<rect x="372" y="886" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="433" y="906" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="500" y="886" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="906" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="886" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="906" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="886" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="817" y="906" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="884" y="886" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="945" y="906" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="1012" y="886" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="1073" y="906" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="54" y="915" width="283" height="27" rx="0" fill="#FFFFFF" stroke="none"/>
+<rect x="54" y="915" width="4" height="27" rx="0" fill="#128C7E" stroke="none"/>
+<text x="65" y="935" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6.1 Low - r2</text>
+<text x="321" y="935" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">5/6</text>
+<rect x="372" y="915" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="433" y="935" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="500" y="915" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="935" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="915" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="935" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="915" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="817" y="935" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="884" y="915" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="945" y="935" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="1012" y="915" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="1073" y="935" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="54" y="944" width="283" height="27" rx="0" fill="#F5F8FB" stroke="none"/>
+<rect x="54" y="944" width="4" height="27" rx="0" fill="#128C7E" stroke="none"/>
+<text x="65" y="964" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6.1 Medium - r1</text>
+<text x="321" y="964" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">5/6</text>
+<rect x="372" y="944" width="122" height="27" rx="2" fill="#F5DBD5" stroke="none"/>
+<text x="433" y="964" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">no</text>
+<rect x="500" y="944" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="964" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="944" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="964" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="944" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="817" y="964" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="884" y="944" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="945" y="964" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="1012" y="944" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="1073" y="964" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="54" y="973" width="283" height="27" rx="0" fill="#FFFFFF" stroke="none"/>
+<rect x="54" y="973" width="4" height="27" rx="0" fill="#128C7E" stroke="none"/>
+<text x="65" y="993" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6.1 Medium - r2</text>
+<text x="321" y="993" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">6/6</text>
+<rect x="372" y="973" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="433" y="993" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="500" y="973" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="993" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="973" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="993" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="973" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="817" y="993" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="884" y="973" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="945" y="993" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="1012" y="973" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="1073" y="993" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="54" y="1002" width="283" height="27" rx="0" fill="#F5F8FB" stroke="none"/>
+<rect x="54" y="1002" width="4" height="27" rx="0" fill="#128C7E" stroke="none"/>
+<text x="65" y="1022" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6.1 High - r1</text>
+<text x="321" y="1022" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">6/6</text>
+<rect x="372" y="1002" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="433" y="1022" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="500" y="1002" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="1022" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="1002" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="1022" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="1002" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="817" y="1022" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="884" y="1002" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="945" y="1022" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="1012" y="1002" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="1073" y="1022" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="54" y="1031" width="283" height="27" rx="0" fill="#FFFFFF" stroke="none"/>
+<rect x="54" y="1031" width="4" height="27" rx="0" fill="#128C7E" stroke="none"/>
+<text x="65" y="1051" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6.1 High - r2</text>
+<text x="321" y="1051" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">6/6</text>
+<rect x="372" y="1031" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="433" y="1051" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="500" y="1031" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="1051" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="1031" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="1051" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="1031" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="817" y="1051" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="884" y="1031" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="945" y="1051" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="1012" y="1031" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="1073" y="1051" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="54" y="1060" width="283" height="27" rx="0" fill="#F5F8FB" stroke="none"/>
+<rect x="54" y="1060" width="4" height="27" rx="0" fill="#128C7E" stroke="none"/>
+<text x="65" y="1080" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6.1 Xhigh - r1</text>
+<text x="321" y="1080" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">6/6</text>
+<rect x="372" y="1060" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="433" y="1080" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="500" y="1060" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="1080" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="1060" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="1080" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="1060" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="817" y="1080" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="884" y="1060" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="945" y="1080" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="1012" y="1060" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="1073" y="1080" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="54" y="1089" width="283" height="27" rx="0" fill="#FFFFFF" stroke="none"/>
+<rect x="54" y="1089" width="4" height="27" rx="0" fill="#128C7E" stroke="none"/>
+<text x="65" y="1109" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6.1 Xhigh - r2</text>
+<text x="321" y="1109" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">6/6</text>
+<rect x="372" y="1089" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="433" y="1109" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="500" y="1089" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="1109" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="1089" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="1109" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="1089" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="817" y="1109" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="884" y="1089" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="945" y="1109" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="1012" y="1089" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="1073" y="1109" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="54" y="1118" width="283" height="27" rx="0" fill="#F5F8FB" stroke="none"/>
+<rect x="54" y="1118" width="4" height="27" rx="0" fill="#128C7E" stroke="none"/>
+<text x="65" y="1138" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6.1 Max - r1</text>
+<text x="321" y="1138" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">6/6</text>
+<rect x="372" y="1118" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="433" y="1138" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="500" y="1118" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="1138" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="1118" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="1138" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="1118" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="817" y="1138" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="884" y="1118" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="945" y="1138" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="1012" y="1118" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="1073" y="1138" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="54" y="1147" width="283" height="27" rx="0" fill="#FFFFFF" stroke="none"/>
+<rect x="54" y="1147" width="4" height="27" rx="0" fill="#128C7E" stroke="none"/>
+<text x="65" y="1167" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6.1 Max - r2</text>
+<text x="321" y="1167" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">6/6</text>
+<rect x="372" y="1147" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="433" y="1167" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="500" y="1147" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="1167" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="1147" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="1167" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="1147" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="817" y="1167" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="884" y="1147" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="945" y="1167" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="1012" y="1147" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="1073" y="1167" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="54" y="1176" width="283" height="27" rx="0" fill="#F5F8FB" stroke="none"/>
+<rect x="54" y="1176" width="4" height="27" rx="0" fill="#128C7E" stroke="none"/>
+<text x="65" y="1196" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6.1 Ultra - r1</text>
+<text x="321" y="1196" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">6/6</text>
+<rect x="372" y="1176" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="433" y="1196" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="500" y="1176" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="1196" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="1176" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="1196" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="1176" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="817" y="1196" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="884" y="1176" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="945" y="1196" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="1012" y="1176" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="1073" y="1196" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="54" y="1205" width="283" height="27" rx="0" fill="#FFFFFF" stroke="none"/>
+<rect x="54" y="1205" width="4" height="27" rx="0" fill="#128C7E" stroke="none"/>
+<text x="65" y="1225" font-family="Arial, Helvetica, sans-serif" font-size="16.5" font-weight="normal" text-anchor="start" fill="#182D44">Sol 6.1 Ultra - r2</text>
+<text x="321" y="1225" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="middle" fill="#53667B">6/6</text>
+<rect x="372" y="1205" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="433" y="1225" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="500" y="1205" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="561" y="1225" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="628" y="1205" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="689" y="1225" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="756" y="1205" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="817" y="1225" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="884" y="1205" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="945" y="1225" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="1012" y="1205" width="122" height="27" rx="2" fill="#128C7E" stroke="none"/>
+<text x="1073" y="1225" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#FFFFFF">yes</text>
+<rect x="54" y="1262" width="1092" height="92" rx="8" fill="#F2F6FA" stroke="none"/>
+<text x="72" y="1289" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="normal" text-anchor="start" fill="#53667B">Detected: candidate tests pass the implementation and positive control, then fail a mutant by assertion.</text>
+<text x="72" y="1313" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="normal" text-anchor="start" fill="#53667B">No added tests: numerical zero sensitivity. Unavailable: no numerical score; it is never replaced by zero.</text>
+<text x="72" y="1337" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="normal" text-anchor="start" fill="#53667B">Six fixed defects are a limited testing sample. Two attempts per setting show observations, not confidence intervals.</text>
+</svg>

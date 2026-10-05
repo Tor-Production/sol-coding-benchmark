@@ -1,14 +1,16 @@
-# Results
+# Results reference
+
+For the six main stories and their new figures, start with [Findings: what the benchmark reveals](findings.md). The leading case compares MVCC task cost with the ability of generated tests to detect six fixed defects. This page retains the full functional, delivery, cost and supplementary evidence tables.
 
 **Sol 6.1 Low reaches a 100/100 main functional score at the lowest observed exact cost:** $0.101 API-equivalent USD per attempt, averaged over all six tasks and both repetitions. It also has 12/12 accepted deliveries. Most settings reach the functional-score ceiling; spending more does not separate them on these checks.
 
 The archive contains **216 attempts**, **214 completed deliveries**, and **213 accepted deliveries**. A delivery counts as accepted only when its status is `completed` **and** its main grade is accepted. All attempts, including failures, remain in the cost and time denominators. See the [methodology](methodology.md), [scoring rules](scoring.md), and [task catalogue](tasks.md).
 
-## Cost versus measured functional quality
+## Supplementary functional-score view
 
 ![API-equivalent USD per attempt on X versus six-task main functional macro score on Y](../assets/cost-quality.svg)
 
-The primary chart puts **frozen API-equivalent USD per attempt on X** and the **six-task main functional macro score out of 100 on Y**. Higher and farther left means a higher measured functional score for less money. Each task contributes equally: its score is the mean of its two saved-code grades, then the six task means are averaged. This is a specific functional-quality measure, not a completed manual review or an overall code-quality composite. The plot keeps recorded grades for all attempts, including the provider-failure stub and the passing timeout snapshot.
+This supplementary chart puts **frozen API-equivalent USD per attempt on X** and the **six-task main functional macro score out of 100 on Y**. Sixteen of eighteen settings score 100, so this view provides functional context rather than the main comparison. Each task contributes equally: its score is the mean of its two saved-code grades, then the six task means are averaged. This is a specific functional-quality measure, not a completed manual review or an overall code-quality composite. The plot keeps recorded grades for all attempts, including the provider-failure stub and the passing timeout snapshot.
 
 Cost is a counterfactual calculation from observed tokens at the **frozen 30 September 2026 Standard API rates** in [results.json](../results/results.json). It is not a Codex subscription invoice or a measurement of purchased credits.
 
@@ -129,4 +131,4 @@ python -m pip install -r requirements-report.txt
 python scripts/analyze_results.py --png
 ```
 
-The script asserts 216 unique attempts, the full model/effort/task/repetition matrix, 12 attempts per setting, acceptance status, functional macro scores, observed mean times, and cost telemetry coverage before writing derived outputs. It reads the frozen archive and writes only this page and five chart families under `assets/`: cost-quality, cost-acceptance, effort-curves (money and functional score), effort-time, and quality evidence. It does not rerun inference, modify saved candidates, change grades, or regenerate the PDF. SVG outputs are deterministic and do not depend on third-party packages; PNG rasterization uses local fonts and can vary slightly across platforms.
+The script asserts 216 unique attempts, the full model/effort/task/repetition matrix, 12 attempts per setting, acceptance status, functional macro scores, observed mean times, and cost telemetry coverage before writing derived outputs. It reads the frozen archive and regenerates this page, `results/insights.json`, six insight chart families and five supplementary chart families under `assets/`. It does not rerun inference, modify saved candidates, change grades, or regenerate the PDF. The six insight figures cover MVCC test value, its defect matrix, DAG code efficiency, effort value, repetition costs and the pricing counterfactual. SVG outputs are deterministic and do not depend on third-party packages; PNG rasterization uses local fonts and can vary slightly across platforms.

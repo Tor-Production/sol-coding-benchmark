@@ -1,0 +1,4766 @@
+{
+  "schema_version": 1,
+  "source_sha256": {
+    "results/results.json": "b20d615c1e4334911db470e27fc163f31efa3a14e32161cf3a57e2aea0ab5fbe",
+    "results/quality-v2.1.json": "16f2d258a26195c5181f2ec7eed2963f0dca1318939c89395391f58d348da09b",
+    "results/complex-test-strength.json": "16e383f51668d9fa10db7b641ba831ff5037fd803ff9e39c1c0f7d4c17ef3518"
+  },
+  "models": [
+    "gpt-5.6-sol",
+    "gpt-6-sol",
+    "gpt-6.1-sol"
+  ],
+  "efforts": [
+    "low",
+    "medium",
+    "high",
+    "xhigh",
+    "max",
+    "ultra"
+  ],
+  "mvcc": {
+    "task": "06-transactions",
+    "defects": [
+      {
+        "id": "read_current_state",
+        "label": "Snapshot reads"
+      },
+      {
+        "id": "write_skew",
+        "label": "Write skew"
+      },
+      {
+        "id": "no_phantom_check",
+        "label": "Phantoms"
+      },
+      {
+        "id": "forget_reads_on_rollback",
+        "label": "Rollback reads"
+      },
+      {
+        "id": "recovery_accepts_gaps",
+        "label": "Recovery"
+      },
+      {
+        "id": "checkpoint_alias",
+        "label": "Checkpoint aliasing"
+      }
+    ],
+    "settings": [
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "low",
+        "mean_usd": 0.30495760000000005,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "usable": 2,
+        "pair_test_score": 0,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-5.6-sol-low-r1",
+            "usd": 0.35189360000000003,
+            "score": 0,
+            "status": "no_added_tests",
+            "killed_count": 0,
+            "defect_states": {
+              "read_current_state": "no_added_tests",
+              "write_skew": "no_added_tests",
+              "no_phantom_check": "no_added_tests",
+              "forget_reads_on_rollback": "no_added_tests",
+              "recovery_accepts_gaps": "no_added_tests",
+              "checkpoint_alias": "no_added_tests"
+            }
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-5.6-sol-low-r2",
+            "usd": 0.2580216,
+            "score": 0,
+            "status": "no_added_tests",
+            "killed_count": 0,
+            "defect_states": {
+              "read_current_state": "no_added_tests",
+              "write_skew": "no_added_tests",
+              "no_phantom_check": "no_added_tests",
+              "forget_reads_on_rollback": "no_added_tests",
+              "recovery_accepts_gaps": "no_added_tests",
+              "checkpoint_alias": "no_added_tests"
+            }
+          }
+        ]
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "medium",
+        "mean_usd": 0.4139212,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "usable": 2,
+        "pair_test_score": 50.0,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-5.6-sol-medium-r1",
+            "usd": 0.44936960000000004,
+            "score": 50.0,
+            "status": "usable",
+            "killed_count": 3,
+            "defect_states": {
+              "read_current_state": "missed",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "detected",
+              "recovery_accepts_gaps": "missed",
+              "checkpoint_alias": "missed"
+            }
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-5.6-sol-medium-r2",
+            "usd": 0.3784728,
+            "score": 50.0,
+            "status": "usable",
+            "killed_count": 3,
+            "defect_states": {
+              "read_current_state": "missed",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "detected",
+              "recovery_accepts_gaps": "missed",
+              "checkpoint_alias": "missed"
+            }
+          }
+        ]
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "high",
+        "mean_usd": 0.4217276,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "usable": 2,
+        "pair_test_score": 41.66666666666667,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-5.6-sol-high-r1",
+            "usd": 0.41708080000000003,
+            "score": 50.0,
+            "status": "usable",
+            "killed_count": 3,
+            "defect_states": {
+              "read_current_state": "missed",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "missed",
+              "recovery_accepts_gaps": "detected",
+              "checkpoint_alias": "missed"
+            }
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-5.6-sol-high-r2",
+            "usd": 0.4263744,
+            "score": 33.333333333333336,
+            "status": "usable",
+            "killed_count": 2,
+            "defect_states": {
+              "read_current_state": "missed",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "missed",
+              "recovery_accepts_gaps": "missed",
+              "checkpoint_alias": "missed"
+            }
+          }
+        ]
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "xhigh",
+        "mean_usd": 0.6172264000000001,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "usable": 2,
+        "pair_test_score": 41.666666666666664,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-5.6-sol-xhigh-r1",
+            "usd": 0.5759176,
+            "score": 0,
+            "status": "no_added_tests",
+            "killed_count": 0,
+            "defect_states": {
+              "read_current_state": "no_added_tests",
+              "write_skew": "no_added_tests",
+              "no_phantom_check": "no_added_tests",
+              "forget_reads_on_rollback": "no_added_tests",
+              "recovery_accepts_gaps": "no_added_tests",
+              "checkpoint_alias": "no_added_tests"
+            }
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-5.6-sol-xhigh-r2",
+            "usd": 0.6585352000000001,
+            "score": 83.33333333333333,
+            "status": "usable",
+            "killed_count": 5,
+            "defect_states": {
+              "read_current_state": "detected",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "detected",
+              "recovery_accepts_gaps": "detected",
+              "checkpoint_alias": "missed"
+            }
+          }
+        ]
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "max",
+        "mean_usd": 0.72359,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "usable": 2,
+        "pair_test_score": 66.66666666666666,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-5.6-sol-max-r1",
+            "usd": 0.8423624,
+            "score": 50.0,
+            "status": "usable",
+            "killed_count": 3,
+            "defect_states": {
+              "read_current_state": "missed",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "missed",
+              "recovery_accepts_gaps": "detected",
+              "checkpoint_alias": "missed"
+            }
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-5.6-sol-max-r2",
+            "usd": 0.6048176000000001,
+            "score": 83.33333333333333,
+            "status": "usable",
+            "killed_count": 5,
+            "defect_states": {
+              "read_current_state": "missed",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "detected",
+              "recovery_accepts_gaps": "detected",
+              "checkpoint_alias": "detected"
+            }
+          }
+        ]
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "mean_usd": 0.7201496000000001,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "usable": 2,
+        "pair_test_score": 58.333333333333336,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-5.6-sol-ultra-r1",
+            "usd": 0.7104496,
+            "score": 50.0,
+            "status": "usable",
+            "killed_count": 3,
+            "defect_states": {
+              "read_current_state": "missed",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "missed",
+              "recovery_accepts_gaps": "detected",
+              "checkpoint_alias": "missed"
+            }
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-5.6-sol-ultra-r2",
+            "usd": 0.7298496,
+            "score": 66.66666666666667,
+            "status": "usable",
+            "killed_count": 4,
+            "defect_states": {
+              "read_current_state": "missed",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "detected",
+              "recovery_accepts_gaps": "detected",
+              "checkpoint_alias": "missed"
+            }
+          }
+        ]
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "low",
+        "mean_usd": 0.1367092,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "usable": 2,
+        "pair_test_score": 25.0,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-6-sol-low-r1",
+            "usd": 0.1647332,
+            "score": 50.0,
+            "status": "usable",
+            "killed_count": 3,
+            "defect_states": {
+              "read_current_state": "missed",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "detected",
+              "recovery_accepts_gaps": "missed",
+              "checkpoint_alias": "missed"
+            }
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-6-sol-low-r2",
+            "usd": 0.1086852,
+            "score": 0,
+            "status": "no_added_tests",
+            "killed_count": 0,
+            "defect_states": {
+              "read_current_state": "no_added_tests",
+              "write_skew": "no_added_tests",
+              "no_phantom_check": "no_added_tests",
+              "forget_reads_on_rollback": "no_added_tests",
+              "recovery_accepts_gaps": "no_added_tests",
+              "checkpoint_alias": "no_added_tests"
+            }
+          }
+        ]
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "medium",
+        "mean_usd": 0.1400276,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "usable": 2,
+        "pair_test_score": 75.0,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-6-sol-medium-r1",
+            "usd": 0.1473704,
+            "score": 66.66666666666667,
+            "status": "usable",
+            "killed_count": 4,
+            "defect_states": {
+              "read_current_state": "missed",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "detected",
+              "recovery_accepts_gaps": "missed",
+              "checkpoint_alias": "detected"
+            }
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-6-sol-medium-r2",
+            "usd": 0.1326848,
+            "score": 83.33333333333333,
+            "status": "usable",
+            "killed_count": 5,
+            "defect_states": {
+              "read_current_state": "missed",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "detected",
+              "recovery_accepts_gaps": "detected",
+              "checkpoint_alias": "detected"
+            }
+          }
+        ]
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "high",
+        "mean_usd": 0.19322839999999997,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "usable": 2,
+        "pair_test_score": 66.66666666666667,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-6-sol-high-r1",
+            "usd": 0.19937879999999997,
+            "score": 66.66666666666667,
+            "status": "usable",
+            "killed_count": 4,
+            "defect_states": {
+              "read_current_state": "missed",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "detected",
+              "recovery_accepts_gaps": "detected",
+              "checkpoint_alias": "missed"
+            }
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-6-sol-high-r2",
+            "usd": 0.18707799999999997,
+            "score": 66.66666666666667,
+            "status": "usable",
+            "killed_count": 4,
+            "defect_states": {
+              "read_current_state": "missed",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "missed",
+              "recovery_accepts_gaps": "detected",
+              "checkpoint_alias": "detected"
+            }
+          }
+        ]
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "xhigh",
+        "mean_usd": 0.23173999999999997,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "usable": 2,
+        "pair_test_score": 83.33333333333333,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-6-sol-xhigh-r1",
+            "usd": 0.22154759999999998,
+            "score": 83.33333333333333,
+            "status": "usable",
+            "killed_count": 5,
+            "defect_states": {
+              "read_current_state": "missed",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "detected",
+              "recovery_accepts_gaps": "detected",
+              "checkpoint_alias": "detected"
+            }
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-6-sol-xhigh-r2",
+            "usd": 0.24193239999999996,
+            "score": 83.33333333333333,
+            "status": "usable",
+            "killed_count": 5,
+            "defect_states": {
+              "read_current_state": "missed",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "detected",
+              "recovery_accepts_gaps": "detected",
+              "checkpoint_alias": "detected"
+            }
+          }
+        ]
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "max",
+        "mean_usd": 0.29952180000000006,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "usable": 1,
+        "pair_test_score": null,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-6-sol-max-r1",
+            "usd": 0.27209880000000003,
+            "score": 83.33333333333333,
+            "status": "usable",
+            "killed_count": 5,
+            "defect_states": {
+              "read_current_state": "detected",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "detected",
+              "recovery_accepts_gaps": "detected",
+              "checkpoint_alias": "missed"
+            }
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-6-sol-max-r2",
+            "usd": 0.32694480000000004,
+            "score": null,
+            "status": "unavailable",
+            "killed_count": null,
+            "defect_states": {
+              "read_current_state": "unavailable",
+              "write_skew": "unavailable",
+              "no_phantom_check": "unavailable",
+              "forget_reads_on_rollback": "unavailable",
+              "recovery_accepts_gaps": "unavailable",
+              "checkpoint_alias": "unavailable"
+            }
+          }
+        ]
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "ultra",
+        "mean_usd": 0.29764579999999996,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "usable": 2,
+        "pair_test_score": 83.33333333333333,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-6-sol-ultra-r1",
+            "usd": 0.27924039999999994,
+            "score": 83.33333333333333,
+            "status": "usable",
+            "killed_count": 5,
+            "defect_states": {
+              "read_current_state": "detected",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "detected",
+              "recovery_accepts_gaps": "detected",
+              "checkpoint_alias": "missed"
+            }
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-6-sol-ultra-r2",
+            "usd": 0.3160512,
+            "score": 83.33333333333333,
+            "status": "usable",
+            "killed_count": 5,
+            "defect_states": {
+              "read_current_state": "detected",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "detected",
+              "recovery_accepts_gaps": "detected",
+              "checkpoint_alias": "missed"
+            }
+          }
+        ]
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "low",
+        "mean_usd": 0.1288624,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "usable": 2,
+        "pair_test_score": 75.0,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-6.1-sol-low-r1",
+            "usd": 0.09267159999999999,
+            "score": 66.66666666666667,
+            "status": "usable",
+            "killed_count": 4,
+            "defect_states": {
+              "read_current_state": "missed",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "detected",
+              "recovery_accepts_gaps": "missed",
+              "checkpoint_alias": "detected"
+            }
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-6.1-sol-low-r2",
+            "usd": 0.1650532,
+            "score": 83.33333333333333,
+            "status": "usable",
+            "killed_count": 5,
+            "defect_states": {
+              "read_current_state": "missed",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "detected",
+              "recovery_accepts_gaps": "detected",
+              "checkpoint_alias": "detected"
+            }
+          }
+        ]
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "medium",
+        "mean_usd": 0.1416206,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "usable": 2,
+        "pair_test_score": 91.66666666666666,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-6.1-sol-medium-r1",
+            "usd": 0.1220808,
+            "score": 83.33333333333333,
+            "status": "usable",
+            "killed_count": 5,
+            "defect_states": {
+              "read_current_state": "missed",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "detected",
+              "recovery_accepts_gaps": "detected",
+              "checkpoint_alias": "detected"
+            }
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-6.1-sol-medium-r2",
+            "usd": 0.1611604,
+            "score": 100.0,
+            "status": "usable",
+            "killed_count": 6,
+            "defect_states": {
+              "read_current_state": "detected",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "detected",
+              "recovery_accepts_gaps": "detected",
+              "checkpoint_alias": "detected"
+            }
+          }
+        ]
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "mean_usd": 0.20289259999999998,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "usable": 2,
+        "pair_test_score": 100.0,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-6.1-sol-high-r1",
+            "usd": 0.208258,
+            "score": 100.0,
+            "status": "usable",
+            "killed_count": 6,
+            "defect_states": {
+              "read_current_state": "detected",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "detected",
+              "recovery_accepts_gaps": "detected",
+              "checkpoint_alias": "detected"
+            }
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-6.1-sol-high-r2",
+            "usd": 0.1975272,
+            "score": 100.0,
+            "status": "usable",
+            "killed_count": 6,
+            "defect_states": {
+              "read_current_state": "detected",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "detected",
+              "recovery_accepts_gaps": "detected",
+              "checkpoint_alias": "detected"
+            }
+          }
+        ]
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "mean_usd": 0.24143579999999998,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "usable": 2,
+        "pair_test_score": 100.0,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-6.1-sol-xhigh-r1",
+            "usd": 0.26061239999999997,
+            "score": 100.0,
+            "status": "usable",
+            "killed_count": 6,
+            "defect_states": {
+              "read_current_state": "detected",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "detected",
+              "recovery_accepts_gaps": "detected",
+              "checkpoint_alias": "detected"
+            }
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-6.1-sol-xhigh-r2",
+            "usd": 0.2222592,
+            "score": 100.0,
+            "status": "usable",
+            "killed_count": 6,
+            "defect_states": {
+              "read_current_state": "detected",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "detected",
+              "recovery_accepts_gaps": "detected",
+              "checkpoint_alias": "detected"
+            }
+          }
+        ]
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "max",
+        "mean_usd": 0.2672352,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "usable": 2,
+        "pair_test_score": 100.0,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-6.1-sol-max-r1",
+            "usd": 0.24421200000000004,
+            "score": 100.0,
+            "status": "usable",
+            "killed_count": 6,
+            "defect_states": {
+              "read_current_state": "detected",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "detected",
+              "recovery_accepts_gaps": "detected",
+              "checkpoint_alias": "detected"
+            }
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-6.1-sol-max-r2",
+            "usd": 0.2902584,
+            "score": 100.0,
+            "status": "usable",
+            "killed_count": 6,
+            "defect_states": {
+              "read_current_state": "detected",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "detected",
+              "recovery_accepts_gaps": "detected",
+              "checkpoint_alias": "detected"
+            }
+          }
+        ]
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "ultra",
+        "mean_usd": 0.23283479999999998,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "usable": 2,
+        "pair_test_score": 100.0,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-6.1-sol-ultra-r1",
+            "usd": 0.24535679999999999,
+            "score": 100.0,
+            "status": "usable",
+            "killed_count": 6,
+            "defect_states": {
+              "read_current_state": "detected",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "detected",
+              "recovery_accepts_gaps": "detected",
+              "checkpoint_alias": "detected"
+            }
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-6.1-sol-ultra-r2",
+            "usd": 0.22031279999999998,
+            "score": 100.0,
+            "status": "usable",
+            "killed_count": 6,
+            "defect_states": {
+              "read_current_state": "detected",
+              "write_skew": "detected",
+              "no_phantom_check": "detected",
+              "forget_reads_on_rollback": "detected",
+              "recovery_accepts_gaps": "detected",
+              "checkpoint_alias": "detected"
+            }
+          }
+        ]
+      }
+    ],
+    "pair_mean_policy": "Only 2/2 available scores produce a pair mean. No added tests is explicit zero; unavailable is null.",
+    "score_definition": "Executed assertion failures against six fixed single-defect controls, after candidate and reference tests pass without skips. Errors and hangs are unavailable, not detections."
+  },
+  "dag": {
+    "task": "03-hard",
+    "settings": [
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "low",
+        "mean_usd": 0.2196232,
+        "mean_runtime_ms": 54.15534999337979,
+        "mean_peak_kib": 952.55859375,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-5.6-sol-low-r1",
+            "usd": 0.2472008,
+            "runtime_ms": 53.67290001595393,
+            "peak_kib": 894.74609375
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-5.6-sol-low-r2",
+            "usd": 0.19204559999999998,
+            "runtime_ms": 54.637799970805645,
+            "peak_kib": 1010.37109375
+          }
+        ]
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "medium",
+        "mean_usd": 0.2792244,
+        "mean_runtime_ms": 61.102100007701665,
+        "mean_peak_kib": 901.359375,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-5.6-sol-medium-r1",
+            "usd": 0.33542,
+            "runtime_ms": 69.85339999664575,
+            "peak_kib": 1022.98828125
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-5.6-sol-medium-r2",
+            "usd": 0.2230288,
+            "runtime_ms": 52.35080001875758,
+            "peak_kib": 779.73046875
+          }
+        ]
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "high",
+        "mean_usd": 0.33591760000000004,
+        "mean_runtime_ms": 63.6100499832537,
+        "mean_peak_kib": 869.56640625,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-5.6-sol-high-r1",
+            "usd": 0.3702280000000001,
+            "runtime_ms": 62.500799947883934,
+            "peak_kib": 779.74609375
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-5.6-sol-high-r2",
+            "usd": 0.3016072,
+            "runtime_ms": 64.71930001862347,
+            "peak_kib": 959.38671875
+          }
+        ]
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "xhigh",
+        "mean_usd": 0.38266600000000006,
+        "mean_runtime_ms": 60.55275001563132,
+        "mean_peak_kib": 877.4453125,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-5.6-sol-xhigh-r1",
+            "usd": 0.4252696000000001,
+            "runtime_ms": 57.19790002331138,
+            "peak_kib": 729.61328125
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-5.6-sol-xhigh-r2",
+            "usd": 0.3400624,
+            "runtime_ms": 63.90760000795126,
+            "peak_kib": 1025.27734375
+          }
+        ]
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "max",
+        "mean_usd": 0.48352839999999997,
+        "mean_runtime_ms": 56.90520000644028,
+        "mean_peak_kib": 754.5546875,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-5.6-sol-max-r1",
+            "usd": 0.39132639999999996,
+            "runtime_ms": 59.013099991716444,
+            "peak_kib": 780.16796875
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-5.6-sol-max-r2",
+            "usd": 0.5757304,
+            "runtime_ms": 54.79730002116412,
+            "peak_kib": 728.94140625
+          }
+        ]
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "mean_usd": 0.5445556,
+        "mean_runtime_ms": 53.81160002434626,
+        "mean_peak_kib": 863.36328125,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-5.6-sol-ultra-r1",
+            "usd": 0.5547408,
+            "runtime_ms": 54.891300038434565,
+            "peak_kib": 780.25390625
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-5.6-sol-ultra-r2",
+            "usd": 0.5343704,
+            "runtime_ms": 52.73190001025796,
+            "peak_kib": 946.47265625
+          }
+        ]
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "low",
+        "mean_usd": 0.112839,
+        "mean_runtime_ms": 54.40424999687821,
+        "mean_peak_kib": 802.0078125,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-6-sol-low-r1",
+            "usd": 0.1335264,
+            "runtime_ms": 54.53680001664907,
+            "peak_kib": 780.43359375
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-6-sol-low-r2",
+            "usd": 0.09215159999999999,
+            "runtime_ms": 54.271699977107346,
+            "peak_kib": 823.58203125
+          }
+        ]
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "medium",
+        "mean_usd": 0.116744,
+        "mean_runtime_ms": 58.850949979387224,
+        "mean_peak_kib": 805.546875,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-6-sol-medium-r1",
+            "usd": 0.1370864,
+            "runtime_ms": 63.170499983243644,
+            "peak_kib": 831.34765625
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-6-sol-medium-r2",
+            "usd": 0.0964016,
+            "runtime_ms": 54.5313999755308,
+            "peak_kib": 779.74609375
+          }
+        ]
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "high",
+        "mean_usd": 0.1384884,
+        "mean_runtime_ms": 55.15315002412535,
+        "mean_peak_kib": 729.8203125,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-6-sol-high-r1",
+            "usd": 0.1328828,
+            "runtime_ms": 48.833000008016825,
+            "peak_kib": 729.53515625
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-6-sol-high-r2",
+            "usd": 0.14409400000000003,
+            "runtime_ms": 61.47330004023388,
+            "peak_kib": 730.10546875
+          }
+        ]
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "xhigh",
+        "mean_usd": 0.183998,
+        "mean_runtime_ms": 51.28225000225939,
+        "mean_peak_kib": 813.49609375,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-6-sol-xhigh-r1",
+            "usd": 0.1805132,
+            "runtime_ms": 51.81299999821931,
+            "peak_kib": 845.23828125
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-6-sol-xhigh-r2",
+            "usd": 0.18748279999999998,
+            "runtime_ms": 50.751500006299466,
+            "peak_kib": 781.75390625
+          }
+        ]
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "max",
+        "mean_usd": 0.20169559999999997,
+        "mean_runtime_ms": 57.80040001263842,
+        "mean_peak_kib": 843.55078125,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-6-sol-max-r1",
+            "usd": 0.185156,
+            "runtime_ms": 64.05530002666637,
+            "peak_kib": 843.20703125
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-6-sol-max-r2",
+            "usd": 0.21823519999999996,
+            "runtime_ms": 51.54549999861047,
+            "peak_kib": 843.89453125
+          }
+        ]
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "ultra",
+        "mean_usd": 0.1785944,
+        "mean_runtime_ms": 57.56374998600222,
+        "mean_peak_kib": 837.8359375,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-6-sol-ultra-r1",
+            "usd": 0.20731639999999996,
+            "runtime_ms": 52.51109995879233,
+            "peak_kib": 780.31640625
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-6-sol-ultra-r2",
+            "usd": 0.14987240000000004,
+            "runtime_ms": 62.616400013212115,
+            "peak_kib": 895.35546875
+          }
+        ]
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "low",
+        "mean_usd": 0.079403,
+        "mean_runtime_ms": 77.31969997985289,
+        "mean_peak_kib": 781.2578125,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-6.1-sol-low-r1",
+            "usd": 0.07998720000000001,
+            "runtime_ms": 69.94109996594489,
+            "peak_kib": 730.13671875
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-6.1-sol-low-r2",
+            "usd": 0.07881880000000001,
+            "runtime_ms": 84.69829999376088,
+            "peak_kib": 832.37890625
+          }
+        ]
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "medium",
+        "mean_usd": 0.0822482,
+        "mean_runtime_ms": 71.42150000436231,
+        "mean_peak_kib": 833.8125,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-6.1-sol-medium-r1",
+            "usd": 0.083712,
+            "runtime_ms": 80.78459999524057,
+            "peak_kib": 781.05859375
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-6.1-sol-medium-r2",
+            "usd": 0.0807844,
+            "runtime_ms": 62.05840001348406,
+            "peak_kib": 886.56640625
+          }
+        ]
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "mean_usd": 0.0994324,
+        "mean_runtime_ms": 66.49289999040775,
+        "mean_peak_kib": 805.91015625,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-6.1-sol-high-r1",
+            "usd": 0.1088056,
+            "runtime_ms": 65.63650001771748,
+            "peak_kib": 780.53515625
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-6.1-sol-high-r2",
+            "usd": 0.09005919999999999,
+            "runtime_ms": 67.34929996309802,
+            "peak_kib": 831.28515625
+          }
+        ]
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "mean_usd": 0.14772400000000002,
+        "mean_runtime_ms": 68.93125001806766,
+        "mean_peak_kib": 729.83984375,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-6.1-sol-xhigh-r1",
+            "usd": 0.18894160000000002,
+            "runtime_ms": 64.39569999929518,
+            "peak_kib": 678.61328125
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-6.1-sol-xhigh-r2",
+            "usd": 0.1065064,
+            "runtime_ms": 73.46680003684014,
+            "peak_kib": 781.06640625
+          }
+        ]
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "max",
+        "mean_usd": 0.14613199999999998,
+        "mean_runtime_ms": 55.458800023188815,
+        "mean_peak_kib": 704.125,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-6.1-sol-max-r1",
+            "usd": 0.12442439999999999,
+            "runtime_ms": 55.54060003487393,
+            "peak_kib": 678.66015625
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-6.1-sol-max-r2",
+            "usd": 0.1678396,
+            "runtime_ms": 55.377000011503696,
+            "peak_kib": 729.58984375
+          }
+        ]
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "ultra",
+        "mean_usd": 0.1671824,
+        "mean_runtime_ms": 52.30959996697493,
+        "mean_peak_kib": 704.703125,
+        "main_scores": [
+          100,
+          100
+        ],
+        "accepted": 2,
+        "repetitions": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-6.1-sol-ultra-r1",
+            "usd": 0.19913,
+            "runtime_ms": 52.83219995908439,
+            "peak_kib": 730.31640625
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-6.1-sol-ultra-r2",
+            "usd": 0.1352348,
+            "runtime_ms": 51.786999974865466,
+            "peak_kib": 679.08984375
+          }
+        ]
+      }
+    ],
+    "runtime_definition": "Each candidate: median of three archived samples. Setting: mean of the two candidate medians.",
+    "memory_definition": "Mean of two candidate tracemalloc peaks in KiB; Python allocations, not process RSS or native memory.",
+    "workload": "1,500-task dependency chain; three worker limit"
+  },
+  "effort": {
+    "settings": [
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "low",
+        "mean_usd": 0.31841613333333335,
+        "mean_usd_low": 0.31841613333333335,
+        "main_macro": 100,
+        "accepted": 12,
+        "expected": 12,
+        "mean_agent_seconds": 194.22057034999997,
+        "cost_multiple": 1.0,
+        "cost_multiple_low": 1.0,
+        "time_multiple": 1.0
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "medium",
+        "mean_usd": 0.4856688,
+        "mean_usd_low": 0.4856688,
+        "main_macro": 100,
+        "accepted": 12,
+        "expected": 12,
+        "mean_agent_seconds": 282.8221389250002,
+        "cost_multiple": 1.5252644233688326,
+        "cost_multiple_low": 1.5252644233688326,
+        "time_multiple": 1.4561904458180388
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "high",
+        "mean_usd": 0.5658846000000001,
+        "mean_usd_low": 0.5658846000000001,
+        "main_macro": 100,
+        "accepted": 12,
+        "expected": 12,
+        "mean_agent_seconds": 350.113682066667,
+        "cost_multiple": 1.7771857037394672,
+        "cost_multiple_low": 1.7771857037394672,
+        "time_multiple": 1.8026601478707225
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "xhigh",
+        "mean_usd": 0.8226517333333334,
+        "mean_usd_low": 0.8226517333333334,
+        "main_macro": 100,
+        "accepted": 12,
+        "expected": 12,
+        "mean_agent_seconds": 483.67214142500035,
+        "cost_multiple": 2.5835742828776267,
+        "cost_multiple_low": 2.5835742828776267,
+        "time_multiple": 2.4903239680193865
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "max",
+        "mean_usd": 1.1044184000000001,
+        "mean_usd_low": 1.1044184000000001,
+        "main_macro": 100,
+        "accepted": 12,
+        "expected": 12,
+        "mean_agent_seconds": 622.6183371416676,
+        "cost_multiple": 3.468475006082188,
+        "cost_multiple_low": 3.468475006082188,
+        "time_multiple": 3.2057280854425607
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "mean_usd": 1.0677955333333333,
+        "mean_usd_low": 1.0677955333333333,
+        "main_macro": 100,
+        "accepted": 12,
+        "expected": 12,
+        "mean_agent_seconds": 626.8051081583338,
+        "cost_multiple": 3.35345926776742,
+        "cost_multiple_low": 3.35345926776742,
+        "time_multiple": 3.2272848701287624
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "low",
+        "mean_usd": 0.1248329,
+        "mean_usd_low": 0.1248329,
+        "main_macro": 99.44444441666667,
+        "accepted": 11,
+        "expected": 12,
+        "mean_agent_seconds": 158.65618241666635,
+        "cost_multiple": 1.0,
+        "cost_multiple_low": 1.0,
+        "time_multiple": 1.0
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "medium",
+        "mean_usd": 0.17655276666666667,
+        "mean_usd_low": 0.17655276666666667,
+        "main_macro": 100,
+        "accepted": 12,
+        "expected": 12,
+        "mean_agent_seconds": 226.7370838416659,
+        "cost_multiple": 1.4143127866665492,
+        "cost_multiple_low": 1.4143127866665492,
+        "time_multiple": 1.4291096658698366
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "high",
+        "mean_usd": 0.25242986666666667,
+        "mean_usd_low": 0.25242986666666667,
+        "main_macro": 100,
+        "accepted": 12,
+        "expected": 12,
+        "mean_agent_seconds": 300.2273665499998,
+        "cost_multiple": 2.022142132936643,
+        "cost_multiple_low": 2.022142132936643,
+        "time_multiple": 1.8923143238221631
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "xhigh",
+        "mean_usd": 0.31101460000000003,
+        "mean_usd_low": 0.31101460000000003,
+        "main_macro": 100,
+        "accepted": 12,
+        "expected": 12,
+        "mean_agent_seconds": 402.5521736833335,
+        "cost_multiple": 2.491447366839992,
+        "cost_multiple_low": 2.491447366839992,
+        "time_multiple": 2.537261186747467
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "max",
+        "mean_usd": null,
+        "mean_usd_low": 0.39931143333333335,
+        "main_macro": 100,
+        "accepted": 11,
+        "expected": 12,
+        "mean_agent_seconds": 814.5979902666667,
+        "cost_multiple": null,
+        "cost_multiple_low": 3.1987675791664967,
+        "time_multiple": 5.1343602112355855
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "ultra",
+        "mean_usd": null,
+        "mean_usd_low": 0.44586556666666666,
+        "main_macro": 91.66666666666667,
+        "accepted": 11,
+        "expected": 12,
+        "mean_agent_seconds": 626.4408251333332,
+        "cost_multiple": null,
+        "cost_multiple_low": 3.5716991807982246,
+        "time_multiple": 3.9484173613112694
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "low",
+        "mean_usd": 0.1005864,
+        "mean_usd_low": 0.1005864,
+        "main_macro": 100,
+        "accepted": 12,
+        "expected": 12,
+        "mean_agent_seconds": 161.68197718333286,
+        "cost_multiple": 1.0,
+        "cost_multiple_low": 1.0,
+        "time_multiple": 1.0
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "medium",
+        "mean_usd": 0.14087853333333333,
+        "mean_usd_low": 0.14087853333333333,
+        "main_macro": 100,
+        "accepted": 12,
+        "expected": 12,
+        "mean_agent_seconds": 246.70705560000013,
+        "cost_multiple": 1.400572376915103,
+        "cost_multiple_low": 1.400572376915103,
+        "time_multiple": 1.525878517184735
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "mean_usd": 0.18653193333333332,
+        "mean_usd_low": 0.18653193333333332,
+        "main_macro": 100,
+        "accepted": 12,
+        "expected": 12,
+        "mean_agent_seconds": 453.09978599166647,
+        "cost_multiple": 1.8544448686237236,
+        "cost_multiple_low": 1.8544448686237236,
+        "time_multiple": 2.8024136881867294
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "mean_usd": 0.2570959666666667,
+        "mean_usd_low": 0.2570959666666667,
+        "main_macro": 100,
+        "accepted": 12,
+        "expected": 12,
+        "mean_agent_seconds": 588.5700600249996,
+        "cost_multiple": 2.5559714500833777,
+        "cost_multiple_low": 2.5559714500833777,
+        "time_multiple": 3.6402947952424776
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "max",
+        "mean_usd": 0.2911996666666667,
+        "mean_usd_low": 0.2911996666666667,
+        "main_macro": 100,
+        "accepted": 12,
+        "expected": 12,
+        "mean_agent_seconds": 676.8252950666667,
+        "cost_multiple": 2.8950202678161925,
+        "cost_multiple_low": 2.8950202678161925,
+        "time_multiple": 4.186151770640506
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "ultra",
+        "mean_usd": 0.2487021,
+        "mean_usd_low": 0.2487021,
+        "main_macro": 100,
+        "accepted": 12,
+        "expected": 12,
+        "mean_agent_seconds": 577.0727884416668,
+        "cost_multiple": 2.472522130228341,
+        "cost_multiple_low": 2.472522130228341,
+        "time_multiple": 3.5691843858843835
+      }
+    ],
+    "cost_definition": "Mean API-equivalent USD across all 12 attempts. Partial totals have null exact mean and an observed lower bound.",
+    "quality_definition": "Equal six-task macro average of paired main snapshot functional grades. Completed acceptance is separate.",
+    "multiples_reference": "The same model at Low effort."
+  },
+  "repetition_cost": {
+    "pairs": [
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "low",
+        "task": "01-easy",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "01-easy-5.6-sol-low-r1",
+            "usd": 0.1752176,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "01-easy-5.6-sol-low-r2",
+            "usd": 0.1438528,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.2180339903011967
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "low",
+        "task": "02-medium",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "02-medium-5.6-sol-low-r1",
+            "usd": 0.2200992,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "02-medium-5.6-sol-low-r2",
+            "usd": 0.2002384,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.0991857705614907
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "low",
+        "task": "03-hard",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-5.6-sol-low-r1",
+            "usd": 0.2472008,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-5.6-sol-low-r2",
+            "usd": 0.19204559999999998,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.2871984570331214
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "low",
+        "task": "04-components",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "04-components-5.6-sol-low-r1",
+            "usd": 0.515056,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "04-components-5.6-sol-low-r2",
+            "usd": 0.5938976,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.1530738405144296
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "low",
+        "task": "05-optimizer",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "05-optimizer-5.6-sol-low-r1",
+            "usd": 0.5083864000000001,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "05-optimizer-5.6-sol-low-r2",
+            "usd": 0.41508400000000006,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.2247795626909252
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "low",
+        "task": "06-transactions",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-5.6-sol-low-r1",
+            "usd": 0.35189360000000003,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-5.6-sol-low-r2",
+            "usd": 0.2580216,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.3638145023517412
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "medium",
+        "task": "01-easy",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "01-easy-5.6-sol-medium-r1",
+            "usd": 0.22121279999999996,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "01-easy-5.6-sol-medium-r2",
+            "usd": 0.17800480000000002,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.2427350273700482
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "medium",
+        "task": "02-medium",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "02-medium-5.6-sol-medium-r1",
+            "usd": 0.24212,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "02-medium-5.6-sol-medium-r2",
+            "usd": 0.2586352,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.0682108045597225
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "medium",
+        "task": "03-hard",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-5.6-sol-medium-r1",
+            "usd": 0.33542,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-5.6-sol-medium-r2",
+            "usd": 0.2230288,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.5039313308415774
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "medium",
+        "task": "04-components",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "04-components-5.6-sol-medium-r1",
+            "usd": 0.9502856000000001,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "04-components-5.6-sol-medium-r2",
+            "usd": 0.7619096000000001,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.2472419300137443
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "medium",
+        "task": "05-optimizer",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "05-optimizer-5.6-sol-medium-r1",
+            "usd": 0.8299032000000001,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "05-optimizer-5.6-sol-medium-r2",
+            "usd": 0.9996631999999999,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.2045539768975464
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "medium",
+        "task": "06-transactions",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-5.6-sol-medium-r1",
+            "usd": 0.44936960000000004,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-5.6-sol-medium-r2",
+            "usd": 0.3784728,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.1873233690769853
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "high",
+        "task": "01-easy",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "01-easy-5.6-sol-high-r1",
+            "usd": 0.14700240000000003,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "01-easy-5.6-sol-high-r2",
+            "usd": 0.24582639999999997,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.672261133151567
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "high",
+        "task": "02-medium",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "02-medium-5.6-sol-high-r1",
+            "usd": 0.28081120000000004,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "02-medium-5.6-sol-high-r2",
+            "usd": 0.37590559999999995,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.3386417635763812
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "high",
+        "task": "03-hard",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-5.6-sol-high-r1",
+            "usd": 0.3702280000000001,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-5.6-sol-high-r2",
+            "usd": 0.3016072,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.2275171149760353
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "high",
+        "task": "04-components",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "04-components-5.6-sol-high-r1",
+            "usd": 1.4255735999999999,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "04-components-5.6-sol-high-r2",
+            "usd": 0.8731519999999999,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.6326751814117129
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "high",
+        "task": "05-optimizer",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "05-optimizer-5.6-sol-high-r1",
+            "usd": 0.8755152000000002,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "05-optimizer-5.6-sol-high-r2",
+            "usd": 1.0515384,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.201050992604126
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "high",
+        "task": "06-transactions",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-5.6-sol-high-r1",
+            "usd": 0.41708080000000003,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-5.6-sol-high-r2",
+            "usd": 0.4263744,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.0222824929845726
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "xhigh",
+        "task": "01-easy",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "01-easy-5.6-sol-xhigh-r1",
+            "usd": 0.27164239999999995,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "01-easy-5.6-sol-xhigh-r2",
+            "usd": 0.24594319999999997,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.1044924193878911
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "xhigh",
+        "task": "02-medium",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "02-medium-5.6-sol-xhigh-r1",
+            "usd": 0.250028,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "02-medium-5.6-sol-xhigh-r2",
+            "usd": 0.23575040000000003,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.0605623574763816
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "xhigh",
+        "task": "03-hard",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-5.6-sol-xhigh-r1",
+            "usd": 0.4252696000000001,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-5.6-sol-xhigh-r2",
+            "usd": 0.3400624,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.2505634260065215
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "xhigh",
+        "task": "04-components",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "04-components-5.6-sol-xhigh-r1",
+            "usd": 1.2531472000000001,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "04-components-5.6-sol-xhigh-r2",
+            "usd": 1.9673832000000007,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.5699537931377898
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "xhigh",
+        "task": "05-optimizer",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "05-optimizer-5.6-sol-xhigh-r1",
+            "usd": 2.2223160000000006,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "05-optimizer-5.6-sol-xhigh-r2",
+            "usd": 1.4258255999999996,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.5586169865374848
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "xhigh",
+        "task": "06-transactions",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-5.6-sol-xhigh-r1",
+            "usd": 0.5759176,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-5.6-sol-xhigh-r2",
+            "usd": 0.6585352000000001,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.1434538552042863
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "max",
+        "task": "01-easy",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "01-easy-5.6-sol-max-r1",
+            "usd": 0.3943528,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "01-easy-5.6-sol-max-r2",
+            "usd": 0.22367120000000001,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.7630915379360417
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "max",
+        "task": "02-medium",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "02-medium-5.6-sol-max-r1",
+            "usd": 0.424976,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "02-medium-5.6-sol-max-r2",
+            "usd": 0.2745608,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.5478393128225152
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "max",
+        "task": "03-hard",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-5.6-sol-max-r1",
+            "usd": 0.39132639999999996,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-5.6-sol-max-r2",
+            "usd": 0.5757304,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.471228110344715
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "max",
+        "task": "04-components",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "04-components-5.6-sol-max-r1",
+            "usd": 1.9740640000000003,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "04-components-5.6-sol-max-r2",
+            "usd": 1.8759792000000002,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.052284588229976
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "max",
+        "task": "05-optimizer",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "05-optimizer-5.6-sol-max-r1",
+            "usd": 3.4844248,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "05-optimizer-5.6-sol-max-r2",
+            "usd": 2.186755200000001,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.5934224370427925
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "max",
+        "task": "06-transactions",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-5.6-sol-max-r1",
+            "usd": 0.8423624,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-5.6-sol-max-r2",
+            "usd": 0.6048176000000001,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.3927544436537558
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "task": "01-easy",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "01-easy-5.6-sol-ultra-r1",
+            "usd": 0.2490792,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "01-easy-5.6-sol-ultra-r2",
+            "usd": 0.2383528,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.0450021984218352
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "task": "02-medium",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "02-medium-5.6-sol-ultra-r1",
+            "usd": 0.3528176,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "02-medium-5.6-sol-ultra-r2",
+            "usd": 0.37192,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.0541424237339634
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "task": "03-hard",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-5.6-sol-ultra-r1",
+            "usd": 0.5547408,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-5.6-sol-ultra-r2",
+            "usd": 0.5343704,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.0381203749309469
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "task": "04-components",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "04-components-5.6-sol-ultra-r1",
+            "usd": 2.1651279999999997,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "04-components-5.6-sol-ultra-r2",
+            "usd": 1.8763232000000003,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.1539206038703775
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "task": "05-optimizer",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "05-optimizer-5.6-sol-ultra-r1",
+            "usd": 2.8513856,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "05-optimizer-5.6-sol-ultra-r2",
+            "usd": 2.1791295999999996,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.3084974845002337
+      },
+      {
+        "model": "gpt-5.6-sol",
+        "effort": "ultra",
+        "task": "06-transactions",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-5.6-sol-ultra-r1",
+            "usd": 0.7104496,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-5.6-sol-ultra-r2",
+            "usd": 0.7298496,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.0273066520130352
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "low",
+        "task": "01-easy",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "01-easy-6-sol-low-r1",
+            "usd": 0.05380560000000001,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "01-easy-6-sol-low-r2",
+            "usd": 0.0385524,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.3956485199365023
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "low",
+        "task": "02-medium",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "02-medium-6-sol-low-r1",
+            "usd": 0.108782,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "02-medium-6-sol-low-r2",
+            "usd": 0.063318,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.718026469566316
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "low",
+        "task": "03-hard",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-6-sol-low-r1",
+            "usd": 0.1335264,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-6-sol-low-r2",
+            "usd": 0.09215159999999999,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.4489862357246104
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "low",
+        "task": "04-components",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "04-components-6-sol-low-r1",
+            "usd": 0.216742,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "04-components-6-sol-low-r2",
+            "usd": 0.16535560000000002,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.3107629859526981
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "low",
+        "task": "05-optimizer",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "05-optimizer-6-sol-low-r1",
+            "usd": 0.21192400000000003,
+            "main_score": 93.333333,
+            "accepted": false
+          },
+          {
+            "repetition": 2,
+            "run_id": "05-optimizer-6-sol-low-r2",
+            "usd": 0.14041879999999995,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.5092281090566226
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "low",
+        "task": "06-transactions",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-6-sol-low-r1",
+            "usd": 0.1647332,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-6-sol-low-r2",
+            "usd": 0.1086852,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.5156911888647213
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "medium",
+        "task": "01-easy",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "01-easy-6-sol-medium-r1",
+            "usd": 0.0922264,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "01-easy-6-sol-medium-r2",
+            "usd": 0.0638228,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.4450384502090163
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "medium",
+        "task": "02-medium",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "02-medium-6-sol-medium-r1",
+            "usd": 0.1094376,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "02-medium-6-sol-medium-r2",
+            "usd": 0.12559559999999997,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.147645781705739
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "medium",
+        "task": "03-hard",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-6-sol-medium-r1",
+            "usd": 0.1370864,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-6-sol-medium-r2",
+            "usd": 0.0964016,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.4220344890541234
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "medium",
+        "task": "04-components",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "04-components-6-sol-medium-r1",
+            "usd": 0.2945324,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "04-components-6-sol-medium-r2",
+            "usd": 0.32539,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.1047681002157996
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "medium",
+        "task": "05-optimizer",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "05-optimizer-6-sol-medium-r1",
+            "usd": 0.30195559999999994,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "05-optimizer-6-sol-medium-r2",
+            "usd": 0.2921296,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.0336357561849259
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "medium",
+        "task": "06-transactions",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-6-sol-medium-r1",
+            "usd": 0.1473704,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-6-sol-medium-r2",
+            "usd": 0.1326848,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.1106803492185995
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "high",
+        "task": "01-easy",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "01-easy-6-sol-high-r1",
+            "usd": 0.07812079999999999,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "01-easy-6-sol-high-r2",
+            "usd": 0.0779636,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.002016325567316
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "high",
+        "task": "02-medium",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "02-medium-6-sol-high-r1",
+            "usd": 0.09065519999999999,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "02-medium-6-sol-high-r2",
+            "usd": 0.1054908,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.1636486379159718
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "high",
+        "task": "03-hard",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-6-sol-high-r1",
+            "usd": 0.1328828,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-6-sol-high-r2",
+            "usd": 0.14409400000000003,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.084369083131903
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "high",
+        "task": "04-components",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "04-components-6-sol-high-r1",
+            "usd": 0.4590164,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "04-components-6-sol-high-r2",
+            "usd": 0.5708175999999999,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.2435668965204727
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "high",
+        "task": "05-optimizer",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "05-optimizer-6-sol-high-r1",
+            "usd": 0.5174344000000002,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "05-optimizer-6-sol-high-r2",
+            "usd": 0.4662260000000001,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.1098360022821552
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "high",
+        "task": "06-transactions",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-6-sol-high-r1",
+            "usd": 0.19937879999999997,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-6-sol-high-r2",
+            "usd": 0.18707799999999997,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.0657522530709116
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "xhigh",
+        "task": "01-easy",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "01-easy-6-sol-xhigh-r1",
+            "usd": 0.1073412,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "01-easy-6-sol-xhigh-r2",
+            "usd": 0.096468,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.1127130240079612
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "xhigh",
+        "task": "02-medium",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "02-medium-6-sol-xhigh-r1",
+            "usd": 0.1627612,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "02-medium-6-sol-xhigh-r2",
+            "usd": 0.1167416,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.3942005249199942
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "xhigh",
+        "task": "03-hard",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-6-sol-xhigh-r1",
+            "usd": 0.1805132,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-6-sol-xhigh-r2",
+            "usd": 0.18748279999999998,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.0386099188314204
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "xhigh",
+        "task": "04-components",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "04-components-6-sol-xhigh-r1",
+            "usd": 0.7197348,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "04-components-6-sol-xhigh-r2",
+            "usd": 0.780444,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.0843494020297477
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "xhigh",
+        "task": "05-optimizer",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "05-optimizer-6-sol-xhigh-r1",
+            "usd": 0.5568428000000002,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "05-optimizer-6-sol-xhigh-r2",
+            "usd": 0.36036559999999995,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.5452163025549617
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "xhigh",
+        "task": "06-transactions",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-6-sol-xhigh-r1",
+            "usd": 0.22154759999999998,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-6-sol-xhigh-r2",
+            "usd": 0.24193239999999996,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.0920109267714928
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "max",
+        "task": "01-easy",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "01-easy-6-sol-max-r1",
+            "usd": 0.164586,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "01-easy-6-sol-max-r2",
+            "usd": 0.148904,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.1053161768656317
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "max",
+        "task": "02-medium",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "02-medium-6-sol-max-r1",
+            "usd": 0.1780908,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "02-medium-6-sol-max-r2",
+            "usd": 0.102454,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.7382513127842738
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "max",
+        "task": "03-hard",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-6-sol-max-r1",
+            "usd": 0.185156,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-6-sol-max-r2",
+            "usd": 0.21823519999999996,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.1786558361597788
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "max",
+        "task": "05-optimizer",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "05-optimizer-6-sol-max-r1",
+            "usd": 0.9838148000000002,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "05-optimizer-6-sol-max-r2",
+            "usd": 0.7024012000000001,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.4006451014035854
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "max",
+        "task": "06-transactions",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-6-sol-max-r1",
+            "usd": 0.27209880000000003,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-6-sol-max-r2",
+            "usd": 0.32694480000000004,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.2015664898191392
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "ultra",
+        "task": "02-medium",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "02-medium-6-sol-ultra-r1",
+            "usd": 0.1780728,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "02-medium-6-sol-ultra-r2",
+            "usd": 0.1316152,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.3529805068107637
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "ultra",
+        "task": "03-hard",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-6-sol-ultra-r1",
+            "usd": 0.20731639999999996,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-6-sol-ultra-r2",
+            "usd": 0.14987240000000004,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.3832860486653973
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "ultra",
+        "task": "04-components",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "04-components-6-sol-ultra-r1",
+            "usd": 0.7131136,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "04-components-6-sol-ultra-r2",
+            "usd": 1.0079616000000002,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.4134656806433088
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "ultra",
+        "task": "05-optimizer",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "05-optimizer-6-sol-ultra-r1",
+            "usd": 0.7707304000000001,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "05-optimizer-6-sol-ultra-r2",
+            "usd": 1.4306203999999998,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.8561878446730524
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "ultra",
+        "task": "06-transactions",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-6-sol-ultra-r1",
+            "usd": 0.27924039999999994,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-6-sol-ultra-r2",
+            "usd": 0.3160512,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.1318247646114246
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "low",
+        "task": "01-easy",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "01-easy-6.1-sol-low-r1",
+            "usd": 0.048397600000000006,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "01-easy-6.1-sol-low-r2",
+            "usd": 0.05078200000000001,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.0492669057969817
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "low",
+        "task": "02-medium",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "02-medium-6.1-sol-low-r1",
+            "usd": 0.06029000000000001,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "02-medium-6.1-sol-low-r2",
+            "usd": 0.0564584,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.0678658977229254
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "low",
+        "task": "03-hard",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-6.1-sol-low-r1",
+            "usd": 0.07998720000000001,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-6.1-sol-low-r2",
+            "usd": 0.07881880000000001,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.0148238745070972
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "low",
+        "task": "04-components",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "04-components-6.1-sol-low-r1",
+            "usd": 0.18403279999999997,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "04-components-6.1-sol-low-r2",
+            "usd": 0.15363680000000002,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.197843225060662
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "low",
+        "task": "05-optimizer",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "05-optimizer-6.1-sol-low-r1",
+            "usd": 0.13876840000000001,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "05-optimizer-6.1-sol-low-r2",
+            "usd": 0.09814,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.4139841043407377
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "low",
+        "task": "06-transactions",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-6.1-sol-low-r1",
+            "usd": 0.09267159999999999,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-6.1-sol-low-r2",
+            "usd": 0.1650532,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.781054821541875
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "medium",
+        "task": "01-easy",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "01-easy-6.1-sol-medium-r1",
+            "usd": 0.0529548,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "01-easy-6.1-sol-medium-r2",
+            "usd": 0.0794164,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.499701632335501
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "medium",
+        "task": "02-medium",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "02-medium-6.1-sol-medium-r1",
+            "usd": 0.0761796,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "02-medium-6.1-sol-medium-r2",
+            "usd": 0.069286,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.0994948474439281
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "medium",
+        "task": "03-hard",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-6.1-sol-medium-r1",
+            "usd": 0.083712,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-6.1-sol-medium-r2",
+            "usd": 0.0807844,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.0362396700353036
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "medium",
+        "task": "04-components",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "04-components-6.1-sol-medium-r1",
+            "usd": 0.29319399999999995,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "04-components-6.1-sol-medium-r2",
+            "usd": 0.19597320000000004,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.4960923228278147
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "medium",
+        "task": "05-optimizer",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "05-optimizer-6.1-sol-medium-r1",
+            "usd": 0.32549880000000003,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "05-optimizer-6.1-sol-medium-r2",
+            "usd": 0.150302,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 2.1656318611861454
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "medium",
+        "task": "06-transactions",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-6.1-sol-medium-r1",
+            "usd": 0.1220808,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-6.1-sol-medium-r2",
+            "usd": 0.1611604,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.320112581175746
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "task": "01-easy",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "01-easy-6.1-sol-high-r1",
+            "usd": 0.0685004,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "01-easy-6.1-sol-high-r2",
+            "usd": 0.0415236,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.6496739203729927
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "task": "02-medium",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "02-medium-6.1-sol-high-r1",
+            "usd": 0.0710412,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "02-medium-6.1-sol-high-r2",
+            "usd": 0.0697812,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.0180564392701759
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "task": "03-hard",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-6.1-sol-high-r1",
+            "usd": 0.1088056,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-6.1-sol-high-r2",
+            "usd": 0.09005919999999999,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.2081564126707767
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "task": "04-components",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "04-components-6.1-sol-high-r1",
+            "usd": 0.3107364,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "04-components-6.1-sol-high-r2",
+            "usd": 0.3509448,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.1293971353211274
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "task": "05-optimizer",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "05-optimizer-6.1-sol-high-r1",
+            "usd": 0.310824,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "05-optimizer-6.1-sol-high-r2",
+            "usd": 0.41038159999999996,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.3203021645690165
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "high",
+        "task": "06-transactions",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-6.1-sol-high-r1",
+            "usd": 0.208258,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-6.1-sol-high-r2",
+            "usd": 0.1975272,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.054325682741415
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "task": "01-easy",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "01-easy-6.1-sol-xhigh-r1",
+            "usd": 0.068056,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "01-easy-6.1-sol-xhigh-r2",
+            "usd": 0.07025680000000001,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.0323380745268602
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "task": "02-medium",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "02-medium-6.1-sol-xhigh-r1",
+            "usd": 0.11274199999999998,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "02-medium-6.1-sol-xhigh-r2",
+            "usd": 0.0870388,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.2953073801568953
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "task": "03-hard",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-6.1-sol-xhigh-r1",
+            "usd": 0.18894160000000002,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-6.1-sol-xhigh-r2",
+            "usd": 0.1065064,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.7739929243688644
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "task": "04-components",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "04-components-6.1-sol-xhigh-r1",
+            "usd": 0.5018524000000001,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "04-components-6.1-sol-xhigh-r2",
+            "usd": 0.4573764,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.0972415717120518
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "task": "05-optimizer",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "05-optimizer-6.1-sol-xhigh-r1",
+            "usd": 0.6221420000000001,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "05-optimizer-6.1-sol-xhigh-r2",
+            "usd": 0.3873676,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.6060765020099774
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "xhigh",
+        "task": "06-transactions",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-6.1-sol-xhigh-r1",
+            "usd": 0.26061239999999997,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-6.1-sol-xhigh-r2",
+            "usd": 0.2222592,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.1725606859018658
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "max",
+        "task": "01-easy",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "01-easy-6.1-sol-max-r1",
+            "usd": 0.114724,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "01-easy-6.1-sol-max-r2",
+            "usd": 0.12046280000000001,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.050022663087061
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "max",
+        "task": "02-medium",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "02-medium-6.1-sol-max-r1",
+            "usd": 0.1305728,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "02-medium-6.1-sol-max-r2",
+            "usd": 0.10325559999999999,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.2645590166538183
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "max",
+        "task": "03-hard",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-6.1-sol-max-r1",
+            "usd": 0.12442439999999999,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-6.1-sol-max-r2",
+            "usd": 0.1678396,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.3489283452441805
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "max",
+        "task": "04-components",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "04-components-6.1-sol-max-r1",
+            "usd": 0.4373024000000001,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "04-components-6.1-sol-max-r2",
+            "usd": 0.5801740000000002,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.326711218598389
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "max",
+        "task": "05-optimizer",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "05-optimizer-6.1-sol-max-r1",
+            "usd": 0.6684743999999999,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "05-optimizer-6.1-sol-max-r2",
+            "usd": 0.5126956,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.3038426699975578
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "max",
+        "task": "06-transactions",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-6.1-sol-max-r1",
+            "usd": 0.24421200000000004,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-6.1-sol-max-r2",
+            "usd": 0.2902584,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.188550931158174
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "ultra",
+        "task": "01-easy",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "01-easy-6.1-sol-ultra-r1",
+            "usd": 0.099096,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "01-easy-6.1-sol-ultra-r2",
+            "usd": 0.0956052,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.0365126583072888
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "ultra",
+        "task": "02-medium",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "02-medium-6.1-sol-ultra-r1",
+            "usd": 0.1176016,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "02-medium-6.1-sol-ultra-r2",
+            "usd": 0.07229239999999999,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.6267491465216262
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "ultra",
+        "task": "03-hard",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "03-hard-6.1-sol-ultra-r1",
+            "usd": 0.19913,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "03-hard-6.1-sol-ultra-r2",
+            "usd": 0.1352348,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.4724760194861088
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "ultra",
+        "task": "04-components",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "04-components-6.1-sol-ultra-r1",
+            "usd": 0.43703320000000007,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "04-components-6.1-sol-ultra-r2",
+            "usd": 0.371714,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.1757243472131802
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "ultra",
+        "task": "05-optimizer",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "05-optimizer-6.1-sol-ultra-r1",
+            "usd": 0.45014200000000004,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "05-optimizer-6.1-sol-ultra-r2",
+            "usd": 0.5409064,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.201635039609723
+      },
+      {
+        "model": "gpt-6.1-sol",
+        "effort": "ultra",
+        "task": "06-transactions",
+        "runs": [
+          {
+            "repetition": 1,
+            "run_id": "06-transactions-6.1-sol-ultra-r1",
+            "usd": 0.24535679999999999,
+            "main_score": 100,
+            "accepted": true
+          },
+          {
+            "repetition": 2,
+            "run_id": "06-transactions-6.1-sol-ultra-r2",
+            "usd": 0.22031279999999998,
+            "main_score": 100,
+            "accepted": true
+          }
+        ],
+        "ratio": 1.1136747388258876
+      }
+    ],
+    "excluded_pairs": [
+      {
+        "model": "gpt-6-sol",
+        "effort": "max",
+        "task": "04-components"
+      },
+      {
+        "model": "gpt-6-sol",
+        "effort": "ultra",
+        "task": "01-easy"
+      }
+    ],
+    "exact_pairs": 106,
+    "identical_main_pairs": 105,
+    "over_1_5_pairs": 20,
+    "ratio_definition": "More expensive repeat divided by cheaper repeat; two observations, not a confidence interval."
+  },
+  "pricing_bridge": {
+    "old_model": "gpt-6-sol",
+    "new_model": "gpt-6.1-sol",
+    "common_rate_model": "gpt-6.1-sol",
+    "common_rates_usd_per_million": {
+      "input": 2,
+      "cached_input": 0.1,
+      "cache_write": 2.5,
+      "output": 10
+    },
+    "matched_n": 70,
+    "excluded_keys": [
+      {
+        "effort": "max",
+        "task": "04-components",
+        "repetition": 2,
+        "old_run_id": "04-components-6-sol-max-r2",
+        "new_run_id": "04-components-6.1-sol-max-r2",
+        "reason": "At least one archived API estimate is partial."
+      },
+      {
+        "effort": "ultra",
+        "task": "01-easy",
+        "repetition": 1,
+        "old_run_id": "01-easy-6-sol-ultra-r1",
+        "new_run_id": "01-easy-6.1-sol-ultra-r1",
+        "reason": "At least one archived API estimate is partial."
+      }
+    ],
+    "old_usd": 19.710704,
+    "repriced_usd": 16.68248,
+    "new_usd": 14.0206652,
+    "tariff_reduction_usd": 3.028223999999998,
+    "usage_reduction_usd": 2.661814800000002,
+    "reduction_pct": 28.867760380349683,
+    "common_rate_reduction_pct": 15.955749984414801,
+    "matched_rows": [
+      {
+        "effort": "low",
+        "task": "01-easy",
+        "repetition": 1,
+        "old_run_id": "01-easy-6-sol-low-r1",
+        "new_run_id": "01-easy-6.1-sol-low-r1",
+        "old_usd": 0.05380560000000001,
+        "repriced_usd": 0.046624799999999994,
+        "new_usd": 0.048397600000000006
+      },
+      {
+        "effort": "low",
+        "task": "01-easy",
+        "repetition": 2,
+        "old_run_id": "01-easy-6-sol-low-r2",
+        "new_run_id": "01-easy-6.1-sol-low-r2",
+        "old_usd": 0.0385524,
+        "repriced_usd": 0.0305652,
+        "new_usd": 0.05078200000000001
+      },
+      {
+        "effort": "low",
+        "task": "02-medium",
+        "repetition": 1,
+        "old_run_id": "02-medium-6-sol-low-r1",
+        "new_run_id": "02-medium-6.1-sol-low-r1",
+        "old_usd": 0.108782,
+        "repriced_usd": 0.09834999999999999,
+        "new_usd": 0.06029000000000001
+      },
+      {
+        "effort": "low",
+        "task": "02-medium",
+        "repetition": 2,
+        "old_run_id": "02-medium-6-sol-low-r2",
+        "new_run_id": "02-medium-6.1-sol-low-r2",
+        "old_usd": 0.063318,
+        "repriced_usd": 0.055958,
+        "new_usd": 0.0564584
+      },
+      {
+        "effort": "low",
+        "task": "03-hard",
+        "repetition": 1,
+        "old_run_id": "03-hard-6-sol-low-r1",
+        "new_run_id": "03-hard-6.1-sol-low-r1",
+        "old_usd": 0.1335264,
+        "repriced_usd": 0.12272319999999999,
+        "new_usd": 0.07998720000000001
+      },
+      {
+        "effort": "low",
+        "task": "03-hard",
+        "repetition": 2,
+        "old_run_id": "03-hard-6-sol-low-r2",
+        "new_run_id": "03-hard-6.1-sol-low-r2",
+        "old_usd": 0.09215159999999999,
+        "repriced_usd": 0.0815788,
+        "new_usd": 0.07881880000000001
+      },
+      {
+        "effort": "low",
+        "task": "04-components",
+        "repetition": 1,
+        "old_run_id": "04-components-6-sol-low-r1",
+        "new_run_id": "04-components-6.1-sol-low-r1",
+        "old_usd": 0.216742,
+        "repriced_usd": 0.186982,
+        "new_usd": 0.18403279999999997
+      },
+      {
+        "effort": "low",
+        "task": "04-components",
+        "repetition": 2,
+        "old_run_id": "04-components-6-sol-low-r2",
+        "new_run_id": "04-components-6.1-sol-low-r2",
+        "old_usd": 0.16535560000000002,
+        "repriced_usd": 0.1399348,
+        "new_usd": 0.15363680000000002
+      },
+      {
+        "effort": "low",
+        "task": "05-optimizer",
+        "repetition": 1,
+        "old_run_id": "05-optimizer-6-sol-low-r1",
+        "new_run_id": "05-optimizer-6.1-sol-low-r1",
+        "old_usd": 0.21192400000000003,
+        "repriced_usd": 0.192724,
+        "new_usd": 0.13876840000000001
+      },
+      {
+        "effort": "low",
+        "task": "05-optimizer",
+        "repetition": 2,
+        "old_run_id": "05-optimizer-6-sol-low-r2",
+        "new_run_id": "05-optimizer-6.1-sol-low-r2",
+        "old_usd": 0.14041879999999995,
+        "repriced_usd": 0.1179164,
+        "new_usd": 0.09814
+      },
+      {
+        "effort": "low",
+        "task": "06-transactions",
+        "repetition": 1,
+        "old_run_id": "06-transactions-6-sol-low-r1",
+        "new_run_id": "06-transactions-6.1-sol-low-r1",
+        "old_usd": 0.1647332,
+        "repriced_usd": 0.1515876,
+        "new_usd": 0.09267159999999999
+      },
+      {
+        "effort": "low",
+        "task": "06-transactions",
+        "repetition": 2,
+        "old_run_id": "06-transactions-6-sol-low-r2",
+        "new_run_id": "06-transactions-6.1-sol-low-r2",
+        "old_usd": 0.1086852,
+        "repriced_usd": 0.0977796,
+        "new_usd": 0.1650532
+      },
+      {
+        "effort": "medium",
+        "task": "01-easy",
+        "repetition": 1,
+        "old_run_id": "01-easy-6-sol-medium-r1",
+        "new_run_id": "01-easy-6.1-sol-medium-r1",
+        "old_usd": 0.0922264,
+        "repriced_usd": 0.08359919999999998,
+        "new_usd": 0.0529548
+      },
+      {
+        "effort": "medium",
+        "task": "01-easy",
+        "repetition": 2,
+        "old_run_id": "01-easy-6-sol-medium-r2",
+        "new_run_id": "01-easy-6.1-sol-medium-r2",
+        "old_usd": 0.0638228,
+        "repriced_usd": 0.0514324,
+        "new_usd": 0.0794164
+      },
+      {
+        "effort": "medium",
+        "task": "02-medium",
+        "repetition": 1,
+        "old_run_id": "02-medium-6-sol-medium-r1",
+        "new_run_id": "02-medium-6.1-sol-medium-r1",
+        "old_usd": 0.1094376,
+        "repriced_usd": 0.0985448,
+        "new_usd": 0.0761796
+      },
+      {
+        "effort": "medium",
+        "task": "02-medium",
+        "repetition": 2,
+        "old_run_id": "02-medium-6-sol-medium-r2",
+        "new_run_id": "02-medium-6.1-sol-medium-r2",
+        "old_usd": 0.12559559999999997,
+        "repriced_usd": 0.1116308,
+        "new_usd": 0.069286
+      },
+      {
+        "effort": "medium",
+        "task": "03-hard",
+        "repetition": 1,
+        "old_run_id": "03-hard-6-sol-medium-r1",
+        "new_run_id": "03-hard-6.1-sol-medium-r1",
+        "old_usd": 0.1370864,
+        "repriced_usd": 0.1198192,
+        "new_usd": 0.083712
+      },
+      {
+        "effort": "medium",
+        "task": "03-hard",
+        "repetition": 2,
+        "old_run_id": "03-hard-6-sol-medium-r2",
+        "new_run_id": "03-hard-6.1-sol-medium-r2",
+        "old_usd": 0.0964016,
+        "repriced_usd": 0.0847408,
+        "new_usd": 0.0807844
+      },
+      {
+        "effort": "medium",
+        "task": "04-components",
+        "repetition": 1,
+        "old_run_id": "04-components-6-sol-medium-r1",
+        "new_run_id": "04-components-6.1-sol-medium-r1",
+        "old_usd": 0.2945324,
+        "repriced_usd": 0.2426412,
+        "new_usd": 0.29319399999999995
+      },
+      {
+        "effort": "medium",
+        "task": "04-components",
+        "repetition": 2,
+        "old_run_id": "04-components-6-sol-medium-r2",
+        "new_run_id": "04-components-6.1-sol-medium-r2",
+        "old_usd": 0.32539,
+        "repriced_usd": 0.26779,
+        "new_usd": 0.19597320000000004
+      },
+      {
+        "effort": "medium",
+        "task": "05-optimizer",
+        "repetition": 1,
+        "old_run_id": "05-optimizer-6-sol-medium-r1",
+        "new_run_id": "05-optimizer-6.1-sol-medium-r1",
+        "old_usd": 0.30195559999999994,
+        "repriced_usd": 0.2669348,
+        "new_usd": 0.32549880000000003
+      },
+      {
+        "effort": "medium",
+        "task": "05-optimizer",
+        "repetition": 2,
+        "old_run_id": "05-optimizer-6-sol-medium-r2",
+        "new_run_id": "05-optimizer-6.1-sol-medium-r2",
+        "old_usd": 0.2921296,
+        "repriced_usd": 0.24917279999999997,
+        "new_usd": 0.150302
+      },
+      {
+        "effort": "medium",
+        "task": "06-transactions",
+        "repetition": 1,
+        "old_run_id": "06-transactions-6-sol-medium-r1",
+        "new_run_id": "06-transactions-6.1-sol-medium-r1",
+        "old_usd": 0.1473704,
+        "repriced_usd": 0.1295912,
+        "new_usd": 0.1220808
+      },
+      {
+        "effort": "medium",
+        "task": "06-transactions",
+        "repetition": 2,
+        "old_run_id": "06-transactions-6-sol-medium-r2",
+        "new_run_id": "06-transactions-6.1-sol-medium-r2",
+        "old_usd": 0.1326848,
+        "repriced_usd": 0.1142784,
+        "new_usd": 0.1611604
+      },
+      {
+        "effort": "high",
+        "task": "01-easy",
+        "repetition": 1,
+        "old_run_id": "01-easy-6-sol-high-r1",
+        "new_run_id": "01-easy-6.1-sol-high-r1",
+        "old_usd": 0.07812079999999999,
+        "repriced_usd": 0.06643439999999999,
+        "new_usd": 0.0685004
+      },
+      {
+        "effort": "high",
+        "task": "01-easy",
+        "repetition": 2,
+        "old_run_id": "01-easy-6-sol-high-r2",
+        "new_run_id": "01-easy-6.1-sol-high-r2",
+        "old_usd": 0.0779636,
+        "repriced_usd": 0.06585479999999999,
+        "new_usd": 0.0415236
+      },
+      {
+        "effort": "high",
+        "task": "02-medium",
+        "repetition": 1,
+        "old_run_id": "02-medium-6-sol-high-r1",
+        "new_run_id": "02-medium-6.1-sol-high-r1",
+        "old_usd": 0.09065519999999999,
+        "repriced_usd": 0.0801336,
+        "new_usd": 0.0710412
+      },
+      {
+        "effort": "high",
+        "task": "02-medium",
+        "repetition": 2,
+        "old_run_id": "02-medium-6-sol-high-r2",
+        "new_run_id": "02-medium-6.1-sol-high-r2",
+        "old_usd": 0.1054908,
+        "repriced_usd": 0.0920764,
+        "new_usd": 0.0697812
+      },
+      {
+        "effort": "high",
+        "task": "03-hard",
+        "repetition": 1,
+        "old_run_id": "03-hard-6-sol-high-r1",
+        "new_run_id": "03-hard-6.1-sol-high-r1",
+        "old_usd": 0.1328828,
+        "repriced_usd": 0.11876439999999999,
+        "new_usd": 0.1088056
+      },
+      {
+        "effort": "high",
+        "task": "03-hard",
+        "repetition": 2,
+        "old_run_id": "03-hard-6-sol-high-r2",
+        "new_run_id": "03-hard-6.1-sol-high-r2",
+        "old_usd": 0.14409400000000003,
+        "repriced_usd": 0.127774,
+        "new_usd": 0.09005919999999999
+      },
+      {
+        "effort": "high",
+        "task": "04-components",
+        "repetition": 1,
+        "old_run_id": "04-components-6-sol-high-r1",
+        "new_run_id": "04-components-6.1-sol-high-r1",
+        "old_usd": 0.4590164,
+        "repriced_usd": 0.3789652,
+        "new_usd": 0.3107364
+      },
+      {
+        "effort": "high",
+        "task": "04-components",
+        "repetition": 2,
+        "old_run_id": "04-components-6-sol-high-r2",
+        "new_run_id": "04-components-6.1-sol-high-r2",
+        "old_usd": 0.5708175999999999,
+        "repriced_usd": 0.45048479999999996,
+        "new_usd": 0.3509448
+      },
+      {
+        "effort": "high",
+        "task": "05-optimizer",
+        "repetition": 1,
+        "old_run_id": "05-optimizer-6-sol-high-r1",
+        "new_run_id": "05-optimizer-6.1-sol-high-r1",
+        "old_usd": 0.5174344000000002,
+        "repriced_usd": 0.4183112000000001,
+        "new_usd": 0.310824
+      },
+      {
+        "effort": "high",
+        "task": "05-optimizer",
+        "repetition": 2,
+        "old_run_id": "05-optimizer-6-sol-high-r2",
+        "new_run_id": "05-optimizer-6.1-sol-high-r2",
+        "old_usd": 0.4662260000000001,
+        "repriced_usd": 0.38532999999999995,
+        "new_usd": 0.41038159999999996
+      },
+      {
+        "effort": "high",
+        "task": "06-transactions",
+        "repetition": 1,
+        "old_run_id": "06-transactions-6-sol-high-r1",
+        "new_run_id": "06-transactions-6.1-sol-high-r1",
+        "old_usd": 0.19937879999999997,
+        "repriced_usd": 0.17975639999999998,
+        "new_usd": 0.208258
+      },
+      {
+        "effort": "high",
+        "task": "06-transactions",
+        "repetition": 2,
+        "old_run_id": "06-transactions-6-sol-high-r2",
+        "new_run_id": "06-transactions-6.1-sol-high-r2",
+        "old_usd": 0.18707799999999997,
+        "repriced_usd": 0.170246,
+        "new_usd": 0.1975272
+      },
+      {
+        "effort": "xhigh",
+        "task": "01-easy",
+        "repetition": 1,
+        "old_run_id": "01-easy-6-sol-xhigh-r1",
+        "new_run_id": "01-easy-6.1-sol-xhigh-r1",
+        "old_usd": 0.1073412,
+        "repriced_usd": 0.09086759999999999,
+        "new_usd": 0.068056
+      },
+      {
+        "effort": "xhigh",
+        "task": "01-easy",
+        "repetition": 2,
+        "old_run_id": "01-easy-6-sol-xhigh-r2",
+        "new_run_id": "01-easy-6.1-sol-xhigh-r2",
+        "old_usd": 0.096468,
+        "repriced_usd": 0.08501200000000002,
+        "new_usd": 0.07025680000000001
+      },
+      {
+        "effort": "xhigh",
+        "task": "02-medium",
+        "repetition": 1,
+        "old_run_id": "02-medium-6-sol-xhigh-r1",
+        "new_run_id": "02-medium-6.1-sol-xhigh-r1",
+        "old_usd": 0.1627612,
+        "repriced_usd": 0.1418716,
+        "new_usd": 0.11274199999999998
+      },
+      {
+        "effort": "xhigh",
+        "task": "02-medium",
+        "repetition": 2,
+        "old_run_id": "02-medium-6-sol-xhigh-r2",
+        "new_run_id": "02-medium-6.1-sol-xhigh-r2",
+        "old_usd": 0.1167416,
+        "repriced_usd": 0.10213680000000001,
+        "new_usd": 0.0870388
+      },
+      {
+        "effort": "xhigh",
+        "task": "03-hard",
+        "repetition": 1,
+        "old_run_id": "03-hard-6-sol-xhigh-r1",
+        "new_run_id": "03-hard-6.1-sol-xhigh-r1",
+        "old_usd": 0.1805132,
+        "repriced_usd": 0.15904759999999998,
+        "new_usd": 0.18894160000000002
+      },
+      {
+        "effort": "xhigh",
+        "task": "03-hard",
+        "repetition": 2,
+        "old_run_id": "03-hard-6-sol-xhigh-r2",
+        "new_run_id": "03-hard-6.1-sol-xhigh-r2",
+        "old_usd": 0.18748279999999998,
+        "repriced_usd": 0.1735564,
+        "new_usd": 0.1065064
+      },
+      {
+        "effort": "xhigh",
+        "task": "04-components",
+        "repetition": 1,
+        "old_run_id": "04-components-6-sol-xhigh-r1",
+        "new_run_id": "04-components-6.1-sol-xhigh-r1",
+        "old_usd": 0.7197348,
+        "repriced_usd": 0.5628964000000001,
+        "new_usd": 0.5018524000000001
+      },
+      {
+        "effort": "xhigh",
+        "task": "04-components",
+        "repetition": 2,
+        "old_run_id": "04-components-6-sol-xhigh-r2",
+        "new_run_id": "04-components-6.1-sol-xhigh-r2",
+        "old_usd": 0.780444,
+        "repriced_usd": 0.6148759999999999,
+        "new_usd": 0.4573764
+      },
+      {
+        "effort": "xhigh",
+        "task": "05-optimizer",
+        "repetition": 1,
+        "old_run_id": "05-optimizer-6-sol-xhigh-r1",
+        "new_run_id": "05-optimizer-6.1-sol-xhigh-r1",
+        "old_usd": 0.5568428000000002,
+        "repriced_usd": 0.46214840000000007,
+        "new_usd": 0.6221420000000001
+      },
+      {
+        "effort": "xhigh",
+        "task": "05-optimizer",
+        "repetition": 2,
+        "old_run_id": "05-optimizer-6-sol-xhigh-r2",
+        "new_run_id": "05-optimizer-6.1-sol-xhigh-r2",
+        "old_usd": 0.36036559999999995,
+        "repriced_usd": 0.31376079999999995,
+        "new_usd": 0.3873676
+      },
+      {
+        "effort": "xhigh",
+        "task": "06-transactions",
+        "repetition": 1,
+        "old_run_id": "06-transactions-6-sol-xhigh-r1",
+        "new_run_id": "06-transactions-6.1-sol-xhigh-r1",
+        "old_usd": 0.22154759999999998,
+        "repriced_usd": 0.1950388,
+        "new_usd": 0.26061239999999997
+      },
+      {
+        "effort": "xhigh",
+        "task": "06-transactions",
+        "repetition": 2,
+        "old_run_id": "06-transactions-6-sol-xhigh-r2",
+        "new_run_id": "06-transactions-6.1-sol-xhigh-r2",
+        "old_usd": 0.24193239999999996,
+        "repriced_usd": 0.21948120000000002,
+        "new_usd": 0.2222592
+      },
+      {
+        "effort": "max",
+        "task": "01-easy",
+        "repetition": 1,
+        "old_run_id": "01-easy-6-sol-max-r1",
+        "new_run_id": "01-easy-6.1-sol-max-r1",
+        "old_usd": 0.164586,
+        "repriced_usd": 0.15069800000000003,
+        "new_usd": 0.114724
+      },
+      {
+        "effort": "max",
+        "task": "01-easy",
+        "repetition": 2,
+        "old_run_id": "01-easy-6-sol-max-r2",
+        "new_run_id": "01-easy-6.1-sol-max-r2",
+        "old_usd": 0.148904,
+        "repriced_usd": 0.14000800000000002,
+        "new_usd": 0.12046280000000001
+      },
+      {
+        "effort": "max",
+        "task": "02-medium",
+        "repetition": 1,
+        "old_run_id": "02-medium-6-sol-max-r1",
+        "new_run_id": "02-medium-6.1-sol-max-r1",
+        "old_usd": 0.1780908,
+        "repriced_usd": 0.1537964,
+        "new_usd": 0.1305728
+      },
+      {
+        "effort": "max",
+        "task": "02-medium",
+        "repetition": 2,
+        "old_run_id": "02-medium-6-sol-max-r2",
+        "new_run_id": "02-medium-6.1-sol-max-r2",
+        "old_usd": 0.102454,
+        "repriced_usd": 0.088694,
+        "new_usd": 0.10325559999999999
+      },
+      {
+        "effort": "max",
+        "task": "03-hard",
+        "repetition": 1,
+        "old_run_id": "03-hard-6-sol-max-r1",
+        "new_run_id": "03-hard-6.1-sol-max-r1",
+        "old_usd": 0.185156,
+        "repriced_usd": 0.17152399999999998,
+        "new_usd": 0.12442439999999999
+      },
+      {
+        "effort": "max",
+        "task": "03-hard",
+        "repetition": 2,
+        "old_run_id": "03-hard-6-sol-max-r2",
+        "new_run_id": "03-hard-6.1-sol-max-r2",
+        "old_usd": 0.21823519999999996,
+        "repriced_usd": 0.1961936,
+        "new_usd": 0.1678396
+      },
+      {
+        "effort": "max",
+        "task": "04-components",
+        "repetition": 1,
+        "old_run_id": "04-components-6-sol-max-r1",
+        "new_run_id": "04-components-6.1-sol-max-r1",
+        "old_usd": 0.7243272000000001,
+        "repriced_usd": 0.5760775999999999,
+        "new_usd": 0.4373024000000001
+      },
+      {
+        "effort": "max",
+        "task": "05-optimizer",
+        "repetition": 1,
+        "old_run_id": "05-optimizer-6-sol-max-r1",
+        "new_run_id": "05-optimizer-6.1-sol-max-r1",
+        "old_usd": 0.9838148000000002,
+        "repriced_usd": 0.8179523999999998,
+        "new_usd": 0.6684743999999999
+      },
+      {
+        "effort": "max",
+        "task": "05-optimizer",
+        "repetition": 2,
+        "old_run_id": "05-optimizer-6-sol-max-r2",
+        "new_run_id": "05-optimizer-6.1-sol-max-r2",
+        "old_usd": 0.7024012000000001,
+        "repriced_usd": 0.5977356000000001,
+        "new_usd": 0.5126956
+      },
+      {
+        "effort": "max",
+        "task": "06-transactions",
+        "repetition": 1,
+        "old_run_id": "06-transactions-6-sol-max-r1",
+        "new_run_id": "06-transactions-6.1-sol-max-r1",
+        "old_usd": 0.27209880000000003,
+        "repriced_usd": 0.24530839999999998,
+        "new_usd": 0.24421200000000004
+      },
+      {
+        "effort": "max",
+        "task": "06-transactions",
+        "repetition": 2,
+        "old_run_id": "06-transactions-6-sol-max-r2",
+        "new_run_id": "06-transactions-6.1-sol-max-r2",
+        "old_usd": 0.32694480000000004,
+        "repriced_usd": 0.28780240000000007,
+        "new_usd": 0.2902584
+      },
+      {
+        "effort": "ultra",
+        "task": "01-easy",
+        "repetition": 2,
+        "old_run_id": "01-easy-6-sol-ultra-r2",
+        "new_run_id": "01-easy-6.1-sol-ultra-r2",
+        "old_usd": 0.1411352,
+        "repriced_usd": 0.1292056,
+        "new_usd": 0.0956052
+      },
+      {
+        "effort": "ultra",
+        "task": "02-medium",
+        "repetition": 1,
+        "old_run_id": "02-medium-6-sol-ultra-r1",
+        "new_run_id": "02-medium-6.1-sol-ultra-r1",
+        "old_usd": 0.1780728,
+        "repriced_usd": 0.1609464,
+        "new_usd": 0.1176016
+      },
+      {
+        "effort": "ultra",
+        "task": "02-medium",
+        "repetition": 2,
+        "old_run_id": "02-medium-6-sol-ultra-r2",
+        "new_run_id": "02-medium-6.1-sol-ultra-r2",
+        "old_usd": 0.1316152,
+        "repriced_usd": 0.1178296,
+        "new_usd": 0.07229239999999999
+      },
+      {
+        "effort": "ultra",
+        "task": "03-hard",
+        "repetition": 1,
+        "old_run_id": "03-hard-6-sol-ultra-r1",
+        "new_run_id": "03-hard-6.1-sol-ultra-r1",
+        "old_usd": 0.20731639999999996,
+        "repriced_usd": 0.1937612,
+        "new_usd": 0.19913
+      },
+      {
+        "effort": "ultra",
+        "task": "03-hard",
+        "repetition": 2,
+        "old_run_id": "03-hard-6-sol-ultra-r2",
+        "new_run_id": "03-hard-6.1-sol-ultra-r2",
+        "old_usd": 0.14987240000000004,
+        "repriced_usd": 0.1322852,
+        "new_usd": 0.1352348
+      },
+      {
+        "effort": "ultra",
+        "task": "04-components",
+        "repetition": 1,
+        "old_run_id": "04-components-6-sol-ultra-r1",
+        "new_run_id": "04-components-6.1-sol-ultra-r1",
+        "old_usd": 0.7131136,
+        "repriced_usd": 0.5736448000000003,
+        "new_usd": 0.43703320000000007
+      },
+      {
+        "effort": "ultra",
+        "task": "04-components",
+        "repetition": 2,
+        "old_run_id": "04-components-6-sol-ultra-r2",
+        "new_run_id": "04-components-6.1-sol-ultra-r2",
+        "old_usd": 1.0079616000000002,
+        "repriced_usd": 0.8155008000000004,
+        "new_usd": 0.371714
+      },
+      {
+        "effort": "ultra",
+        "task": "05-optimizer",
+        "repetition": 1,
+        "old_run_id": "05-optimizer-6-sol-ultra-r1",
+        "new_run_id": "05-optimizer-6.1-sol-ultra-r1",
+        "old_usd": 0.7707304000000001,
+        "repriced_usd": 0.6343592,
+        "new_usd": 0.45014200000000004
+      },
+      {
+        "effort": "ultra",
+        "task": "05-optimizer",
+        "repetition": 2,
+        "old_run_id": "05-optimizer-6-sol-ultra-r2",
+        "new_run_id": "05-optimizer-6.1-sol-ultra-r2",
+        "old_usd": 1.4306203999999998,
+        "repriced_usd": 1.1606172000000001,
+        "new_usd": 0.5409064
+      },
+      {
+        "effort": "ultra",
+        "task": "06-transactions",
+        "repetition": 1,
+        "old_run_id": "06-transactions-6-sol-ultra-r1",
+        "new_run_id": "06-transactions-6.1-sol-ultra-r1",
+        "old_usd": 0.27924039999999994,
+        "repriced_usd": 0.2535892,
+        "new_usd": 0.24535679999999999
+      },
+      {
+        "effort": "ultra",
+        "task": "06-transactions",
+        "repetition": 2,
+        "old_run_id": "06-transactions-6-sol-ultra-r2",
+        "new_run_id": "06-transactions-6.1-sol-ultra-r2",
+        "old_usd": 0.3160512,
+        "repriced_usd": 0.2872256000000001,
+        "new_usd": 0.22031279999999998
+      }
+    ],
+    "interpretation": "Accounting counterfactual at frozen Standard API rates, not a causal experiment. Usage includes input, cache, output, and request-level long-context treatment."
+  },
+  "summary": {
+    "attempts": 216,
+    "completed": 214,
+    "main_accepted_completed": 213,
+    "settings": 18,
+    "main_macro_100_settings": 16,
+    "exact_cost_attempts": 214,
+    "mvcc_main_accepted_completed": 36,
+    "mvcc_available_test_results": 35,
+    "mvcc_no_added_tests": 4,
+    "mvcc_status_counts": {
+      "no_added_tests": 4,
+      "usable": 31,
+      "unavailable": 1
+    },
+    "mvcc_sol61_low_medium": {
+      "low_mean_usd": 0.1288624,
+      "medium_mean_usd": 0.1416206,
+      "cost_increase_pct": 9.900638200126677,
+      "low_detected_out_of_12": 9,
+      "medium_detected_out_of_12": 11
+    },
+    "dag_sol61_low_ultra": {
+      "cost_multiple": 2.1054922358097303,
+      "low_mean_runtime_ms": 77.31969997985289,
+      "ultra_mean_runtime_ms": 52.30959996697493,
+      "runtime_reduction_pct": 32.34634901505672,
+      "low_mean_peak_kib": 781.2578125,
+      "ultra_mean_peak_kib": 704.703125,
+      "python_allocation_reduction_pct": 9.798902010979893
+    },
+    "sol61_max_low": {
+      "cost_multiple": 2.8950202678161925,
+      "low_main_macro": 100,
+      "max_main_macro": 100,
+      "low_accepted": 12,
+      "max_accepted": 12
+    }
+  }
+}

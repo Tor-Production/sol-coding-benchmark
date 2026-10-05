@@ -23,7 +23,7 @@ jobs:
       - name: Reproduce result tables and SVG figures
         run: python -B scripts/analyze_results.py
       - name: Confirm generated documentation is current
-        run: git diff --exit-code -- docs/results.md assets
+        run: git diff --exit-code -- docs/results.md assets results/insights.json
       - name: Install PDF build dependencies
         run: python -m pip install -r requirements-report.txt
       - name: Rebuild the English report without inference

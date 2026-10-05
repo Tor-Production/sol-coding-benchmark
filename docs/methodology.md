@@ -1,8 +1,8 @@
 # Methodology
 
-This benchmark primarily compares **API-equivalent USD against tested functional code quality** for three Codex models on six specified Python programming tasks. Elapsed agent time is a secondary measure. It contains **216 attempts**: three models × six reasoning efforts × six tasks × two repetitions. The archived experiment has **214 completed attempts and 213 accepted deliveries**. Every scheduled outcome remains in the archive, including failures.
+This benchmark compares **API-equivalent USD against concrete code and test evidence** for three Codex models on six specified Python programming tasks. The leading analysis uses MVCC candidate-test sensitivity; functional behavior, generated-code performance and delivery retain their own scopes. Elapsed agent time is a secondary measure. It contains **216 attempts**: three models × six reasoning efforts × six tasks × two repetitions. The archived experiment has **214 completed attempts and 213 accepted deliveries**. Every scheduled outcome remains in the archive, including failures.
 
-Start with the [results](results.md), then consult [task design](tasks.md), [scoring](scoring.md), [limitations](limitations.md) and [reproduction](reproduction.md). The [English PDF](../artifacts/Sol_Benchmark_Consolidated_EN.pdf) presents the consolidated charts and analysis.
+Start with the [six findings](findings.md) and [complete results](results.md), then consult [task design](tasks.md), [scoring](scoring.md), [limitations](limitations.md) and [reproduction](reproduction.md). The [English PDF](../artifacts/Sol_Benchmark_Consolidated_EN.pdf) presents the consolidated charts and analysis.
 
 ## Comparison matrix
 
@@ -65,9 +65,11 @@ For a fully observed setting:
 - **USD per accepted delivery** is that same total divided by the accepted count. Spending on unsuccessful attempts remains included.
 - Missing cost data is disclosed as unavailable or an observed lower bound. It is not removed silently and is never assigned zero.
 
-The primary chart places **API-equivalent USD per attempt on X** and the **six-task main functional macro score out of 100 on Y**. Lower cost is left and higher functional score is up. Each setting includes all twelve recorded attempt grades; a passing timeout snapshot and a provider-failed scaffold retain their recorded grades. Accepted-delivery percentage is shown separately because it also requires a completed turn.
+The leading chart places **mean MVCC API-equivalent USD per attempt on X** and **candidate-test sensitivity to six fixed MVCC defects on Y**. Its effort means require two usable evaluations; the individual repetitions remain visible. Lower cost is left and higher sensitivity to that defect set is up. This task-specific criterion is not a new overall score.
 
-Model colors are consistent; effort points are connected within each model in effort order. A connecting line helps trace settings and does not imply interpolation or a causal relationship. Asterisks and right-pointing arrows identify partial observed-cost lower bounds: the unknown full cost lies to the right. A full 0–100 score view accompanies an explicitly labeled ceiling zoom so that a small score difference is not mistaken for a large quality gain. Time has its own secondary figure.
+The supplementary functional chart also puts USD on X, with the **six-task main functional macro score out of 100 on Y**. Each setting includes all twelve recorded attempt grades; a passing timeout snapshot and a provider-failed scaffold retain their recorded grades. Accepted-delivery percentage is separate because it also requires a completed turn. Its full 0–100 view accompanies a labeled ceiling detail.
+
+Model colors are consistent; connected effort points follow effort order within a model. A connecting line helps trace settings and does not imply interpolation or a causal relationship. Asterisks and right-pointing arrows identify partial observed-cost lower bounds where applicable: the unknown full cost lies to the right. Time has its own secondary figure.
 
 Token-based credit estimates are secondary telemetry. Account-wide balance changes cannot reliably identify billed credits for an individual attempt, so neither quota percentages nor balance deltas determine the dollar comparisons.
 
@@ -81,11 +83,28 @@ Generated-code runtime is a separate measure for the original four tasks: one wa
 
 ## Quality and aggregation
 
-The main chart uses functional behavior as a measurable quality criterion. Completed delivery, expanded correctness, candidate-test sensitivity and generated-code performance remain separate measures; pending manual review prevents a complete overall code-quality score. A candidate snapshot can pass all functional checks even if its agent turn did not finish; that does not make it an accepted delivery. [Scoring](scoring.md) specifies the exact rules.
+The leading MVCC chart uses candidate-test sensitivity as one quality criterion. Functional behavior, completed delivery, expanded correctness and generated-code performance remain separate measures; pending manual review prevents a complete overall code-quality score. A candidate snapshot can pass all functional checks even if its agent turn did not finish; that does not make it an accepted delivery. [Scoring](scoring.md) specifies the exact rules.
 
 Within each model/effort/task cell, average the two task scores. Then average the six task means equally. Each task contributes one sixth, regardless of how many tests it contains. Do not pool all test methods into a single overall pass rate. The complete main functional aggregate requires both repetitions for all six tasks; incomplete coverage is unavailable. This is the existing recorded macro score, not a new weighting or a post-hoc composite.
 
 The near-perfect functional results leave limited separation among most settings. Two repetitions support descriptive comparisons and visible spread, not a reliable estimate of rare failures or a general ranking of intelligence. See [limitations](limitations.md) before using the results in a broader claim.
+
+## Derived findings and their denominators
+
+The [six findings](findings.md) derive additional views of the same archive. [scripts/derive_insights.py](../scripts/derive_insights.py) writes [results/insights.json](../results/insights.json), retaining run IDs and source-file hashes. This changes the analysis presentation, not candidates, measured prices or grades.
+
+| Analysis | Observations and aggregation |
+| --- | --- |
+| MVCC test value | Two attempts per setting; pair sensitivity only with 2/2 usable results; fixed six-defect denominator |
+| MVCC defect matrix | All 36 attempts, with detection, misses, no-added-test zeros and unavailable evidence distinct |
+| DAG code efficiency | Eighteen setting means, each averaging two candidate runtime medians and two separate allocation measurements |
+| Effort premium | Twelve attempts per setting, preserving incomplete monetary coverage and separate functional/delivery outcomes |
+| Repetition spread | 106 same-model/effort/task pairs with two exact costs; ratio of higher cost to lower cost; two partial pairs excluded from exact ratios |
+| Pricing bridge | Seventy matched task/effort/repetition keys for Sol 6 and Sol 6.1; exclude both sides of two keys with partial Sol 6 telemetry |
+
+The pricing bridge first keeps Sol 6 request usage fixed and reprices it under the frozen Sol 6.1 tariff, then compares recorded Sol 6.1 usage at that tariff. Cached-input rates differ while input, cache-write and output rates are the same. Applicable request-level long-context multipliers remain part of the calculation. This is an order-dependent counterfactual analysis, not causal attribution. The archived prices are never overwritten.
+
+The derived findings are descriptive analyses of already collected evidence. They are not preregistered hypotheses or new benchmark observations. The generated-code runtime profile remains specific to its original workloads and host; the mutation evidence remains specific to the declared defects.
 
 ## Protocol and price references
 

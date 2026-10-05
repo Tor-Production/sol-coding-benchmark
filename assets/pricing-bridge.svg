@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1200 835">
+<title id="title">Cheaper model pricing or less spending at common prices?</title>
+<desc id="desc">Three aggregate API-equivalent cost bars for seventy matched completed task repetitions: Sol 6 at its own frozen prices, the recorded Sol 6 usage repriced at Sol 6.1 prices, and Sol 6.1 at its own prices. The counterfactual separates the tariff change from a common-price usage difference. These estimates are not Codex bills, and the decomposition is descriptive rather than a causal experiment.</desc>
+<rect x="0" y="0" width="1200" height="835" rx="0" fill="#FFFFFF" stroke="none"/>
+<text x="54" y="44" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="bold" text-anchor="start" fill="#182D44">Cheaper pricing, different token spending, or both?</text>
+<text x="54" y="75" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#53667B">70 matched task / effort / repetition observations - frozen API-equivalent USD</text>
+<polyline points="100,596 1136,596" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="87" y="601" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="normal" text-anchor="end" fill="#53667B">$0</text>
+<polyline points="100,505.792 1136,505.792" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="87" y="510.792" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="normal" text-anchor="end" fill="#53667B">$5</text>
+<polyline points="100,415.583 1136,415.583" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="87" y="420.583" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="normal" text-anchor="end" fill="#53667B">$10</text>
+<polyline points="100,325.375 1136,325.375" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="87" y="330.375" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="normal" text-anchor="end" fill="#53667B">$15</text>
+<polyline points="100,235.167 1136,235.167" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="87" y="240.167" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="normal" text-anchor="end" fill="#53667B">$20</text>
+<text x="100" y="132" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="start" fill="#182D44">Aggregate API-equivalent USD for the same matched sample</text>
+<rect x="153" y="240.386" width="206" height="355.614" rx="5" fill="#3478BE" stroke="none"/>
+<text x="256" y="222.386" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#3478BE">$19.71070</text>
+<text x="256" y="627" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#182D44">Sol 6 usage</text>
+<text x="256" y="651" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="normal" text-anchor="middle" fill="#182D44">at Sol 6 prices</text>
+<rect x="502" y="295.02" width="206" height="300.98" rx="5" fill="#8DB3DB" stroke="none"/>
+<text x="605" y="277.02" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#8DB3DB">$16.68248</text>
+<text x="605" y="627" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#182D44">Sol 6 usage</text>
+<text x="605" y="651" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="normal" text-anchor="middle" fill="#182D44">at Sol 6.1 prices</text>
+<rect x="851" y="343.044" width="206" height="252.956" rx="5" fill="#128C7E" stroke="none"/>
+<text x="954" y="325.044" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#128C7E">$14.02067</text>
+<text x="954" y="627" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#182D44">Sol 6.1 usage</text>
+<text x="954" y="651" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="normal" text-anchor="middle" fill="#182D44">at Sol 6.1 prices</text>
+<text x="427" y="115" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#53667B">Price difference: -$3.028</text>
+<text x="835" y="115" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#53667B">Common-price difference: -$2.662</text>
+<rect x="54" y="689" width="1092" height="120" rx="8" fill="#F2F6FA" stroke="none"/>
+<text x="73" y="720" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="bold" text-anchor="start" fill="#182D44">Observed combined reduction: 28.9% ($5.690) for these 70 matched observations.</text>
+<text x="73" y="749" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#53667B">At common Sol 6.1 prices, recorded Sol 6.1 usage costs 16.0% less. The tariff step saves $3.028.</text>
+<text x="73" y="777" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="normal" text-anchor="start" fill="#53667B">Counterfactual repricing changes the tariff only. It does not simulate how a model would behave at another price.</text>
+<text x="73" y="799" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="normal" text-anchor="start" fill="#53667B">Cost estimates include recorded input, cached-input and output tokens. They are not actual Codex billing charges.</text>
+</svg>
