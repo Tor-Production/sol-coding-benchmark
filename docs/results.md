@@ -1,43 +1,45 @@
 # Results
 
-**Sol 6.1 Low is the least expensive configuration with 12/12 accepted deliveries:** $0.101 API-equivalent USD and 161.7 seconds per attempt, averaged over all six tasks and both repetitions. Sol 6 Low was slightly faster (158.7 seconds) but one optimizer attempt missed a scale requirement.
+**Sol 6.1 Low reaches a 100/100 main functional score at the lowest observed exact cost:** $0.101 API-equivalent USD per attempt, averaged over all six tasks and both repetitions. It also has 12/12 accepted deliveries. Most settings reach the functional-score ceiling; spending more does not separate them on these checks.
 
 The archive contains **216 attempts**, **214 completed deliveries**, and **213 accepted deliveries**. A delivery counts as accepted only when its status is `completed` **and** its main grade is accepted. All attempts, including failures, remain in the cost and time denominators. See the [methodology](methodology.md), [scoring rules](scoring.md), and [task catalogue](tasks.md).
 
-## Cost and time
+## Cost versus measured functional quality
 
-![API-equivalent cost versus elapsed agent time](../assets/cost-time.svg)
+![API-equivalent USD per attempt on X versus six-task main functional macro score on Y](../assets/cost-quality.svg)
 
-Cost is a counterfactual calculation from observed tokens at the **frozen 30 September 2026 Standard API rates** in [results.json](../results/results.json). It is not a Codex subscription invoice or a measurement of purchased credits. Elapsed time is the wall-clock agent time, including tool use; it is not the generated code's execution speed.
+The primary chart puts **frozen API-equivalent USD per attempt on X** and the **six-task main functional macro score out of 100 on Y**. Higher and farther left means a higher measured functional score for less money. Each task contributes equally: its score is the mean of its two saved-code grades, then the six task means are averaged. This is a specific functional-quality measure, not a completed manual review or an overall code-quality composite. The plot keeps recorded grades for all attempts, including the provider-failure stub and the passing timeout snapshot.
 
-Each setting has **12 attempts**: six tasks × two repetitions. The connected points follow Low → Medium → High → Xhigh → Max → Ultra within each model. They do not imply interpolation or a monotonic scaling law. Upward arrows and dashed segments mark the two settings with incomplete cost telemetry.
+Cost is a counterfactual calculation from observed tokens at the **frozen 30 September 2026 Standard API rates** in [results.json](../results/results.json). It is not a Codex subscription invoice or a measurement of purchased credits.
 
-![Cost and elapsed time by reasoning effort](../assets/effort-curves.svg)
+Each setting has **12 attempts**: six tasks × two repetitions. Colors identify models and markers identify effort. The connected points follow Low → Medium → High → Xhigh → Max → Ultra within each model; they do not imply interpolation or a monotonic scaling law. **Rightward arrows**, asterisks, and dashed segments mark the two settings with incomplete cost telemetry. The full 0–100 overview has headroom; the labeled near-ceiling detail uses a smaller range. Equal measured scores can overlap, and no point is jittered.
+
+![API-equivalent cost and main functional score by reasoning effort](../assets/effort-curves.svg)
 
 ### All 18 settings
 
 `USD / accepted` divides the cost of **all attempted work** by the number of accepted deliveries. Main functional score is the macro mean of the six task scores, each averaged over two snapshots; it is a different measure from accepted delivery.
 
-| Model | Effort | USD / attempt | USD / accepted | Agent seconds / attempt | Accepted | Main functional score % |
+| Model | Effort | USD / attempt | Main functional score % | Accepted | USD / accepted | Agent seconds / attempt |
 |---|---|---:|---:|---:|---:|---:|
-| Sol 5.6 | Low | $0.318 | $0.318 | 194.2 | 12/12 | 100.00 |
-| Sol 5.6 | Medium | $0.486 | $0.486 | 282.8 | 12/12 | 100.00 |
-| Sol 5.6 | High | $0.566 | $0.566 | 350.1 | 12/12 | 100.00 |
-| Sol 5.6 | Xhigh | $0.823 | $0.823 | 483.7 | 12/12 | 100.00 |
-| Sol 5.6 | Max | $1.104 | $1.104 | 622.6 | 12/12 | 100.00 |
-| Sol 5.6 | Ultra | $1.068 | $1.068 | 626.8 | 12/12 | 100.00 |
-| Sol 6 | Low | $0.125 | $0.136 | 158.7 | 11/12 | 99.44 |
-| Sol 6 | Medium | $0.177 | $0.177 | 226.7 | 12/12 | 100.00 |
-| Sol 6 | High | $0.252 | $0.252 | 300.2 | 12/12 | 100.00 |
-| Sol 6 | Xhigh | $0.311 | $0.311 | 402.6 | 12/12 | 100.00 |
-| Sol 6 | Max | ≥$0.399 | ≥$0.435 | 814.6 | 11/12 | 100.00 |
-| Sol 6 | Ultra | ≥$0.445 | ≥$0.486 | 626.4 | 11/12 | 91.67 |
-| Sol 6.1 | Low | $0.101 | $0.101 | 161.7 | 12/12 | 100.00 |
-| Sol 6.1 | Medium | $0.141 | $0.141 | 246.7 | 12/12 | 100.00 |
-| Sol 6.1 | High | $0.187 | $0.187 | 453.1 | 12/12 | 100.00 |
-| Sol 6.1 | Xhigh | $0.257 | $0.257 | 588.6 | 12/12 | 100.00 |
-| Sol 6.1 | Max | $0.291 | $0.291 | 676.8 | 12/12 | 100.00 |
-| Sol 6.1 | Ultra | $0.249 | $0.249 | 577.1 | 12/12 | 100.00 |
+| Sol 5.6 | Low | $0.318 | 100.00 | 12/12 | $0.318 | 194.2 |
+| Sol 5.6 | Medium | $0.486 | 100.00 | 12/12 | $0.486 | 282.8 |
+| Sol 5.6 | High | $0.566 | 100.00 | 12/12 | $0.566 | 350.1 |
+| Sol 5.6 | Xhigh | $0.823 | 100.00 | 12/12 | $0.823 | 483.7 |
+| Sol 5.6 | Max | $1.104 | 100.00 | 12/12 | $1.104 | 622.6 |
+| Sol 5.6 | Ultra | $1.068 | 100.00 | 12/12 | $1.068 | 626.8 |
+| Sol 6 | Low | $0.125 | 99.44 | 11/12 | $0.136 | 158.7 |
+| Sol 6 | Medium | $0.177 | 100.00 | 12/12 | $0.177 | 226.7 |
+| Sol 6 | High | $0.252 | 100.00 | 12/12 | $0.252 | 300.2 |
+| Sol 6 | Xhigh | $0.311 | 100.00 | 12/12 | $0.311 | 402.6 |
+| Sol 6 | Max | ≥$0.399 | 100.00 | 11/12 | ≥$0.435 | 814.6 |
+| Sol 6 | Ultra | ≥$0.445 | 91.67 | 11/12 | ≥$0.486 | 626.4 |
+| Sol 6.1 | Low | $0.101 | 100.00 | 12/12 | $0.101 | 161.7 |
+| Sol 6.1 | Medium | $0.141 | 100.00 | 12/12 | $0.141 | 246.7 |
+| Sol 6.1 | High | $0.187 | 100.00 | 12/12 | $0.187 | 453.1 |
+| Sol 6.1 | Xhigh | $0.257 | 100.00 | 12/12 | $0.257 | 588.6 |
+| Sol 6.1 | Max | $0.291 | 100.00 | 12/12 | $0.291 | 676.8 |
+| Sol 6.1 | Ultra | $0.249 | 100.00 | 12/12 | $0.249 | 577.1 |
 
 `≥` indicates a conservative observed cost lower bound, rounded down. The complete cost of Sol 6 Max and Ultra is unknown because one attempt in each setting has partial token telemetry. The observed API-equivalent subtotal for the whole archive is **$87.5980432**; it is not a complete final total. Exact cost estimates are available for **214/216** attempts. The two complex tasks contribute **$41.8110868**, all with complete cost telemetry.
 
@@ -46,6 +48,18 @@ Each setting has **12 attempts**: six tasks × two repetitions. The connected po
 ![Functional scores and generated-test sensitivity with coverage](../assets/quality.svg)
 
 The main checks are close to a ceiling: 15 of 18 settings achieved 12/12 accepted deliveries. Increasing effort adds substantial cost and time without separating most settings on these checks. Two repetitions per task are too few to estimate rare failures reliably, and six tasks cannot establish a general intelligence ranking. The reported means are descriptive; no confidence intervals or significance claims are inferred from this small sample.
+
+### Accepted delivery is a separate outcome
+
+![API-equivalent USD per attempt on X versus accepted delivery rate on Y](../assets/cost-acceptance.svg)
+
+This supplementary chart uses `accepted / 12 × 100` on Y and explicitly zooms its scale to 80–100% with headroom. A passing saved-code snapshot alone does not imply successful delivery: the Sol 6 Max service snapshot scored 100, but the attempt timed out and was not accepted. Sol 6 Low, Max, and Ultra each have 11/12 accepted deliveries; the other 15 settings have 12/12. These rates are the outcomes of this small sample, not estimated long-run success probabilities.
+
+### Agent time is secondary
+
+![Observed elapsed agent time by reasoning effort](../assets/effort-time.svg)
+
+Elapsed time is wall-clock agent time, including tool use and unsuccessful deliveries; it is separate from the generated code's execution speed. Sol 6.1 Low averaged 161.7 seconds per attempt. Sol 6 Low was slightly faster (158.7 seconds) but one optimizer attempt missed a scale requirement. All attempts remain in the time mean, including the recorded 40-minute timeout.
 
 The complex tasks make algorithmic and state reasoning explicit. The optimizer combines signed values, dependencies, asymmetric conflicts, multiple resource constraints, mandatory projects, and exact tie-breaking. The MVCC task checks snapshots, conservative serializability, savepoints retaining reads, phantom detection, ABA, write skew, and checkpoint/replay. All small exhaustive optimizer oracle checks and all MVCC main checks passed. The optimizer's scale test produced the one new functional failure.
 
@@ -115,4 +129,4 @@ python -m pip install -r requirements-report.txt
 python scripts/analyze_results.py --png
 ```
 
-The script asserts 216 unique attempts, the full model/effort/task/repetition matrix, 12 attempts per setting, acceptance status, functional macro scores, observed mean times, and cost telemetry coverage before writing derived outputs. It reads the frozen archive and writes only this page and the three chart families under `assets/`. It does not rerun inference, modify saved candidates, change grades, or regenerate the archived PDF. SVG outputs are deterministic and do not depend on third-party packages; PNG rasterization uses local fonts and can vary slightly across platforms.
+The script asserts 216 unique attempts, the full model/effort/task/repetition matrix, 12 attempts per setting, acceptance status, functional macro scores, observed mean times, and cost telemetry coverage before writing derived outputs. It reads the frozen archive and writes only this page and five chart families under `assets/`: cost-quality, cost-acceptance, effort-curves (money and functional score), effort-time, and quality evidence. It does not rerun inference, modify saved candidates, change grades, or regenerate the PDF. SVG outputs are deterministic and do not depend on third-party packages; PNG rasterization uses local fonts and can vary slightly across platforms.

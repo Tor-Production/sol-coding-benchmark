@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1200 535">
+<title id="title">Elapsed agent time by reasoning effort</title>
+<desc id="desc">Secondary time measure: mean elapsed agent minutes across all twelve attempts per model and effort, including tool use and unsuccessful deliveries. This is not execution speed of the generated code.</desc>
+<rect x="0" y="0" width="1200" height="535" rx="0" fill="#FFFFFF" stroke="none"/>
+<text x="54" y="44" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="bold" text-anchor="start" fill="#182D44">Agent time is a secondary operational measure</text>
+<text x="54" y="74" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#53667B">Observed elapsed time per attempt, including tool use · 12 attempts per setting</text>
+<polyline points="70,103 96,103" fill="none" stroke="#D75B3B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="106" y="108" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="start" fill="#182D44">Sol 5.6</text>
+<polyline points="255,103 281,103" fill="none" stroke="#3478BE" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="291" y="108" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="start" fill="#182D44">Sol 6</text>
+<polyline points="440,103 466,103" fill="none" stroke="#128C7E" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="476" y="108" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="start" fill="#182D44">Sol 6.1</text>
+<text x="95" y="145" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="bold" text-anchor="start" fill="#182D44">Elapsed agent minutes / attempt</text>
+<polyline points="95,409 1130,409" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="83" y="414" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="end" fill="#53667B">0</text>
+<polyline points="95,359.6 1130,359.6" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="83" y="364.6" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="end" fill="#53667B">3</text>
+<polyline points="95,310.2 1130,310.2" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="83" y="315.2" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="end" fill="#53667B">6</text>
+<polyline points="95,260.8 1130,260.8" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="83" y="265.8" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="end" fill="#53667B">9</text>
+<polyline points="95,211.4 1130,211.4" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="83" y="216.4" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="end" fill="#53667B">12</text>
+<polyline points="95,162 1130,162" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="83" y="167" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="end" fill="#53667B">15</text>
+<text x="95" y="434" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="middle" fill="#53667B">Low</text>
+<text x="302" y="434" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="middle" fill="#53667B">Medium</text>
+<text x="509" y="434" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="middle" fill="#53667B">High</text>
+<text x="716" y="434" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="middle" fill="#53667B">Xhigh</text>
+<text x="923" y="434" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="middle" fill="#53667B">Max</text>
+<text x="1130" y="434" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="middle" fill="#53667B">Ultra</text>
+<polyline points="95,355.697 302,331.381 509,312.913 716,276.259 923,238.126 1130,236.977" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="95" cy="355.697" r="6" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
+<rect x="296" y="325.381" width="12" height="12" rx="0" fill="#D75B3B" stroke="#FFFFFF"/>
+<polygon points="509,304.913 501,318.913 517,318.913" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="716,268.259 724,276.259 716,284.259 708,276.259" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="920,231.126 926,231.126 926,235.126 930,235.126 930,241.126 926,241.126 926,245.126 920,245.126 920,241.126 916,241.126 916,235.126 920,235.126" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="1130,227.977 1131.587,234.792 1138.56,234.196 1132.568,237.811 1135.29,244.258 1130,239.677 1124.71,244.258 1127.432,237.811 1121.44,234.196 1128.413,234.792" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
+<polyline points="95,365.458 302,346.773 509,326.604 716,298.522 923,185.438 1130,237.077" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="95" cy="365.458" r="6" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
+<rect x="296" y="340.773" width="12" height="12" rx="0" fill="#3478BE" stroke="#FFFFFF"/>
+<polygon points="509,318.604 501,332.604 517,332.604" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="716,290.522 724,298.522 716,306.522 708,298.522" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="920,178.438 926,178.438 926,182.438 930,182.438 930,188.438 926,188.438 926,192.438 920,192.438 920,188.438 916,188.438 916,182.438 920,182.438" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="1130,228.077 1131.587,234.892 1138.56,234.296 1132.568,237.911 1135.29,244.358 1130,239.777 1124.71,244.358 1127.432,237.911 1121.44,234.296 1128.413,234.892" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
+<polyline points="95,364.627 302,341.293 509,284.649 716,247.47 923,223.249 1130,250.626" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="95" cy="364.627" r="6" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
+<rect x="296" y="335.293" width="12" height="12" rx="0" fill="#128C7E" stroke="#FFFFFF"/>
+<polygon points="509,276.649 501,290.649 517,290.649" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="716,239.47 724,247.47 716,255.47 708,247.47" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="920,216.249 926,216.249 926,220.249 930,220.249 930,226.249 926,226.249 926,230.249 920,230.249 920,226.249 916,226.249 916,220.249 920,220.249" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="1130,241.626 1131.587,248.441 1138.56,247.844 1132.568,251.46 1135.29,257.907 1130,253.326 1124.71,257.907 1127.432,251.46 1121.44,247.844 1128.413,248.441" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
+<rect x="54" y="466" width="1092" height="48" rx="8" fill="#F2F6FA" stroke="none"/>
+<text x="70" y="486" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">All attempted work remains in the mean, including provider failure and timeout. Recorded elapsed values are complete.</text>
+<text x="70" y="505" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">Use the primary cost-quality figure for spending versus measured functional score, and the table for seconds per attempt.</text>
+</svg>

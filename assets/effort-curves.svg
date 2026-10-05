@@ -1,124 +1,116 @@
-<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1200 570">
-<title id="title">How cost and agent time change with reasoning effort</title>
-<desc id="desc">Mean API-equivalent dollars and elapsed agent minutes for six efforts and three models; twelve attempts per setting. Two Sol 6 cost values are lower bounds.</desc>
-<rect x="0" y="0" width="1200" height="570" rx="0" fill="#FFFFFF" stroke="none"/>
-<text x="54" y="44" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="bold" text-anchor="start" fill="#182D44">Higher effort usually costs more time and money</text>
-<text x="54" y="74" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#53667B">Same 12 attempts per setting · observed means · two runs per task</text>
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1200 640">
+<title id="title">How cost and main functional score change with reasoning effort</title>
+<desc id="desc">Mean frozen API-equivalent dollars and six-task main functional macro score by effort. Functional scores use three small multiples with an explicitly labeled 90–100 detail scale. Two Sol 6 cost values are lower bounds.</desc>
+<rect x="0" y="0" width="1200" height="640" rx="0" fill="#FFFFFF" stroke="none"/>
+<text x="54" y="44" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="bold" text-anchor="start" fill="#182D44">Effort increases spending more clearly than functional score</text>
+<text x="54" y="74" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#53667B">Same 12 attempts per setting · two repetitions per task · independent scales</text>
 <polyline points="70,103 96,103" fill="none" stroke="#D75B3B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
 <text x="106" y="108" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="start" fill="#182D44">Sol 5.6</text>
 <polyline points="255,103 281,103" fill="none" stroke="#3478BE" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
 <text x="291" y="108" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="start" fill="#182D44">Sol 6</text>
 <polyline points="440,103 466,103" fill="none" stroke="#128C7E" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
 <text x="476" y="108" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="start" fill="#182D44">Sol 6.1</text>
-<text x="95" y="145" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="bold" text-anchor="start" fill="#182D44">API-equivalent USD / attempt</text>
-<polyline points="95,431 553,431" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
-<text x="83" y="436" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$0.00</text>
-<polyline points="95,377 553,377" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
-<text x="83" y="382" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$0.25</text>
-<polyline points="95,323 553,323" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
-<text x="83" y="328" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$0.50</text>
-<polyline points="95,269 553,269" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
-<text x="83" y="274" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$0.75</text>
-<polyline points="95,215 553,215" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
-<text x="83" y="220" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$1.00</text>
-<polyline points="95,161 553,161" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
-<text x="83" y="166" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$1.25</text>
-<text x="95" y="456" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">Low</text>
-<text x="186.6" y="456" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">Medium</text>
-<text x="278.2" y="456" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">High</text>
-<text x="369.8" y="456" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">Xhigh</text>
-<text x="461.4" y="456" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">Max</text>
-<text x="553" y="456" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">Ultra</text>
-<polyline points="95,362.222 186.6,326.096" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="186.6,326.096 278.2,308.769" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="278.2,308.769 369.8,253.307" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="369.8,253.307 461.4,192.446" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="461.4,192.446 553,200.356" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="95" cy="362.222" r="6" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
-<rect x="180.6" y="320.096" width="12" height="12" rx="0" fill="#D75B3B" stroke="#FFFFFF"/>
-<polygon points="278.2,300.769 270.2,314.769 286.2,314.769" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
-<polygon points="369.8,245.307 377.8,253.307 369.8,261.307 361.8,253.307" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
-<polygon points="458.4,185.446 464.4,185.446 464.4,189.446 468.4,189.446 468.4,195.446 464.4,195.446 464.4,199.446 458.4,199.446 458.4,195.446 454.4,195.446 454.4,189.446 458.4,189.446" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
-<polygon points="553,191.356 554.587,198.172 561.56,197.575 555.568,201.191 558.29,207.637 553,203.056 547.71,207.637 550.432,201.191 544.44,197.575 551.413,198.172" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
-<polyline points="95,404.036 186.6,392.865" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="186.6,392.865 278.2,376.475" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="278.2,376.475 369.8,363.821" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="369.8,363.821 461.4,344.749" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 6"/>
-<polyline points="461.4,344.749 553,334.693" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 6"/>
-<circle cx="95" cy="404.036" r="6" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
-<rect x="180.6" y="386.865" width="12" height="12" rx="0" fill="#3478BE" stroke="#FFFFFF"/>
-<polygon points="278.2,368.475 270.2,382.475 286.2,382.475" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
-<polygon points="369.8,355.821 377.8,363.821 369.8,371.821 361.8,363.821" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
-<polygon points="458.4,337.749 464.4,337.749 464.4,341.749 468.4,341.749 468.4,347.749 464.4,347.749 464.4,351.749 458.4,351.749 458.4,347.749 454.4,347.749 454.4,341.749 458.4,341.749" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
-<polyline points="461.4,333.749 461.4,313.749" fill="none" stroke="#3478BE" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-<polygon points="461.4,308.749 457.4,316.749 465.4,316.749" fill="#3478BE" stroke="none" stroke-width="1"/>
-<polygon points="553,325.693 554.587,332.509 561.56,331.912 555.568,335.527 558.29,341.974 553,337.393 547.71,341.974 550.432,335.527 544.44,331.912 551.413,332.509" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
-<polyline points="553,323.693 553,303.693" fill="none" stroke="#3478BE" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-<polygon points="553,298.693 549,306.693 557,306.693" fill="#3478BE" stroke="none" stroke-width="1"/>
-<polyline points="95,409.273 186.6,400.57" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="186.6,400.57 278.2,390.709" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="278.2,390.709 369.8,375.467" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="369.8,375.467 461.4,368.101" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="461.4,368.101 553,377.28" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="95" cy="409.273" r="6" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
-<rect x="180.6" y="394.57" width="12" height="12" rx="0" fill="#128C7E" stroke="#FFFFFF"/>
-<polygon points="278.2,382.709 270.2,396.709 286.2,396.709" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
-<polygon points="369.8,367.467 377.8,375.467 369.8,383.467 361.8,375.467" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
-<polygon points="458.4,361.101 464.4,361.101 464.4,365.101 468.4,365.101 468.4,371.101 464.4,371.101 464.4,375.101 458.4,375.101 458.4,371.101 454.4,371.101 454.4,365.101 458.4,365.101" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
-<polygon points="553,368.28 554.587,375.096 561.56,374.499 555.568,378.115 558.29,384.561 553,379.98 547.71,384.561 550.432,378.115 544.44,374.499 551.413,375.096" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
-<text x="681" y="145" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="bold" text-anchor="start" fill="#182D44">Elapsed agent time / attempt</text>
-<polyline points="681,431 1139,431" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
-<text x="669" y="436" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">0 min</text>
-<polyline points="681,377 1139,377" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
-<text x="669" y="382" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">3 min</text>
-<polyline points="681,323 1139,323" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
-<text x="669" y="328" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">6 min</text>
-<polyline points="681,269 1139,269" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
-<text x="669" y="274" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">9 min</text>
-<polyline points="681,215 1139,215" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
-<text x="669" y="220" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">12 min</text>
-<polyline points="681,161 1139,161" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
-<text x="669" y="166" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">15 min</text>
-<text x="681" y="456" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">Low</text>
-<text x="772.6" y="456" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">Medium</text>
-<text x="864.2" y="456" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">High</text>
-<text x="955.8" y="456" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">Xhigh</text>
-<text x="1047.4" y="456" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">Max</text>
-<text x="1139" y="456" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">Ultra</text>
-<polyline points="681,372.734 772.6,346.153" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="772.6,346.153 864.2,325.966" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="864.2,325.966 955.8,285.898" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="955.8,285.898 1047.4,244.214" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="1047.4,244.214 1139,242.958" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="681" cy="372.734" r="6" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
-<rect x="766.6" y="340.153" width="12" height="12" rx="0" fill="#D75B3B" stroke="#FFFFFF"/>
-<polygon points="864.2,317.966 856.2,331.966 872.2,331.966" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
-<polygon points="955.8,277.898 963.8,285.898 955.8,293.898 947.8,285.898" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
-<polygon points="1044.4,237.214 1050.4,237.214 1050.4,241.214 1054.4,241.214 1054.4,247.214 1050.4,247.214 1050.4,251.214 1044.4,251.214 1044.4,247.214 1040.4,247.214 1040.4,241.214 1044.4,241.214" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
-<polygon points="1139,233.958 1140.587,240.774 1147.56,240.177 1141.568,243.793 1144.29,250.24 1139,245.658 1133.71,250.24 1136.432,243.793 1130.44,240.177 1137.413,240.774" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
-<polyline points="681,383.403 772.6,362.979" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="772.6,362.979 864.2,340.932" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="864.2,340.932 955.8,310.234" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="955.8,310.234 1047.4,186.621" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="1047.4,186.621 1139,243.068" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="681" cy="383.403" r="6" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
-<rect x="766.6" y="356.979" width="12" height="12" rx="0" fill="#3478BE" stroke="#FFFFFF"/>
-<polygon points="864.2,332.932 856.2,346.932 872.2,346.932" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
-<polygon points="955.8,302.234 963.8,310.234 955.8,318.234 947.8,310.234" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
-<polygon points="1044.4,179.621 1050.4,179.621 1050.4,183.621 1054.4,183.621 1054.4,189.621 1050.4,189.621 1050.4,193.621 1044.4,193.621 1044.4,189.621 1040.4,189.621 1040.4,183.621 1044.4,183.621" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
-<polygon points="1139,234.068 1140.587,240.883 1147.56,240.287 1141.568,243.902 1144.29,250.349 1139,245.768 1133.71,250.349 1136.432,243.902 1130.44,240.287 1137.413,240.883" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
-<polyline points="681,382.495 772.6,356.988" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="772.6,356.988 864.2,295.07" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="864.2,295.07 955.8,254.429" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="955.8,254.429 1047.4,227.952" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<polyline points="1047.4,227.952 1139,257.878" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="681" cy="382.495" r="6" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
-<rect x="766.6" y="350.988" width="12" height="12" rx="0" fill="#128C7E" stroke="#FFFFFF"/>
-<polygon points="864.2,287.07 856.2,301.07 872.2,301.07" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
-<polygon points="955.8,246.429 963.8,254.429 955.8,262.429 947.8,254.429" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
-<polygon points="1044.4,220.952 1050.4,220.952 1050.4,224.952 1054.4,224.952 1054.4,230.952 1050.4,230.952 1050.4,234.952 1044.4,234.952 1044.4,230.952 1040.4,230.952 1040.4,224.952 1044.4,224.952" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
-<polygon points="1139,248.878 1140.587,255.694 1147.56,255.097 1141.568,258.713 1144.29,265.159 1139,260.578 1133.71,265.159 1136.432,258.713 1130.44,255.097 1137.413,255.694" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
-<rect x="56" y="488" width="1088" height="62" rx="8" fill="#F2F6FA" stroke="none"/>
-<text x="72" y="508" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">Cost arrows: incomplete Sol 6 Max / Ultra totals. Time remains the observed elapsed time across all 12 attempts.</text>
-<text x="72" y="530" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">These are descriptive averages, not a smooth scaling law or a claim that additional reasoning always improves code.</text>
+<text x="95" y="151" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="bold" text-anchor="start" fill="#182D44">API-equivalent USD / attempt</text>
+<polyline points="95,479 553,479" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="83" y="484" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$0.00</text>
+<polyline points="95,417.2 553,417.2" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="83" y="422.2" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$0.25</text>
+<polyline points="95,355.4 553,355.4" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="83" y="360.4" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$0.50</text>
+<polyline points="95,293.6 553,293.6" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="83" y="298.6" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$0.75</text>
+<polyline points="95,231.8 553,231.8" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="83" y="236.8" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$1.00</text>
+<polyline points="95,170 553,170" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="83" y="175" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">$1.25</text>
+<text x="95" y="504" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">Low</text>
+<text x="186.6" y="504" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">Medium</text>
+<text x="278.2" y="504" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">High</text>
+<text x="369.8" y="504" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">Xhigh</text>
+<text x="461.4" y="504" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">Max</text>
+<text x="553" y="504" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">Ultra</text>
+<polyline points="95,400.288 186.6,358.943" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="186.6,358.943 278.2,339.113" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="278.2,339.113 369.8,275.64" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="369.8,275.64 461.4,205.988" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="461.4,205.988 553,215.041" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="95" cy="400.288" r="6" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
+<rect x="180.6" y="352.943" width="12" height="12" rx="0" fill="#D75B3B" stroke="#FFFFFF"/>
+<polygon points="278.2,331.113 270.2,345.113 286.2,345.113" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="369.8,267.64 377.8,275.64 369.8,283.64 361.8,275.64" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="458.4,198.988 464.4,198.988 464.4,202.988 468.4,202.988 468.4,208.988 464.4,208.988 464.4,212.988 458.4,212.988 458.4,208.988 454.4,208.988 454.4,202.988 458.4,202.988" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="553,206.041 554.587,212.857 561.56,212.26 555.568,215.875 558.29,222.322 553,217.741 547.71,222.322 550.432,215.875 544.44,212.26 551.413,212.857" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
+<polyline points="95,448.141 186.6,435.356" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="186.6,435.356 278.2,416.599" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="278.2,416.599 369.8,402.117" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="369.8,402.117 461.4,380.29" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 6"/>
+<polyline points="461.4,380.29 553,368.782" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 6"/>
+<circle cx="95" cy="448.141" r="6" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
+<rect x="180.6" y="429.356" width="12" height="12" rx="0" fill="#3478BE" stroke="#FFFFFF"/>
+<polygon points="278.2,408.599 270.2,422.599 286.2,422.599" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="369.8,394.117 377.8,402.117 369.8,410.117 361.8,402.117" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="458.4,373.29 464.4,373.29 464.4,377.29 468.4,377.29 468.4,383.29 464.4,383.29 464.4,387.29 458.4,387.29 458.4,383.29 454.4,383.29 454.4,377.29 458.4,377.29" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
+<polyline points="461.4,369.29 461.4,349.29" fill="none" stroke="#3478BE" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="461.4,344.29 457.4,352.29 465.4,352.29" fill="#3478BE" stroke="none" stroke-width="1"/>
+<polygon points="553,359.782 554.587,366.598 561.56,366.001 555.568,369.616 558.29,376.063 553,371.482 547.71,376.063 550.432,369.616 544.44,366.001 551.413,366.598" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
+<polyline points="553,357.782 553,337.782" fill="none" stroke="#3478BE" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="553,332.782 549,340.782 557,340.782" fill="#3478BE" stroke="none" stroke-width="1"/>
+<polyline points="95,454.135 186.6,444.175" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="186.6,444.175 278.2,432.889" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="278.2,432.889 369.8,415.446" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="369.8,415.446 461.4,407.015" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="461.4,407.015 553,417.521" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="95" cy="454.135" r="6" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
+<rect x="180.6" y="438.175" width="12" height="12" rx="0" fill="#128C7E" stroke="#FFFFFF"/>
+<polygon points="278.2,424.889 270.2,438.889 286.2,438.889" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="369.8,407.446 377.8,415.446 369.8,423.446 361.8,415.446" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="458.4,400.015 464.4,400.015 464.4,404.015 468.4,404.015 468.4,410.015 464.4,410.015 464.4,414.015 458.4,414.015 458.4,410.015 454.4,410.015 454.4,404.015 458.4,404.015" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="553,408.521 554.587,415.336 561.56,414.74 555.568,418.355 558.29,424.802 553,420.221 547.71,424.802 550.432,418.355 544.44,414.74 551.413,415.336" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
+<text x="697" y="151" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="bold" text-anchor="start" fill="#182D44">Main functional score (detail: 90–100)</text>
+<text x="625" y="218" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold" text-anchor="start" fill="#D75B3B">Sol 5.6</text>
+<polyline points="730,267 1139,267" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="718" y="272" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" text-anchor="end" fill="#53667B">90</text>
+<polyline points="730,206.167 1139,206.167" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="718" y="211.167" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" text-anchor="end" fill="#53667B">100</text>
+<polyline points="730,206.167 811.8,206.167 893.6,206.167 975.4,206.167 1057.2,206.167 1139,206.167" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="730" cy="206.167" r="6" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
+<rect x="805.8" y="200.167" width="12" height="12" rx="0" fill="#D75B3B" stroke="#FFFFFF"/>
+<polygon points="893.6,198.167 885.6,212.167 901.6,212.167" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="975.4,198.167 983.4,206.167 975.4,214.167 967.4,206.167" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="1054.2,199.167 1060.2,199.167 1060.2,203.167 1064.2,203.167 1064.2,209.167 1060.2,209.167 1060.2,213.167 1054.2,213.167 1054.2,209.167 1050.2,209.167 1050.2,203.167 1054.2,203.167" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="1139,197.167 1140.587,203.982 1147.56,203.386 1141.568,207.001 1144.29,213.448 1139,208.867 1133.71,213.448 1136.432,207.001 1130.44,203.386 1137.413,203.982" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
+<text x="625" y="322" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold" text-anchor="start" fill="#3478BE">Sol 6</text>
+<polyline points="730,371 1139,371" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="718" y="376" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" text-anchor="end" fill="#53667B">90</text>
+<polyline points="730,310.167 1139,310.167" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="718" y="315.167" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" text-anchor="end" fill="#53667B">100</text>
+<polyline points="730,313.546 811.8,310.167 893.6,310.167 975.4,310.167 1057.2,310.167 1139,360.861" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="730" cy="313.546" r="6" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
+<rect x="805.8" y="304.167" width="12" height="12" rx="0" fill="#3478BE" stroke="#FFFFFF"/>
+<polygon points="893.6,302.167 885.6,316.167 901.6,316.167" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="975.4,302.167 983.4,310.167 975.4,318.167 967.4,310.167" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="1054.2,303.167 1060.2,303.167 1060.2,307.167 1064.2,307.167 1064.2,313.167 1060.2,313.167 1060.2,317.167 1054.2,317.167 1054.2,313.167 1050.2,313.167 1050.2,307.167 1054.2,307.167" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="1139,351.861 1140.587,358.677 1147.56,358.08 1141.568,361.695 1144.29,368.142 1139,363.561 1133.71,368.142 1136.432,361.695 1130.44,358.08 1137.413,358.677" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
+<text x="625" y="426" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="bold" text-anchor="start" fill="#128C7E">Sol 6.1</text>
+<polyline points="730,475 1139,475" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="718" y="480" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" text-anchor="end" fill="#53667B">90</text>
+<polyline points="730,414.167 1139,414.167" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="718" y="419.167" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="normal" text-anchor="end" fill="#53667B">100</text>
+<polyline points="730,414.167 811.8,414.167 893.6,414.167 975.4,414.167 1057.2,414.167 1139,414.167" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="730" cy="414.167" r="6" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
+<rect x="805.8" y="408.167" width="12" height="12" rx="0" fill="#128C7E" stroke="#FFFFFF"/>
+<polygon points="893.6,406.167 885.6,420.167 901.6,420.167" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="975.4,406.167 983.4,414.167 975.4,422.167 967.4,414.167" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="1054.2,407.167 1060.2,407.167 1060.2,411.167 1064.2,411.167 1064.2,417.167 1060.2,417.167 1060.2,421.167 1054.2,421.167 1054.2,417.167 1050.2,417.167 1050.2,411.167 1054.2,411.167" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="1139,405.167 1140.587,411.982 1147.56,411.386 1141.568,415.001 1144.29,421.448 1139,416.867 1133.71,421.448 1136.432,415.001 1130.44,411.386 1137.413,411.982" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
+<text x="730" y="506" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">Low</text>
+<text x="811.8" y="506" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">Medium</text>
+<text x="893.6" y="506" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">High</text>
+<text x="975.4" y="506" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">Xhigh</text>
+<text x="1057.2" y="506" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">Max</text>
+<text x="1139" y="506" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">Ultra</text>
+<rect x="54" y="550" width="1092" height="70" rx="8" fill="#F2F6FA" stroke="none"/>
+<text x="70" y="571" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">The quality detail uses the same 90–100 scale for each model; the primary cost-quality figure also shows the full 0–100 scale.</text>
+<text x="70" y="591" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">Cost arrows point upward here because dollars are on the vertical axis. Two Sol 6 settings have incomplete totals.</text>
+<text x="70" y="609" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">These descriptive averages do not show a smooth scaling law or establish that additional effort always improves code.</text>
 </svg>

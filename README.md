@@ -4,7 +4,7 @@
 
 **A reproducible comparison of Sol 5.6, Sol 6, and Sol 6.1 across six programming tasks and six reasoning efforts.**
 
-This benchmark measures what it costs, how long it takes, and how well the submitted code works. It includes the executable stand, task contracts, evaluators, all **216 attempt records**, submitted implementations, and an English report.
+This benchmark compares **API-equivalent dollar cost against functional code quality**, with execution time as a secondary measure. It includes the executable stand, task contracts, evaluators, all **216 attempt records**, submitted implementations, and an English report.
 
 | Models | Reasoning efforts | Tasks | Repetitions | Attempts |
 | :--- | :--- | ---: | ---: | ---: |
@@ -12,15 +12,17 @@ This benchmark measures what it costs, how long it takes, and how well the submi
 
 ## Read the results
 
-**Sol 6.1 Low was the cheapest configuration with 12/12 accepted deliveries:** about **$0.101 per attempt** and **162 seconds per attempt**. Costs use a frozen Standard API-equivalent token schedule, rather than a subscription invoice.
+**Sol 6.1 Low achieved a 100/100 main functional score at the lowest observed cost:** about **$0.101 per attempt**, with **12/12 accepted deliveries**. Its secondary time result was **162 seconds per attempt**. Costs use a frozen Standard API-equivalent token schedule, rather than a subscription invoice.
 
-![API-equivalent cost against elapsed agent time, with effort points connected by model](assets/cost-time.svg)
+![API-equivalent USD per attempt on X against six-task main functional score out of 100 on Y, with connected effort points and an explicitly labeled ceiling zoom](assets/cost-quality.svg)
+
+**Read the main chart:** lower cost is left; higher functional score is up. Each point averages two repetitions on each of six equally weighted tasks. Lines connect effort settings within a model. The 0–100 overview preserves the scale; the labeled zoom exposes small differences near the ceiling. Partial-cost arrows point right toward an unknown full cost.
 
 Across the full comparison, **214 attempts completed** and **213 completed with main acceptance**. A provider capacity failure, a timed-out delivery, and an optimizer scale failure remain in the dataset. Expanded checks also found two cache defects that the original acceptance tests missed.
 
-Functional scores are close to the ceiling. These results support comparisons of cost, speed, task behavior, and candidate-written tests on this suite; they do not establish a general intelligence ranking. See the [results and all 18 configurations](docs/results.md) and [interpretation limits](docs/limitations.md).
+Functional scores are close to the ceiling. The chart measures tested contract behavior, while accepted delivery, expanded checks, candidate-written tests, and pending design review provide separate evidence. It does not establish a general intelligence ranking or a complete code-quality score. See the [results and all 18 configurations](docs/results.md) and [interpretation limits](docs/limitations.md).
 
-**Start here:** [15-page PDF report](artifacts/Sol_Benchmark_Consolidated_EN.pdf) · [Results](docs/results.md) · [Methodology](docs/methodology.md) · [Run the stand](docs/reproduction.md)
+**Start here:** [English PDF report](artifacts/Sol_Benchmark_Consolidated_EN.pdf) · [Results](docs/results.md) · [Methodology](docs/methodology.md) · [Run the stand](docs/reproduction.md)
 
 ## What the tasks test
 
@@ -51,7 +53,7 @@ To run offline stand checks or start a fresh experiment, follow [reproduction](d
 
 ## Quality is more than a passing score
 
-- **Functional behavior:** original acceptance tests, plus category-weighted checks for the two larger tasks.
+- **Functional behavior, the main chart's Y-axis:** six-task macro score from original acceptance tests and category-weighted checks for the two larger tasks.
 - **Expanded correctness:** additional boundary and property tests for the original four tasks.
 - **Candidate-written tests:** sensitivity to fixed task-specific defects, with unavailable coverage shown explicitly.
 - **Runtime and memory:** measured separately for the original four task implementations.
@@ -71,6 +73,6 @@ Read [scoring](docs/scoring.md) before comparing these criteria. They measure di
 | [`candidates/`](candidates/) | All 216 captured candidate snapshots, including unsuccessful attempts |
 | [`artifacts/`](artifacts/) · [`assets/`](assets/) | Consolidated PDF and data-derived figures |
 
-Published metadata removes local account balances, session identifiers, and machine-specific paths. Candidate files and the PDF retain their original bytes. Raw authentication files and RPC/session logs are excluded.
+Published metadata removes local account balances, session identifiers, and machine-specific paths. Candidate files retain their original bytes. The current PDF and figures were revised on **5 October 2026** to lead with cost versus functional quality; measurements and grades are unchanged. The [original 4 October PDF](artifacts/archive/Sol_Benchmark_Consolidated_EN_20261004.pdf) is preserved unchanged. Raw authentication files and RPC/session logs are excluded.
 
 Maintained by [Tor Production](https://github.com/Tor-Production). This is an independent benchmark, unaffiliated with OpenAI.

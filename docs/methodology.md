@@ -1,6 +1,6 @@
 # Methodology
 
-This benchmark compares the money, elapsed agent time and observable code quality of three Codex models on six specified Python programming tasks. It contains **216 attempts**: three models × six reasoning efforts × six tasks × two repetitions. The archived experiment has **214 completed attempts and 213 accepted deliveries**. Every scheduled outcome remains in the archive, including failures.
+This benchmark primarily compares **API-equivalent USD against tested functional code quality** for three Codex models on six specified Python programming tasks. Elapsed agent time is a secondary measure. It contains **216 attempts**: three models × six reasoning efforts × six tasks × two repetitions. The archived experiment has **214 completed attempts and 213 accepted deliveries**. Every scheduled outcome remains in the archive, including failures.
 
 Start with the [results](results.md), then consult [task design](tasks.md), [scoring](scoring.md), [limitations](limitations.md) and [reproduction](reproduction.md). The [English PDF](../artifacts/Sol_Benchmark_Consolidated_EN.pdf) presents the consolidated charts and analysis.
 
@@ -65,7 +65,9 @@ For a fully observed setting:
 - **USD per accepted delivery** is that same total divided by the accepted count. Spending on unsuccessful attempts remains included.
 - Missing cost data is disclosed as unavailable or an observed lower bound. It is not removed silently and is never assigned zero.
 
-Charts place elapsed time on X and USD on Y. Model colors are consistent; effort points are connected within each model in effort order. A connecting line helps trace settings and does not imply an interpolation or causal relationship. Dashed segments, stars and arrows identify partial-cost bounds.
+The primary chart places **API-equivalent USD per attempt on X** and the **six-task main functional macro score out of 100 on Y**. Lower cost is left and higher functional score is up. Each setting includes all twelve recorded attempt grades; a passing timeout snapshot and a provider-failed scaffold retain their recorded grades. Accepted-delivery percentage is shown separately because it also requires a completed turn.
+
+Model colors are consistent; effort points are connected within each model in effort order. A connecting line helps trace settings and does not imply interpolation or a causal relationship. Asterisks and right-pointing arrows identify partial observed-cost lower bounds: the unknown full cost lies to the right. A full 0–100 score view accompanies an explicitly labeled ceiling zoom so that a small score difference is not mistaken for a large quality gain. Time has its own secondary figure.
 
 Token-based credit estimates are secondary telemetry. Account-wide balance changes cannot reliably identify billed credits for an individual attempt, so neither quota percentages nor balance deltas determine the dollar comparisons.
 
@@ -79,9 +81,9 @@ Generated-code runtime is a separate measure for the original four tasks: one wa
 
 ## Quality and aggregation
 
-The benchmark reports main functional behavior, completed delivery, expanded correctness, candidate-test sensitivity and generated-code performance separately. A candidate snapshot can pass all functional checks even if its agent turn did not finish; that does not make it an accepted delivery. [Scoring](scoring.md) specifies the exact rules and pending manual-review component.
+The main chart uses functional behavior as a measurable quality criterion. Completed delivery, expanded correctness, candidate-test sensitivity and generated-code performance remain separate measures; pending manual review prevents a complete overall code-quality score. A candidate snapshot can pass all functional checks even if its agent turn did not finish; that does not make it an accepted delivery. [Scoring](scoring.md) specifies the exact rules.
 
-Within each model/effort/task cell, average the two task scores. Then average the six task means equally. Each task contributes one sixth, regardless of how many tests it contains. Do not pool all test methods into a single overall pass rate. Full aggregate quality requires both repetitions for all six tasks; incomplete coverage is unavailable.
+Within each model/effort/task cell, average the two task scores. Then average the six task means equally. Each task contributes one sixth, regardless of how many tests it contains. Do not pool all test methods into a single overall pass rate. The complete main functional aggregate requires both repetitions for all six tasks; incomplete coverage is unavailable. This is the existing recorded macro score, not a new weighting or a post-hoc composite.
 
 The near-perfect functional results leave limited separation among most settings. Two repetitions support descriptive comparisons and visible spread, not a reliable estimate of rare failures or a general ranking of intelligence. See [limitations](limitations.md) before using the results in a broader claim.
 

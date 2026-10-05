@@ -1,6 +1,8 @@
 # Limits of the conclusions
 
-The archive supports a comparison of **specified Python programming workloads, USD estimates and end-to-end agent delivery**. It does not establish a general intelligence ranking. Most settings reach the main functional ceiling, so the tasks provide too little separation to say which model is universally smarter.
+The archive supports a comparison of **API-equivalent USD against tested functional quality on specified Python workloads**, with end-to-end agent time and delivery as supplementary evidence. It does not establish a general intelligence ranking. Most settings reach the main functional ceiling, so the tasks provide too little separation to say which model is universally smarter.
+
+The primary chart's 0–100 overview and labeled ceiling zoom describe the same scores. A small visible gap in the zoom remains a small numerical gap. Points at 100 can differ in expanded correctness, candidate-written tests, runtime and design. Connecting effort points identifies model settings; it does not demonstrate that additional spending reliably improves quality.
 
 ## Sample and workload limits
 
@@ -16,7 +18,7 @@ The original main contracts and checks are retained, with one disclosed reservat
 
 Mutation sensitivity concerns fixed per-task defect sets, with different historical/new detection rules documented in [scoring](scoring.md). A 100% result means all those mutants were detected, not that the tests detect every plausible bug. Reference portability and timeouts make some scores unavailable. Optimizer positive-control timeouts particularly reduce Sol 6.1's usable coverage; N/A cannot be interpreted as bad code or ignored to create a favorable mean. No recognized added tests is a zero only for this criterion.
 
-Manual clarity, design and failure-maintenance review is pending. Static counts and attractive explanations do not replace source-based review. There is no complete overall code-quality score. Generated-code runtime/allocation profiles cover only the original four tasks, so an all-six-task performance or memory ranking would be unsupported.
+Manual clarity, design and failure-maintenance review is pending. Static counts and attractive explanations do not replace source-based review. The main chart's functional score is one quality criterion; there is no complete overall code-quality score. A separate accepted-delivery percentage includes completion and therefore differs from the saved-snapshot functional grade. Generated-code runtime/allocation profiles cover only the original four tasks, so an all-six-task performance or memory ranking would be unsupported.
 
 ## Failure types should remain distinct
 

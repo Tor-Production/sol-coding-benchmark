@@ -5,6 +5,7 @@
 /workspaces/
 /tmp/
 /analysis/
+/output/
 /config/runtime.json
 __pycache__/
 *.py[cod]

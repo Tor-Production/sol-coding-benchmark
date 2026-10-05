@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" viewBox="0 0 1200 965">
+<title id="title">API-equivalent cost versus main functional score</title>
+<desc id="desc">All eighteen model and effort settings: x is frozen API-equivalent dollars per attempt and y is the six-task main functional macro score out of one hundred. The main panel shows the full score scale with headroom. A clearly labeled detail panel shows low-cost near-ceiling settings without moving their points. Sol 6 Max and Ultra costs are observed lower bounds, shown with rightward arrows. Efforts are joined in order within each model.</desc>
+<rect x="0" y="0" width="1200" height="965" rx="0" fill="#FFFFFF" stroke="none"/>
+<text x="54" y="44" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="bold" text-anchor="start" fill="#182D44">What does more money buy on these coding tasks?</text>
+<text x="54" y="74" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="normal" text-anchor="start" fill="#53667B">Cost per attempt versus main functional score · 6 tasks × 2 repetitions per setting</text>
+<polyline points="70,103 96,103" fill="none" stroke="#D75B3B" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="106" y="108" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="start" fill="#182D44">Sol 5.6</text>
+<polyline points="255,103 281,103" fill="none" stroke="#3478BE" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="291" y="108" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="start" fill="#182D44">Sol 6</text>
+<polyline points="440,103 466,103" fill="none" stroke="#128C7E" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="476" y="108" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="start" fill="#182D44">Sol 6.1</text>
+<circle cx="620" cy="103" r="5" fill="#53667B" stroke="#FFFFFF" stroke-width="1.5"/>
+<text x="633" y="108" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">Low</text>
+<rect x="702" y="98" width="10" height="10" rx="0" fill="#53667B" stroke="#FFFFFF"/>
+<text x="720" y="108" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">Medium</text>
+<polygon points="794,96 787,108 801,108" fill="#53667B" stroke="#FFFFFF" stroke-width="1.5"/>
+<text x="807" y="108" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">High</text>
+<polygon points="881,96 888,103 881,110 874,103" fill="#53667B" stroke="#FFFFFF" stroke-width="1.5"/>
+<text x="894" y="108" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">Xhigh</text>
+<polygon points="965.5,97 970.5,97 970.5,100.5 974,100.5 974,105.5 970.5,105.5 970.5,109 965.5,109 965.5,105.5 962,105.5 962,100.5 965.5,100.5" fill="#53667B" stroke="#FFFFFF" stroke-width="1.5"/>
+<text x="981" y="108" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">Max</text>
+<polygon points="1055,95 1056.323,101.18 1062.608,100.528 1057.14,103.695 1059.702,109.472 1055,105.25 1050.298,109.472 1052.86,103.695 1047.392,100.528 1053.677,101.18" fill="#53667B" stroke="#FFFFFF" stroke-width="1.5"/>
+<text x="1068" y="108" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">Ultra</text>
+<polyline points="95,559 1130,559" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="82" y="564" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="end" fill="#53667B">0</text>
+<polyline points="95,486.778 1130,486.778" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="82" y="491.778" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="end" fill="#53667B">20</text>
+<polyline points="95,414.556 1130,414.556" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="82" y="419.556" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="end" fill="#53667B">40</text>
+<polyline points="95,342.333 1130,342.333" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="82" y="347.333" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="end" fill="#53667B">60</text>
+<polyline points="95,270.111 1130,270.111" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="82" y="275.111" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="end" fill="#53667B">80</text>
+<polyline points="95,197.889 1130,197.889" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="82" y="202.889" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="end" fill="#53667B">100</text>
+<polyline points="95,169 95,559" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="95" y="584" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="middle" fill="#53667B">$0.00</text>
+<polyline points="267.5,169 267.5,559" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="267.5" y="584" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="middle" fill="#53667B">$0.20</text>
+<polyline points="440,169 440,559" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="440" y="584" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="middle" fill="#53667B">$0.40</text>
+<polyline points="612.5,169 612.5,559" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="612.5" y="584" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="middle" fill="#53667B">$0.60</text>
+<polyline points="785,169 785,559" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="785" y="584" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="middle" fill="#53667B">$0.80</text>
+<polyline points="957.5,169 957.5,559" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="957.5" y="584" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="middle" fill="#53667B">$1.00</text>
+<polyline points="1130,169 1130,559" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="1130" y="584" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="normal" text-anchor="middle" fill="#53667B">$1.20</text>
+<text x="95" y="152" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="start" fill="#182D44">Main functional macro score / 100 (full scale)</text>
+<text x="612.5" y="612" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#182D44">Frozen API-equivalent USD / attempt</text>
+<polyline points="369.634,197.889 513.889,197.889" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="513.889,197.889 583.075,197.889" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="583.075,197.889 804.537,197.889" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="804.537,197.889 1047.561,197.889" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="1047.561,197.889 1015.974,197.889" fill="none" stroke="#D75B3B" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="369.634" cy="197.889" r="7" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
+<rect x="506.889" y="190.889" width="14" height="14" rx="0" fill="#D75B3B" stroke="#FFFFFF"/>
+<polygon points="583.075,188.889 574.075,204.889 592.075,204.889" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="804.537,188.889 813.537,197.889 804.537,206.889 795.537,197.889" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="1044.061,189.889 1051.061,189.889 1051.061,194.389 1055.561,194.389 1055.561,201.389 1051.061,201.389 1051.061,205.889 1044.061,205.889 1044.061,201.389 1039.561,201.389 1039.561,194.389 1044.061,194.389" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="1015.974,187.889 1017.825,195.34 1025.484,194.799 1018.969,198.862 1021.852,205.979 1015.974,201.039 1010.096,205.979 1012.978,198.862 1006.463,194.799 1014.122,195.34" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
+<polyline points="202.668,199.895 247.277,197.889" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="247.277,197.889 312.721,197.889" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="312.721,197.889 363.25,197.889" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="363.25,197.889 439.406,197.889" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 6"/>
+<polyline points="439.406,197.889 479.559,227.981" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="6 6"/>
+<circle cx="202.668" cy="199.895" r="7" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
+<rect x="240.277" y="190.889" width="14" height="14" rx="0" fill="#3478BE" stroke="#FFFFFF"/>
+<polygon points="312.721,188.889 303.721,204.889 321.721,204.889" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="363.25,188.889 372.25,197.889 363.25,206.889 354.25,197.889" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="435.906,189.889 442.906,189.889 442.906,194.389 447.406,194.389 447.406,201.389 442.906,201.389 442.906,205.889 435.906,205.889 435.906,201.389 431.406,201.389 431.406,194.389 435.906,194.389" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
+<polyline points="450.406,197.889 470.406,197.889" fill="none" stroke="#3478BE" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="475.406,197.889 467.406,193.889 467.406,201.889" fill="#3478BE" stroke="none" stroke-width="1"/>
+<polygon points="479.559,217.981 481.411,225.433 489.07,224.891 482.555,228.955 485.437,236.072 479.559,231.131 473.681,236.072 476.563,228.955 470.048,224.891 477.708,225.433" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
+<polyline points="490.559,227.981 510.559,227.981" fill="none" stroke="#3478BE" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<polygon points="515.559,227.981 507.559,223.981 507.559,231.981" fill="#3478BE" stroke="none" stroke-width="1"/>
+<polyline points="181.756,197.889 216.508,197.889" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="216.508,197.889 255.884,197.889" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="255.884,197.889 316.745,197.889" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="316.745,197.889 346.16,197.889" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="346.16,197.889 309.506,197.889" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="181.756" cy="197.889" r="7" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
+<rect x="209.508" y="190.889" width="14" height="14" rx="0" fill="#128C7E" stroke="#FFFFFF"/>
+<polygon points="255.884,188.889 246.884,204.889 264.884,204.889" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="316.745,188.889 325.745,197.889 316.745,206.889 307.745,197.889" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="342.66,189.889 349.66,189.889 349.66,194.389 354.16,194.389 354.16,201.389 349.66,201.389 349.66,205.889 342.66,205.889 342.66,201.389 338.16,201.389 338.16,194.389 342.66,194.389" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="309.506,187.889 311.357,195.34 319.016,194.799 312.501,198.862 315.383,205.979 309.506,201.039 303.628,205.979 306.51,198.862 299.995,194.799 307.654,195.34" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
+<polyline points="181.756,206.889 190,288 360,288" fill="none" stroke="#128C7E" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="199" y="275" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="start" fill="#128C7E">Sol 6.1 Low: $0.101 · 100/100</text>
+<text x="199" y="309" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">12/12 accepted deliveries</text>
+<polyline points="479.559,237.981 501.559,338 709.559,338" fill="none" stroke="#3478BE" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="507.559" y="326" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="start" fill="#3478BE">Sol 6 Ultra*: 91.67/100</text>
+<text x="507.559" y="359" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">Includes the recorded provider-failure stub grade</text>
+<text x="439.406" y="179.889" font-family="Arial, Helvetica, sans-serif" font-size="12" font-weight="bold" text-anchor="middle" fill="#3478BE">Max*</text>
+<text x="54" y="652" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="bold" text-anchor="start" fill="#182D44">Near-ceiling detail: USD $0.08–$0.35; score 99.2–100.15</text>
+<polyline points="95,848 698,848" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="82" y="853" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">99.2</text>
+<polyline points="95,783.158 698,783.158" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="82" y="788.158" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">99.6</text>
+<polyline points="95,718.316 698,718.316" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="82" y="723.316" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="end" fill="#53667B">100.0</text>
+<polyline points="139.667,694 139.667,848" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="139.667" y="872" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">$0.10</text>
+<polyline points="251.333,694 251.333,848" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="251.333" y="872" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">$0.15</text>
+<polyline points="363,694 363,848" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="363" y="872" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">$0.20</text>
+<polyline points="474.667,694 474.667,848" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="474.667" y="872" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">$0.25</text>
+<polyline points="586.333,694 586.333,848" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="586.333" y="872" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">$0.30</text>
+<polyline points="698,694 698,848" fill="none" stroke="#E1E8EF" stroke-width="1" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="698" y="872" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="middle" fill="#53667B">$0.35</text>
+<circle cx="627.463" cy="718.316" r="7" fill="#D75B3B" stroke="#FFFFFF" stroke-width="1.5"/>
+<polyline points="195.127,808.374 310.635,718.316" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="310.635,718.316 480.093,718.316" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="480.093,718.316 610.933,718.316" fill="none" stroke="#3478BE" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="195.127" cy="808.374" r="7" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
+<rect x="303.635" y="711.316" width="14" height="14" rx="0" fill="#3478BE" stroke="#FFFFFF"/>
+<polygon points="480.093,709.316 471.093,725.316 489.093,725.316" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="610.933,709.316 619.933,718.316 610.933,727.316 601.933,718.316" fill="#3478BE" stroke="#FFFFFF" stroke-width="1.5"/>
+<polyline points="140.976,718.316 230.962,718.316" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="230.962,718.316 332.921,718.316" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="332.921,718.316 490.514,718.316" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="490.514,718.316 566.679,718.316" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="566.679,718.316 471.768,718.316" fill="none" stroke="#128C7E" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="140.976" cy="718.316" r="7" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
+<rect x="223.962" y="711.316" width="14" height="14" rx="0" fill="#128C7E" stroke="#FFFFFF"/>
+<polygon points="332.921,709.316 323.921,725.316 341.921,725.316" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="490.514,709.316 499.514,718.316 490.514,727.316 481.514,718.316" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="563.179,710.316 570.179,710.316 570.179,714.816 574.679,714.816 574.679,721.816 570.179,721.816 570.179,726.316 563.179,726.316 563.179,721.816 558.679,721.816 558.679,714.816 563.179,714.816" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
+<polygon points="471.768,708.316 473.62,715.767 481.279,715.226 474.764,719.289 477.646,726.406 471.768,721.466 465.89,726.406 468.772,719.289 462.257,715.226 469.916,715.767" fill="#128C7E" stroke="#FFFFFF" stroke-width="1.5"/>
+<polyline points="205.127,808.374 375.127,808.374" fill="none" stroke="#3478BE" stroke-width="1.2" stroke-linejoin="round" stroke-linecap="round"/>
+<text x="213.127" y="798.374" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" text-anchor="start" fill="#3478BE">Sol 6 Low: 99.44</text>
+<text x="754" y="715" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="bold" text-anchor="start" fill="#182D44">Most functional scores reach the ceiling.</text>
+<text x="754" y="742" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">Equal scores can overlap; no points are jittered.</text>
+<text x="754" y="769" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">Functional score grades the saved code.</text>
+<text x="754" y="793" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">It is separate from accepted delivery and from</text>
+<text x="754" y="815" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">maintainability or a full code-quality rating.</text>
+<rect x="54" y="898" width="1092" height="48" rx="8" fill="#F2F6FA" stroke="none"/>
+<text x="70" y="917" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">* Sol 6 Max / Ultra: observed cost lower bounds. Rightward arrows mean the complete cost is unknown.</text>
+<text x="70" y="936" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="normal" text-anchor="start" fill="#53667B">Lines follow effort order, not interpolation. Upper-left means less money and a higher measured functional score.</text>
+</svg>

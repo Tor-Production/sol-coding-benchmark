@@ -11,7 +11,7 @@ Code quality is reported as several evidence layers. Passing hidden tests, compl
 | Generated-code runtime/allocation | Original four tasks | Descriptive, unscored workloads |
 | Manual design review | Pending | Source-based clarity, design and failure-maintenance assessment |
 
-See the [results](results.md) for the scores and [methodology](methodology.md) for cost/time accounting.
+The primary results chart uses **API-equivalent USD per attempt on X** and the **six-task main functional macro score out of 100 on Y**. This score measures tested contract behavior; it does not combine design review, mutation sensitivity or delivery completion. Time and these other criteria are reported separately. See the [results](results.md) and [methodology](methodology.md) for chart interpretation and accounting.
 
 ## Main functional score and acceptance
 
@@ -47,7 +47,7 @@ task_score = Σ(category_weight × category_score) / 100
 setting_score = mean_over_six_tasks(mean_of_two_repetitions(task_score))
 ```
 
-Each task contributes one sixth to the setting score. Larger test suites do not get extra weight. Both repetitions are required for each task before publishing a complete setting mean. The optimizer's single failed scale check produces 93.333333 points for that attempt, 96.666667 for its paired task mean and approximately 99.444444 for Sol 6 / Low's six-task macro score.
+Each task contributes one sixth to the setting score, which supplies the main cost-versus-quality chart's Y-axis. Larger test suites do not get extra weight. Both repetitions are required for each task before publishing a complete setting mean. All recorded grades remain included, rather than filtering to accepted deliveries: the provider-failed scaffold contributes its zero and the passing timeout snapshot contributes its 100. The optimizer's single failed scale check produces 93.333333 points for that attempt, 96.666667 for its paired task mean and approximately 99.444444 for Sol 6 / Low's six-task macro score.
 
 ## Expanded correctness for the original four tasks
 

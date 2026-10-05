@@ -1,6 +1,6 @@
 # Tasks and evaluation design
 
-The six tasks cover increasing implementation and invariant complexity. Difficulty labels describe the intended workload, not an empirically calibrated universal scale. Every model sees the same contract and scaffold for a task. There are 36 archived attempts per task.
+The six tasks cover increasing implementation and invariant complexity. Difficulty labels describe the intended workload, not an empirically calibrated universal scale. Every model sees the same contract and scaffold for a task. There are 36 archived attempts per task. Their main functional scores contribute equally to the primary **USD-versus-functional-quality** comparison: average the two repetitions per task, then the six task means. Task time and other quality evidence remain separate.
 
 | Task | Main challenge | Agent limit | Contract |
 | --- | --- | ---: | --- |

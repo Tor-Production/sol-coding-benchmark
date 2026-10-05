@@ -147,13 +147,30 @@ The readable results page and SVG figures are derived from the published archive
 python scripts/analyze_results.py
 ```
 
-This validates 216 unique attempts, the full comparison matrix, twelve observations per setting, acceptance, macro scores, elapsed-time means and cost coverage before writing `docs/results.md` and the three SVG chart families under `assets/`. It makes no model calls and does not change grades, candidates, archived input JSON or the PDF.
+This validates 216 unique attempts, the full comparison matrix, twelve observations per setting, acceptance, macro scores, elapsed-time means and cost coverage before writing `docs/results.md` and the SVG figures under `assets/`. It makes no model calls and does not change grades, candidates, archived input JSON or the PDF.
 
-Optional PNG previews require the report dependency:
+Optional PNG previews require the report dependencies:
 
 ```powershell
 python -m pip install -r requirements-report.txt
 python scripts/analyze_results.py --png
 ```
 
-SVG geometry is deterministic and independent of third-party libraries; PNG rasterization uses local fonts and can vary slightly across platforms. A new visual presentation should still preserve the same denominators, USD/time axes and explicit partial-cost bounds.
+The primary `cost-quality` figure has **USD per attempt on X** and the **six-task main functional macro score out of 100 on Y**, with a full-range view and a labeled ceiling zoom. `cost-acceptance` uses completed-delivery percentage as a separate criterion. Effort curves show cost and main functional score; `effort-time` is secondary. Candidate-test sensitivity remains a separate figure with explicit unavailable coverage.
+
+SVG geometry is deterministic and independent of third-party libraries; PNG rasterization uses local fonts and can vary slightly across platforms. Preserve the original denominators and grades, connected effort settings, and right-pointing partial-cost lower-bound arrows when changing the presentation.
+
+## 8. Rebuild the current English PDF
+
+Install the report dependencies and build the report from the published archive:
+
+```powershell
+python -m pip install -r requirements-report.txt
+python scripts/build_report.py
+```
+
+The builder writes `output/pdf/Sol_Benchmark_Consolidated_EN.pdf`, leaving the published artifact untouched. It reads the repository's results and provenance and draws PDF charts directly with ReportLab; PNG generation is unnecessary. It does not access Codex authentication, submit inference, run the benchmark or change candidate snapshots and scores. The published [current report](../artifacts/Sol_Benchmark_Consolidated_EN.pdf) and [original 4 October report](../artifacts/archive/Sol_Benchmark_Consolidated_EN_20261004.pdf) remain available for comparison.
+
+ReportLab and pypdf are required; Pillow is used for optional PNG previews. The builder uses Windows Segoe UI fonts when available and falls back to core Helvetica fonts on other systems.
+
+This rebuild reproduces the report's analysis and layout rather than guaranteeing identical PDF bytes across fonts and environments. Render the result and inspect all pages before replacing the published artifact, then update the publication provenance and archive manifest. Replacing only the published PDF without its matching provenance will correctly fail archive verification. [Provenance](provenance.md#current-presentation-revision) explains the current revision and original-report preservation.

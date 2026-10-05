@@ -1,3 +1,6 @@
-# Optional PNG previews for scripts/analyze_results.py --png.
+# PDF generation: python scripts/build_report.py.
+reportlab==4.4.9
+pypdf==6.10.0
+# PNG previews: python scripts/analyze_results.py --png.
 # SVG charts and docs/results.md require only Python's standard library.
 Pillow==12.3.0
